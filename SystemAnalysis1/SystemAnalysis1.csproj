@@ -46,17 +46,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alternatives.cs" />
     <Compile Include="AnalystForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AnalystForm.Designer.cs">
       <DependentUpon>AnalystForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExpertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpertForm.Designer.cs">
+      <DependentUpon>ExpertForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExpertSigninForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ExpertSigninForm.Designer.cs">
       <DependentUpon>ExpertSigninForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodCoupleCompare.cs" />
+    <Compile Include="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
     </Compile>
     <Compile Include="SignInForm.cs">
       <SubType>Form</SubType>
@@ -66,6 +80,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ExpertForm.resx">
+      <DependentUpon>ExpertForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -78,6 +95,9 @@
     </Compile>
     <EmbeddedResource Include="SignInForm.resx">
       <DependentUpon>SignInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

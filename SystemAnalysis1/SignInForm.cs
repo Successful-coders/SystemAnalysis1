@@ -27,6 +27,7 @@ namespace SystemAnalysis1
         }
         private void SignAnalystButton_Click(object sender, EventArgs e)
         {
+            Hide();
             AnalystForm analystForm = new AnalystForm();
             analystForm.Show();
         }
