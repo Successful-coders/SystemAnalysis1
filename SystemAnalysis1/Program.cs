@@ -16,7 +16,7 @@ namespace SystemAnalysis1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AnalystForm());
+            Application.Run(new SignInForm());
         }
     }
 }
