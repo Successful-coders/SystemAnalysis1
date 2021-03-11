@@ -49,6 +49,7 @@
     <Compile Include="Analyst\AddAlternativeForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Alternatives.cs" />
     <Compile Include="Analyst\AddAlternativeForm.Designer.cs">
       <DependentUpon>AddAlternativeForm.cs</DependentUpon>
     </Compile>
@@ -77,6 +78,12 @@
     <Compile Include="Analyst\EditProblemForm.Designer.cs">
       <DependentUpon>EditProblemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExpertSigninForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpertSigninForm.Designer.cs">
+      <DependentUpon>ExpertSigninForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Expert\ExpertForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +102,13 @@
     </Compile>
     <Compile Include="Analyst\ProblemAnalysisForm.Designer.cs">
       <DependentUpon>ProblemAnalysisForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MethodCoupleCompare.cs" />
+    <Compile Include="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
     </Compile>
     <Compile Include="SignInForm.cs">
       <SubType>Form</SubType>
@@ -119,6 +133,9 @@
     <EmbeddedResource Include="Analyst\EditProblemForm.resx">
       <DependentUpon>EditProblemForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ExpertSigninForm.resx">
+      <DependentUpon>ExpertSigninForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Expert\ExpertForm.resx">
       <DependentUpon>ExpertForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +157,9 @@
     </Compile>
     <EmbeddedResource Include="SignInForm.resx">
       <DependentUpon>SignInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

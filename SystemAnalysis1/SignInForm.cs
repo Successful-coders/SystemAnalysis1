@@ -20,12 +20,13 @@ namespace SystemAnalysis1
 
         private void SignExpertButton_Click(object sender, EventArgs e)
         {
-            ExpertForm expertForm = new ExpertForm();
+            ExpertSigninForm expertForm = new ExpertSigninForm();
             expertForm.Show();
         }
         private void SignAnalystButton_Click(object sender, EventArgs e)
         {
             Hide();
+			
             LoginForm analystSigninForm = new LoginForm(new AnalystForm());
             analystSigninForm.Closed += (s, args) => Show();
             analystSigninForm.Show();
