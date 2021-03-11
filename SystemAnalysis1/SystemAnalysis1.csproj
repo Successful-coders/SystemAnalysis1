@@ -46,54 +46,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddAlternativeForm.cs">
+    <Compile Include="Analyst\AddAlternativeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAlternativeForm.Designer.cs">
+    <Compile Include="Analyst\AddAlternativeForm.Designer.cs">
       <DependentUpon>AddAlternativeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddProblemForm.cs">
+    <Compile Include="Analyst\AddProblemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddProblemForm.Designer.cs">
+    <Compile Include="Analyst\AddProblemForm.Designer.cs">
       <DependentUpon>AddProblemForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Alternative.cs" />
-    <Compile Include="AnalystForm.cs">
+    <Compile Include="Analyst\AnalystForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AnalystForm.Designer.cs">
+    <Compile Include="Analyst\AnalystForm.Designer.cs">
       <DependentUpon>AnalystForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditAlternativeForm.cs">
+    <Compile Include="Analyst\EditAlternativeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditAlternativeForm.Designer.cs">
+    <Compile Include="Analyst\EditAlternativeForm.Designer.cs">
       <DependentUpon>EditAlternativeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditProblemForm.cs">
+    <Compile Include="Analyst\EditProblemForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditProblemForm.Designer.cs">
+    <Compile Include="Analyst\EditProblemForm.Designer.cs">
       <DependentUpon>EditProblemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExpertForm.cs">
+    <Compile Include="Expert\ExpertForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ExpertForm.Designer.cs">
+    <Compile Include="Expert\ExpertForm.Designer.cs">
       <DependentUpon>ExpertForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Analyst\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Analyst\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Problem.cs" />
-    <Compile Include="ProblemAnalysisForm.cs">
+    <Compile Include="Analyst\ProblemAnalysisForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProblemAnalysisForm.Designer.cs">
+    <Compile Include="Analyst\ProblemAnalysisForm.Designer.cs">
       <DependentUpon>ProblemAnalysisForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SignInForm.cs">
@@ -104,28 +104,28 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddAlternativeForm.resx">
+    <EmbeddedResource Include="Analyst\AddAlternativeForm.resx">
       <DependentUpon>AddAlternativeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddProblemForm.resx">
+    <EmbeddedResource Include="Analyst\AddProblemForm.resx">
       <DependentUpon>AddProblemForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AnalystForm.resx">
+    <EmbeddedResource Include="Analyst\AnalystForm.resx">
       <DependentUpon>AnalystForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditAlternativeForm.resx">
+    <EmbeddedResource Include="Analyst\EditAlternativeForm.resx">
       <DependentUpon>EditAlternativeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditProblemForm.resx">
+    <EmbeddedResource Include="Analyst\EditProblemForm.resx">
       <DependentUpon>EditProblemForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExpertForm.resx">
+    <EmbeddedResource Include="Expert\ExpertForm.resx">
       <DependentUpon>ExpertForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Analyst\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProblemAnalysisForm.resx">
+    <EmbeddedResource Include="Analyst\ProblemAnalysisForm.resx">
       <DependentUpon>ProblemAnalysisForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
