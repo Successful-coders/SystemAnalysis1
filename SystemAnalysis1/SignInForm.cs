@@ -18,17 +18,17 @@ namespace SystemAnalysis1
         }
 
 
-        private void SingExpertButton_Click(object sender, EventArgs e)
+        private void SignExpertButton_Click(object sender, EventArgs e)
         {
-            Hide();
-            ExpertSigninForm expertSigninForm = new ExpertSigninForm();
-            expertSigninForm.Closed += (s, args) => Show();
-            expertSigninForm.Show();
+            ExpertForm expertForm = new ExpertForm();
+            expertForm.Show();
         }
         private void SignAnalystButton_Click(object sender, EventArgs e)
         {
-            AnalystForm analystForm = new AnalystForm();
-            analystForm.Show();
+            Hide();
+            LoginForm analystSigninForm = new LoginForm(new AnalystForm());
+            analystSigninForm.Closed += (s, args) => Show();
+            analystSigninForm.Show();
         }
     }
 }

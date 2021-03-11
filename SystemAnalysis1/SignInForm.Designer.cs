@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignInForm));
             this.TitleLabel = new System.Windows.Forms.Label();
             this.SignInAsLabel = new System.Windows.Forms.Label();
-            this.SingExpertButton = new System.Windows.Forms.Button();
+            this.SignExpertButton = new System.Windows.Forms.Button();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.SignAnalystButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -59,23 +59,23 @@
             this.SignInAsLabel.Text = "Войти как:";
             this.SignInAsLabel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // SingExpertButton
+            // SignExpertButton
             // 
-            this.SingExpertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SingExpertButton.ForeColor = System.Drawing.Color.Brown;
-            this.SingExpertButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.SingExpertButton.ImageIndex = 1;
-            this.SingExpertButton.ImageList = this.imageList;
-            this.SingExpertButton.Location = new System.Drawing.Point(180, 187);
-            this.SingExpertButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.SingExpertButton.Name = "SingExpertButton";
-            this.SingExpertButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
-            this.SingExpertButton.Size = new System.Drawing.Size(154, 156);
-            this.SingExpertButton.TabIndex = 2;
-            this.SingExpertButton.Text = "Эксперт";
-            this.SingExpertButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.SingExpertButton.UseVisualStyleBackColor = true;
-            this.SingExpertButton.Click += new System.EventHandler(this.SingExpertButton_Click);
+            this.SignExpertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignExpertButton.ForeColor = System.Drawing.Color.Brown;
+            this.SignExpertButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.SignExpertButton.ImageIndex = 1;
+            this.SignExpertButton.ImageList = this.imageList;
+            this.SignExpertButton.Location = new System.Drawing.Point(180, 187);
+            this.SignExpertButton.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.SignExpertButton.Name = "SignExpertButton";
+            this.SignExpertButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 15);
+            this.SignExpertButton.Size = new System.Drawing.Size(154, 156);
+            this.SignExpertButton.TabIndex = 2;
+            this.SignExpertButton.Text = "Эксперт";
+            this.SignExpertButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.SignExpertButton.UseVisualStyleBackColor = true;
+            this.SignExpertButton.Click += new System.EventHandler(this.SignExpertButton_Click);
             // 
             // imageList
             // 
@@ -108,7 +108,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.SignAnalystButton);
-            this.Controls.Add(this.SingExpertButton);
+            this.Controls.Add(this.SignExpertButton);
             this.Controls.Add(this.SignInAsLabel);
             this.Controls.Add(this.TitleLabel);
             this.Name = "SignInForm";
@@ -121,7 +121,7 @@
 
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Label SignInAsLabel;
-        private System.Windows.Forms.Button SingExpertButton;
+        private System.Windows.Forms.Button SignExpertButton;
         private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.Button SignAnalystButton;
     }

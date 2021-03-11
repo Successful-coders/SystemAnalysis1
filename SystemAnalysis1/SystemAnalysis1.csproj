@@ -46,17 +46,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAlternativeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAlternativeForm.Designer.cs">
+      <DependentUpon>AddAlternativeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddProblemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProblemForm.Designer.cs">
+      <DependentUpon>AddProblemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alternative.cs" />
     <Compile Include="AnalystForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AnalystForm.Designer.cs">
       <DependentUpon>AnalystForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExpertSigninForm.cs">
+    <Compile Include="EditAlternativeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ExpertSigninForm.Designer.cs">
-      <DependentUpon>ExpertSigninForm.cs</DependentUpon>
+    <Compile Include="EditAlternativeForm.Designer.cs">
+      <DependentUpon>EditAlternativeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditProblemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProblemForm.Designer.cs">
+      <DependentUpon>EditProblemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExpertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpertForm.Designer.cs">
+      <DependentUpon>ExpertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Problem.cs" />
+    <Compile Include="ProblemAnalysisForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProblemAnalysisForm.Designer.cs">
+      <DependentUpon>ProblemAnalysisForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SignInForm.cs">
       <SubType>Form</SubType>
@@ -66,6 +104,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddAlternativeForm.resx">
+      <DependentUpon>AddAlternativeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddProblemForm.resx">
+      <DependentUpon>AddProblemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnalystForm.resx">
+      <DependentUpon>AnalystForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditAlternativeForm.resx">
+      <DependentUpon>EditAlternativeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProblemForm.resx">
+      <DependentUpon>EditProblemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpertForm.resx">
+      <DependentUpon>ExpertForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProblemAnalysisForm.resx">
+      <DependentUpon>ProblemAnalysisForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
