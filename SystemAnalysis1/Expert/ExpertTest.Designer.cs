@@ -59,12 +59,15 @@
             // 
             // ExitButton
             // 
-            this.ExitButton.Location = new System.Drawing.Point(447, 12);
+            this.ExitButton.BackColor = System.Drawing.Color.Firebrick;
+            this.ExitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ExitButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ExitButton.Location = new System.Drawing.Point(410, 12);
             this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(119, 32);
+            this.ExitButton.Size = new System.Drawing.Size(156, 32);
             this.ExitButton.TabIndex = 3;
             this.ExitButton.Text = "Выйти из опроса";
-            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.UseVisualStyleBackColor = false;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // answerButton
@@ -103,18 +106,18 @@
             this.answersCheckedListBox.Size = new System.Drawing.Size(551, 67);
             this.answersCheckedListBox.TabIndex = 13;
             // 
-            // Test
+            // ExpertText
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 332);
+            this.ClientSize = new System.Drawing.Size(578, 327);
             this.Controls.Add(this.answersCheckedListBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.answerButton);
             this.Controls.Add(this.Problem);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ExitButton);
-            this.Name = "Test";
+            this.Name = "ExpertText";
             this.Text = "Опрос";
             this.ResumeLayout(false);
             this.PerformLayout();

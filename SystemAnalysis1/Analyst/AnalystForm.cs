@@ -25,10 +25,6 @@ namespace SystemAnalysis1
         }
 
 
-        private void AnalystForm_Load(object sender, EventArgs e)
-        {
-
-        }
         private void AnalystForm_Activated(object sender, EventArgs e)
         {
             InitProblemsListView(problems);

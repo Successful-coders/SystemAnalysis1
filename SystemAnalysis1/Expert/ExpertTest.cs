@@ -25,7 +25,7 @@ namespace SystemAnalysis1
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            Hide();
+            Close();
         }
 
         private List<Alternative[]> InitQuestions(List<Alternative> alternatives)

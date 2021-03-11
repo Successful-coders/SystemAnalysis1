@@ -42,7 +42,9 @@
             this.expertsListView = new System.Windows.Forms.ListView();
             this.expertNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Competence = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.saveButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.alternativesTab.SuspendLayout();
             this.expertsTab.SuspendLayout();
@@ -52,7 +54,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(13, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 17);
             this.label1.TabIndex = 0;
@@ -60,7 +62,7 @@
             // 
             // problemDescriptionTextBox
             // 
-            this.problemDescriptionTextBox.Location = new System.Drawing.Point(16, 34);
+            this.problemDescriptionTextBox.Location = new System.Drawing.Point(16, 68);
             this.problemDescriptionTextBox.Multiline = true;
             this.problemDescriptionTextBox.Name = "problemDescriptionTextBox";
             this.problemDescriptionTextBox.Size = new System.Drawing.Size(772, 82);
@@ -70,7 +72,7 @@
             // 
             this.tabControl.Controls.Add(this.alternativesTab);
             this.tabControl.Controls.Add(this.expertsTab);
-            this.tabControl.Location = new System.Drawing.Point(16, 122);
+            this.tabControl.Location = new System.Drawing.Point(16, 156);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(772, 301);
@@ -134,6 +136,7 @@
             this.alternativesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.number,
             this.description});
+            this.alternativesListView.FullRowSelect = true;
             this.alternativesListView.GridLines = true;
             this.alternativesListView.HideSelection = false;
             this.alternativesListView.Location = new System.Drawing.Point(7, 6);
@@ -168,7 +171,9 @@
             // 
             this.expertsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.expertNumber,
-            this.name});
+            this.name,
+            this.Competence});
+            this.expertsListView.FullRowSelect = true;
             this.expertsListView.GridLines = true;
             this.expertsListView.HideSelection = false;
             this.expertsListView.Location = new System.Drawing.Point(7, 7);
@@ -186,14 +191,19 @@
             // name
             // 
             this.name.Text = "Ф.И.О.";
-            this.name.Width = 650;
+            this.name.Width = 287;
+            // 
+            // Competence
+            // 
+            this.Competence.Text = "Компетентность";
+            this.Competence.Width = 405;
             // 
             // saveButton
             // 
             this.saveButton.BackColor = System.Drawing.Color.Green;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.saveButton.Location = new System.Drawing.Point(186, 436);
+            this.saveButton.Location = new System.Drawing.Point(186, 470);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(382, 49);
             this.saveButton.TabIndex = 3;
@@ -201,17 +211,31 @@
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.Gold;
+            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.backButton.Location = new System.Drawing.Point(13, 13);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(109, 23);
+            this.backButton.TabIndex = 4;
+            this.backButton.Text = "Назад";
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // ProblemAnalysisForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 505);
+            this.ClientSize = new System.Drawing.Size(800, 533);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.problemDescriptionTextBox);
             this.Controls.Add(this.label1);
             this.Name = "ProblemAnalysisForm";
             this.Text = "Правка проблемы";
+            this.Activated += new System.EventHandler(this.ProblemAnalysisForm_Activated);
             this.tabControl.ResumeLayout(false);
             this.alternativesTab.ResumeLayout(false);
             this.expertsTab.ResumeLayout(false);
@@ -237,5 +261,7 @@
         private System.Windows.Forms.ColumnHeader expertNumber;
         private System.Windows.Forms.ColumnHeader name;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.ColumnHeader Competence;
     }
 }

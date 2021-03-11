@@ -20,12 +20,22 @@ namespace SystemAnalysis1
 
         private void SignExpertButton_Click(object sender, EventArgs e)
         {
-            ExpertSigninForm expertForm = new ExpertSigninForm();
-            expertForm.Show();
+            List<Alternative> testAlternatives = new List<Alternative>()
+            {
+                new Alternative("desc0"),
+                new Alternative("desc1"),
+                new Alternative("desc2"),
+            };
+
+            ExpertText expertText = new ExpertText(testAlternatives);
+            expertText.Closed += (s, args) => Show();
+            expertText.Show();
+
+            Hide();
         }
         private void SignAnalystButton_Click(object sender, EventArgs e)
         {
-            Hide();
+            Close();
 			
             LoginForm analystSigninForm = new LoginForm(new AnalystForm());
             analystSigninForm.Closed += (s, args) => Show();

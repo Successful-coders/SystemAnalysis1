@@ -60,5 +60,23 @@ namespace SystemAnalysis1
 
             Close();
         }
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void ProblemAnalysisForm_Activated(object sender, EventArgs e)
+        {
+            InitAlternativeListView(problem.alternatives);
+        }
+        private void InitAlternativeListView(List<Alternative> alternatives)
+        {
+            alternativesListView.Items.Clear();
+
+            for (int i = 0; i < alternatives.Count; i++)
+            {
+                alternativesListView.Items.Add(new ListViewItem(new string[] { i.ToString(), alternatives[i].description }));
+            }
+        }
     }
 }

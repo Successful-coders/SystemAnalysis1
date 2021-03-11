@@ -26,6 +26,8 @@ namespace SystemAnalysis1
         private void applyButton_Click(object sender, EventArgs e)
         {
             alternatives.Add(new Alternative(descriptionTextBox.Text));
+
+            Close();
         }
     }
 }
