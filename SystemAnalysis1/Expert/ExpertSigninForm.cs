@@ -19,7 +19,14 @@ namespace SystemAnalysis1
 
         private void ExpertSigninForm_Load(object sender, EventArgs e)
         {
-            Test test = new Test();
+            List<Alternative> testAlternatives = new List<Alternative>()
+            {
+                new Alternative("desc0"),
+                new Alternative("desc1"),
+                new Alternative("desc2"),
+            };
+
+            ExpertText test = new ExpertText(testAlternatives);
             test.Show();
 
             Close();

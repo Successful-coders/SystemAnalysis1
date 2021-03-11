@@ -49,7 +49,6 @@
     <Compile Include="Analyst\AddAlternativeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Alternatives.cs" />
     <Compile Include="Analyst\AddAlternativeForm.Designer.cs">
       <DependentUpon>AddAlternativeForm.cs</DependentUpon>
     </Compile>
@@ -78,10 +77,10 @@
     <Compile Include="Analyst\EditProblemForm.Designer.cs">
       <DependentUpon>EditProblemForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExpertSigninForm.cs">
+    <Compile Include="Expert\ExpertSigninForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ExpertSigninForm.Designer.cs">
+    <Compile Include="Expert\ExpertSigninForm.Designer.cs">
       <DependentUpon>ExpertSigninForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Expert\ExpertForm.cs">
@@ -103,12 +102,11 @@
     <Compile Include="Analyst\ProblemAnalysisForm.Designer.cs">
       <DependentUpon>ProblemAnalysisForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MethodCoupleCompare.cs" />
-    <Compile Include="Test.cs">
+    <Compile Include="Expert\ExpertTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
+    <Compile Include="Expert\ExpertTest.Designer.cs">
+      <DependentUpon>ExpertTest.cs</DependentUpon>
     </Compile>
     <Compile Include="SignInForm.cs">
       <SubType>Form</SubType>
@@ -133,7 +131,7 @@
     <EmbeddedResource Include="Analyst\EditProblemForm.resx">
       <DependentUpon>EditProblemForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExpertSigninForm.resx">
+    <EmbeddedResource Include="Expert\ExpertSigninForm.resx">
       <DependentUpon>ExpertSigninForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Expert\ExpertForm.resx">
@@ -158,8 +156,8 @@
     <EmbeddedResource Include="SignInForm.resx">
       <DependentUpon>SignInForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
+    <EmbeddedResource Include="Expert\ExpertTest.resx">
+      <DependentUpon>ExpertTest.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
