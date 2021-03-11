@@ -131,6 +131,7 @@
             this.quitButton.TabIndex = 4;
             this.quitButton.Text = "Выйти";
             this.quitButton.UseVisualStyleBackColor = false;
+            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
             // 
             // AnalystForm
             // 

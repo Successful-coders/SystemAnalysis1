@@ -76,5 +76,12 @@ namespace SystemAnalysis1
                 probliemsListView.Items.Add(new ListViewItem(new string[] { i.ToString(), problems[i].description, problems[i].status }));
             }
         }
+        private void quitButton_Click(object sender, EventArgs e)
+        {
+            Close();
+
+            SignInForm signInForm = new SignInForm();
+            signInForm.Show();
+        }
     }
 }

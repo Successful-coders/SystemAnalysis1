@@ -35,11 +35,10 @@ namespace SystemAnalysis1
         }
         private void SignAnalystButton_Click(object sender, EventArgs e)
         {
-            Close();
-			
             LoginForm analystSigninForm = new LoginForm(new AnalystForm());
-            analystSigninForm.Closed += (s, args) => Show();
             analystSigninForm.Show();
+			
+            Hide();
         }
     }
 }
