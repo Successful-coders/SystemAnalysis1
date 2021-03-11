@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SystemAnalysis1
 {
-    public partial class AnalystForm : Form
+    public partial class ExpertForm : Form
     {
-        public AnalystForm()
+        public ExpertForm()
         {
             InitializeComponent();
         }
