@@ -34,11 +34,12 @@
             this.ExitButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pollFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.answerButton = new System.Windows.Forms.Button();
-            this.answersCheckedListBox = new System.Windows.Forms.CheckedListBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.pollPanel = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.answersCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.answerButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.matrixDisplay = new System.Windows.Forms.TextBox();
             this.pollFlowLayoutPanel.SuspendLayout();
             this.pollPanel.SuspendLayout();
             this.SuspendLayout();
@@ -95,15 +96,41 @@
             this.pollFlowLayoutPanel.Size = new System.Drawing.Size(787, 530);
             this.pollFlowLayoutPanel.TabIndex = 16;
             // 
-            // label2
+            // pollPanel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(44, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(524, 22);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Какой вариант по Вашему мнению наиболее удачный?";
+            this.pollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
+            this.pollPanel.Controls.Add(this.label4);
+            this.pollPanel.Controls.Add(this.answersCheckedListBox);
+            this.pollPanel.Controls.Add(this.answerButton);
+            this.pollPanel.Controls.Add(this.label2);
+            this.pollPanel.Location = new System.Drawing.Point(3, 3);
+            this.pollPanel.Name = "pollPanel";
+            this.pollPanel.Size = new System.Drawing.Size(759, 183);
+            this.pollPanel.TabIndex = 14;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(3, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 24);
+            this.label4.TabIndex = 14;
+            this.label4.Tag = "index";
+            this.label4.Text = "1.";
+            // 
+            // answersCheckedListBox
+            // 
+            this.answersCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.answersCheckedListBox.FormattingEnabled = true;
+            this.answersCheckedListBox.Items.AddRange(new object[] {
+            "Первый вариант",
+            "Второй вариант"});
+            this.answersCheckedListBox.Location = new System.Drawing.Point(4, 50);
+            this.answersCheckedListBox.Name = "answersCheckedListBox";
+            this.answersCheckedListBox.Size = new System.Drawing.Size(752, 52);
+            this.answersCheckedListBox.TabIndex = 13;
+            this.answersCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.answersCheckedListBox_ItemCheck);
             // 
             // answerButton
             // 
@@ -119,47 +146,32 @@
             this.answerButton.UseVisualStyleBackColor = false;
             this.answerButton.Click += new System.EventHandler(this.CheckAnswer);
             // 
-            // answersCheckedListBox
+            // label2
             // 
-            this.answersCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.answersCheckedListBox.FormattingEnabled = true;
-            this.answersCheckedListBox.Items.AddRange(new object[] {
-            "Первый вариант",
-            "Второй вариант"});
-            this.answersCheckedListBox.Location = new System.Drawing.Point(4, 50);
-            this.answersCheckedListBox.Name = "answersCheckedListBox";
-            this.answersCheckedListBox.Size = new System.Drawing.Size(752, 52);
-            this.answersCheckedListBox.TabIndex = 13;
-            this.answersCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.answersCheckedListBox_ItemCheck);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(44, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(524, 22);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Какой вариант по Вашему мнению наиболее удачный?";
             // 
-            // label4
+            // matrixDisplay
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(3, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 24);
-            this.label4.TabIndex = 14;
-            this.label4.Tag = "index";
-            this.label4.Text = "1.";
-            // 
-            // pollPanel
-            // 
-            this.pollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
-            this.pollPanel.Controls.Add(this.label4);
-            this.pollPanel.Controls.Add(this.answersCheckedListBox);
-            this.pollPanel.Controls.Add(this.answerButton);
-            this.pollPanel.Controls.Add(this.label2);
-            this.pollPanel.Location = new System.Drawing.Point(3, 3);
-            this.pollPanel.Name = "pollPanel";
-            this.pollPanel.Size = new System.Drawing.Size(759, 183);
-            this.pollPanel.TabIndex = 14;
+            this.matrixDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.matrixDisplay.Location = new System.Drawing.Point(12, 3);
+            this.matrixDisplay.Multiline = true;
+            this.matrixDisplay.Name = "matrixDisplay";
+            this.matrixDisplay.ReadOnly = true;
+            this.matrixDisplay.Size = new System.Drawing.Size(184, 125);
+            this.matrixDisplay.TabIndex = 17;
             // 
             // ExpertTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 801);
+            this.Controls.Add(this.matrixDisplay);
             this.Controls.Add(this.pollFlowLayoutPanel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Problem);
@@ -171,6 +183,7 @@
             this.pollPanel.ResumeLayout(false);
             this.pollPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -186,5 +199,6 @@
         private System.Windows.Forms.CheckedListBox answersCheckedListBox;
         private System.Windows.Forms.Button answerButton;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox matrixDisplay;
     }
 }

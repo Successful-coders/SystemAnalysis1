@@ -9,17 +9,20 @@ namespace SystemAnalysis1
     public class PairComparisonMatrix
     {
         public double[,] values;
+        public int size;
 
 
         public PairComparisonMatrix(int size)
         {
+            this.size = size;
+
             values = new double[size, size]; 
         }
 
 
         public double CalculatePreferAlternative()
         {
-            for (int i = 0; i < values.Length; i++)
+            for (int i = 0; i < size; i++)
             {
 
             }
@@ -40,9 +43,9 @@ namespace SystemAnalysis1
         {
             string text ="";
 
-            for (int i = 0; i < values.Length; i++)
+            for (int i = 0; i < size; i++)
             {
-                for (int j = 0; j < values.Length; j++)
+                for (int j = 0; j < size; j++)
                 {
                     text += values[i, j] + "   ";
                 }

@@ -21,6 +21,7 @@ namespace SystemAnalysis1
             InitializeComponent();
 
             matrix = new PairComparisonMatrix(alternatives.Count);
+            matrixDisplay.Text = matrix.ToString();
 
             alternativePairs = InitQuestions(alternatives);
             CreatePollPanels();
@@ -115,11 +116,13 @@ namespace SystemAnalysis1
             {
                 int checkedAnswerIndex = (int)checkedListBox?.CheckedIndices[0];
                 int primaryIndex = indexes[checkedAnswerIndex];
-                int secondaryIndex = checkedAnswerIndex == 0 ? 1 : 0;
+                int secondaryIndex = checkedAnswerIndex == 0 ? indexes[1] : indexes[0];
 
                 matrix.values[primaryIndex, secondaryIndex] = 1.0d;
                 matrix.values[secondaryIndex, primaryIndex] = 0.0d;
             }
+
+            matrixDisplay.Text = matrix.ToString();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
