@@ -27,31 +27,11 @@ namespace SystemAnalysis1
 
         private void addItemButton_Click(object sender, EventArgs e)
         {
-            Hide();
-            AddAlternativeForm addAlternative = new AddAlternativeForm(problem.alternatives);
-            addAlternative.Closed += (s, args) => Show();
-            addAlternative.Show();
-        }
-        private void editItemButton_Click(object sender, EventArgs e)
-        {
-            if (alternativesListView.SelectedItems.Count == 1)
-            {
-                EditAlternativeForm editAlternativeForm =
-                    new EditAlternativeForm(problem.alternatives.FirstOrDefault(x => x.description == alternativesListView.SelectedItems[0].SubItems[1].Text));
-                editAlternativeForm.Show();
-            }
+
         }
         private void removeItemButton_Click(object sender, EventArgs e)
         {
-            foreach (var selectedItem in alternativesListView.SelectedItems)
-            {
-                alternativesListView.Items.Remove(selectedItem as ListViewItem);
-            }
 
-            for (int i = 0; i < alternativesListView.Items.Count; i++)
-            {
-                alternativesListView.Items[i].SubItems[0] = new ListViewItem.ListViewSubItem(alternativesListView.Items[i], i.ToString());
-            }
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -71,11 +51,11 @@ namespace SystemAnalysis1
         }
         private void InitAlternativeListView(List<Alternative> alternatives)
         {
-            alternativesListView.Items.Clear();
+            alternativesGrid.Rows.Clear();
 
             for (int i = 0; i < alternatives.Count; i++)
             {
-                alternativesListView.Items.Add(new ListViewItem(new string[] { i.ToString(), alternatives[i].description }));
+                alternativesGrid.Rows.Add(new string[] { i.ToString(), alternatives[i].description });
             }
         }
     }

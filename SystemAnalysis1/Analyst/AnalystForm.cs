@@ -32,49 +32,31 @@ namespace SystemAnalysis1
         private void addProblemButton_Click(object sender, EventArgs e)
         {
             Hide();
-            AddProblemForm addProblemForm = new AddProblemForm(problems);
-            addProblemForm.Closed += (s, args) => Show();
-            addProblemForm.Show();
-        }
-        private void removeProblemButton_Click(object sender, EventArgs e)
-        {
-            foreach (var selectedItem in probliemsListView.SelectedItems)
-            {
-                probliemsListView.Items.Remove(selectedItem as ListViewItem);
-            }
-
-            for (int i = 0; i < probliemsListView.Items.Count; i++)
-            {
-                probliemsListView.Items[i].SubItems[0] = new ListViewItem.ListViewSubItem(probliemsListView.Items[i], i.ToString());
-            }
-        }
-        private void editProblemButton_Click(object sender, EventArgs e)
-        {
-            if (probliemsListView.SelectedItems.Count == 1)
-            {
-                EditProblemForm editProblemForm = 
-                    new EditProblemForm(problems.FirstOrDefault(x => x.description == probliemsListView.SelectedItems[0].SubItems[1].Text));
-                editProblemForm.Show();
-            }
-        }
-        private void probliemsListView_DoubleClick(object sender, EventArgs e)
-        {
-            Problem problem = problems.FirstOrDefault(x => x.description == probliemsListView.SelectedItems[0].SubItems[1].Text);
-
-            Hide();
-            ProblemAnalysisForm problemAnalysisForm = new ProblemAnalysisForm(problem);
+            ProblemAnalysisForm problemAnalysisForm = new ProblemAnalysisForm(new Problem("", ""));
             problemAnalysisForm.Closed += (s, args) => Show();
             problemAnalysisForm.Show();
         }
-
-        private void InitProblemsListView(List<Problem> problems)
+        private void removeProblemButton_Click(object sender, EventArgs e)
         {
-            probliemsListView.Items.Clear();
+            if (problemsGrid.SelectedRows.Count <= 0)
+                return;
 
-            for (int i = 0; i < problems.Count; i++)
+            RemoveSelectedProblem();
+        }
+        private void editProblemButton_Click(object sender, EventArgs e)
+        {
+            if (problemsGrid.SelectedRows.Count == 1)
             {
-                probliemsListView.Items.Add(new ListViewItem(new string[] { i.ToString(), problems[i].description, problems[i].status }));
+                Problem problem = problems[problemsGrid.SelectedRows[0].Index];
+
+                EditProblem(problem);
             }
+        }
+        private void problemsGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Problem problem = problems[e.RowIndex];
+
+            EditProblem(problem);
         }
         private void quitButton_Click(object sender, EventArgs e)
         {
@@ -82,6 +64,44 @@ namespace SystemAnalysis1
 
             SignInForm signInForm = new SignInForm();
             signInForm.Show();
+        }
+        private void problemsGrid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete && problemsGrid.CurrentCell.Selected)
+            {
+                e.Handled = true;
+
+                RemoveSelectedProblem();
+            }
+        }
+
+        private void InitProblemsListView(List<Problem> problems)
+        {
+            problemsGrid.Rows.Clear();
+
+            for (int i = 0; i < problems.Count; i++)
+            {
+                problemsGrid.Rows.Add(new string[] { i.ToString(), problems[i].description, problems[i].status });
+            }
+        }
+        private void EditProblem(Problem problem)
+        {
+            Hide();
+            ProblemAnalysisForm problemAnalysisForm = new ProblemAnalysisForm(problem);
+            problemAnalysisForm.Closed += (s, args) => Show();
+            problemAnalysisForm.Show();
+        }
+        private void RemoveSelectedProblem()
+        {
+            for (int i = 0; i < problemsGrid.SelectedRows.Count; i++)
+            {
+                problems.RemoveAt(problemsGrid.SelectedRows[i].Index);
+            }
+
+            foreach (DataGridViewRow item in problemsGrid.SelectedRows)
+            {
+                problemsGrid.Rows.RemoveAt(item.Index);
+            }
         }
     }
 }
