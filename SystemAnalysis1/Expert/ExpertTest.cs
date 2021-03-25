@@ -58,7 +58,7 @@ namespace SystemAnalysis1
                     }
                     else if (control.GetType() == typeof(Button))
                     {
-                        newControl = new AnswerButton(new int[] { alternativePairs[i][0].index, alternativePairs[i][1].index });
+                        newControl = new AnswerButton(i, new int[] { alternativePairs[i][0].index, alternativePairs[i][1].index });
                         newControl.BackColor = control.BackColor;
                         newControl.ForeColor = control.ForeColor;
                         newControl.Text = control.Text;
@@ -86,15 +86,39 @@ namespace SystemAnalysis1
                 pollFlowLayoutPanel.Controls.Add(panel);
             }
 
-            pollFlowLayoutPanel.Controls[0].Visible = false;
+            pollFlowLayoutPanel.Controls.RemoveAt(0);
             var controls = pollFlowLayoutPanel.Controls;
         }
 
-        private void OnAnswerButtonClicked(int[] indexes)
+        private void OnAnswerButtonClicked(int questionIndex, int[] indexes)
         {
-            for (int i = 0; i < indexes.Length; i++)
+            CheckedListBox checkedListBox = null;
+            foreach (var control in pollFlowLayoutPanel.Controls[questionIndex].Controls)
             {
-                matrix.values[indexes[i]] = 1;
+                if (control.GetType() == typeof(CheckedListBox))
+                {
+                    checkedListBox = control as CheckedListBox;
+
+                    break;
+                }
+            }
+
+            if (checkedListBox == null)
+                return;
+
+            if (checkedListBox.CheckedIndices.Count == 2)
+            {
+                matrix.values[indexes[0], indexes[1]] = 0.5d;
+                matrix.values[indexes[1], indexes[0]] = 0.5d;
+            }
+            else if (checkedListBox.CheckedIndices.Count == 1)
+            {
+                int checkedAnswerIndex = (int)checkedListBox?.CheckedIndices[0];
+                int primaryIndex = indexes[checkedAnswerIndex];
+                int secondaryIndex = checkedAnswerIndex == 0 ? 1 : 0;
+
+                matrix.values[primaryIndex, secondaryIndex] = 1.0d;
+                matrix.values[secondaryIndex, primaryIndex] = 0.0d;
             }
         }
 
