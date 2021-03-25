@@ -95,9 +95,9 @@
             this.quitButton.BackColor = System.Drawing.Color.Maroon;
             this.quitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.quitButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.quitButton.Location = new System.Drawing.Point(1191, 12);
+            this.quitButton.Location = new System.Drawing.Point(1198, 12);
             this.quitButton.Name = "quitButton";
-            this.quitButton.Size = new System.Drawing.Size(128, 47);
+            this.quitButton.Size = new System.Drawing.Size(121, 39);
             this.quitButton.TabIndex = 4;
             this.quitButton.Text = "Выйти";
             this.quitButton.UseVisualStyleBackColor = false;
@@ -122,6 +122,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.problemsGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.problemsGrid.Location = new System.Drawing.Point(12, 65);
+            this.problemsGrid.MultiSelect = false;
             this.problemsGrid.Name = "problemsGrid";
             this.problemsGrid.RowHeadersVisible = false;
             this.problemsGrid.RowTemplate.Height = 30;

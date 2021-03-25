@@ -33,12 +33,13 @@
             this.passwordLabel = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.loginButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginTextBox
             // 
             this.loginTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginTextBox.Location = new System.Drawing.Point(12, 56);
+            this.loginTextBox.Location = new System.Drawing.Point(12, 83);
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(594, 35);
             this.loginTextBox.TabIndex = 0;
@@ -46,7 +47,7 @@
             // loginLabel
             // 
             this.loginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLabel.Location = new System.Drawing.Point(12, 18);
+            this.loginLabel.Location = new System.Drawing.Point(12, 45);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(594, 35);
             this.loginLabel.TabIndex = 1;
@@ -56,7 +57,7 @@
             // passwordLabel
             // 
             this.passwordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLabel.Location = new System.Drawing.Point(12, 113);
+            this.passwordLabel.Location = new System.Drawing.Point(12, 140);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(594, 40);
             this.passwordLabel.TabIndex = 3;
@@ -66,7 +67,7 @@
             // passwordTextBox
             // 
             this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTextBox.Location = new System.Drawing.Point(12, 156);
+            this.passwordTextBox.Location = new System.Drawing.Point(12, 183);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(594, 35);
@@ -86,11 +87,25 @@
             this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.Gold;
+            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(139, 31);
+            this.backButton.TabIndex = 5;
+            this.backButton.Text = "Назад";
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 343);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.passwordTextBox);
@@ -110,5 +125,6 @@
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.Button backButton;
     }
 }

@@ -12,15 +12,13 @@ namespace SystemAnalysis1
 {
     public partial class AnalystForm : Form
     {
-        private List<Problem> problems = new List<Problem>()
-        {
-            new Problem("Проблема нехватки общественного транспорта", "Не задействовано"),
-            new Problem("Проблема перераспределения выделенного бюджета", "Не задействовано"),
-        };
+        private List<Problem> problems;
 
 
-        public AnalystForm()
+        public AnalystForm(List<Problem> problems)
         {
+            this.problems = problems;
+
             InitializeComponent();
         }
 
@@ -40,9 +38,6 @@ namespace SystemAnalysis1
         }
         private void removeProblemButton_Click(object sender, EventArgs e)
         {
-            if (problemsGrid.SelectedRows.Count <= 0)
-                return;
-
             RemoveSelectedProblem();
         }
         private void editProblemButton_Click(object sender, EventArgs e)
@@ -83,7 +78,7 @@ namespace SystemAnalysis1
 
             for (int i = 0; i < problems.Count; i++)
             {
-                problemsGrid.Rows.Add(new string[] { i.ToString(), problems[i].description, problems[i].status });
+                problemsGrid.Rows.Add(new string[] { (i + 1).ToString(), problems[i].name, problems[i].status });
             }
         }
         private void EditProblem(Problem problem)
@@ -95,6 +90,9 @@ namespace SystemAnalysis1
         }
         private void RemoveSelectedProblem()
         {
+            if (problemsGrid.SelectedRows.Count <= 0)
+                return;
+
             for (int i = 0; i < problemsGrid.SelectedRows.Count; i++)
             {
                 problems.RemoveAt(problemsGrid.SelectedRows[i].Index);
@@ -103,6 +101,15 @@ namespace SystemAnalysis1
             foreach (DataGridViewRow item in problemsGrid.SelectedRows)
             {
                 problemsGrid.Rows.RemoveAt(item.Index);
+            }
+
+            SortIndexes();
+        }
+        private void SortIndexes()
+        {
+            for (int i = 0; i < problems.Count; i++)
+            {
+                problemsGrid.Rows[i].Cells[0].Value = (i + 1).ToString();
             }
         }
     }

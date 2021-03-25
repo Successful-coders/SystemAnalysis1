@@ -10,19 +10,51 @@ using System.Windows.Forms;
 
 namespace SystemAnalysis1
 {
-    public partial class ExpertText : Form
+    public partial class ExpertTest : Form
     {
         private List<Alternative[]> alternativePairs;
 
 
-        public ExpertText(List<Alternative> alternatives)
+        public ExpertTest(List<Alternative> alternatives)
         {
             InitializeComponent();
 
             alternativePairs = InitQuestions(alternatives);
+            CreatePollPanels();
         }
 
 
+        private void CreatePollPanels()
+        {
+            for (int i = 0; i < alternativePairs.Count; i++)
+            {
+                //Panel panel = new Panel();
+                //panel.Location = new Point(10 * i, 10 * i);
+                //panel.BorderStyle = panel1.BorderStyle;
+                //panel.BackColor = panel1.BackColor;
+                //panel.Size = panel1.Size;
+                //panel.Visible = true;
+
+                //foreach (Control c in panel1.Controls)
+                //{
+                //    Control c2 = new Control();
+                //    if (c.GetType() == typeof(TextBox))
+                //        c2 = new TextBox();
+                //    if (c.GetType() == typeof(Label))
+                //        c2 = new Label();
+                //    if (c.GetType() == typeof(CheckBox))
+                //        c2 = new CheckBox();
+                //    if (c.GetType() == typeof(DataGridView))
+                //        c2 = new DataGridView();
+                //    c2.Location = c.Location;
+                //    c2.Size = c.Size;
+                //    c2.Text = c.Text;
+                //    panel.Controls.Add(c2);
+                //}
+
+                pollFlowLayoutPanel.Controls.Add(pollFlowLayoutPanel.Controls[0]);
+            }
+        }
         private void ExitButton_Click(object sender, EventArgs e)
         {
             Close();
