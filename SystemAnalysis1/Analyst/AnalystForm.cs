@@ -31,8 +31,10 @@ namespace SystemAnalysis1
         }
         private void addProblemButton_Click(object sender, EventArgs e)
         {
+            problems.Add(new Problem("", ""));
+
             Hide();
-            ProblemAnalysisForm problemAnalysisForm = new ProblemAnalysisForm(new Problem("", ""));
+            ProblemAnalysisForm problemAnalysisForm = new ProblemAnalysisForm(problems[problems.Count - 1]);
             problemAnalysisForm.Closed += (s, args) => Show();
             problemAnalysisForm.Show();
         }
