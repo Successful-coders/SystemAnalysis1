@@ -13,11 +13,14 @@ namespace SystemAnalysis1
     public partial class ExpertTest : Form
     {
         private List<Alternative[]> alternativePairs;
+        private PairComparisonMatrix matrix;
 
 
         public ExpertTest(List<Alternative> alternatives)
         {
             InitializeComponent();
+
+            matrix = new PairComparisonMatrix(alternatives.Count);
 
             alternativePairs = InitQuestions(alternatives);
             CreatePollPanels();
@@ -28,33 +31,73 @@ namespace SystemAnalysis1
         {
             for (int i = 0; i < alternativePairs.Count; i++)
             {
-                //Panel panel = new Panel();
-                //panel.Location = new Point(10 * i, 10 * i);
-                //panel.BorderStyle = panel1.BorderStyle;
-                //panel.BackColor = panel1.BackColor;
-                //panel.Size = panel1.Size;
-                //panel.Visible = true;
+                Panel panel = new Panel();
+                panel.Location = new Point(10 * i, 10 * i);
+                panel.BorderStyle = pollPanel.BorderStyle;
+                panel.BackColor = pollPanel.BackColor;
+                panel.Size = pollPanel.Size;
+                panel.Visible = true;
 
-                //foreach (Control c in panel1.Controls)
-                //{
-                //    Control c2 = new Control();
-                //    if (c.GetType() == typeof(TextBox))
-                //        c2 = new TextBox();
-                //    if (c.GetType() == typeof(Label))
-                //        c2 = new Label();
-                //    if (c.GetType() == typeof(CheckBox))
-                //        c2 = new CheckBox();
-                //    if (c.GetType() == typeof(DataGridView))
-                //        c2 = new DataGridView();
-                //    c2.Location = c.Location;
-                //    c2.Size = c.Size;
-                //    c2.Text = c.Text;
-                //    panel.Controls.Add(c2);
-                //}
+                foreach (Control control in pollPanel.Controls)
+                {
+                    Control newControl = new Control();
+                    if (control.GetType() == typeof(TextBox))
+                    {
+                        newControl = new TextBox();
+                        newControl.Text = control.Text;
+                    }
+                    else if (control.GetType() == typeof(Label) && control.Tag?.ToString() == "index")
+                    {
+                        newControl = new Label();
+                        newControl.Text = (i + 1).ToString() + ".";
+                    }
+                    else if (control.GetType() == typeof(Label))
+                    {
+                        newControl = new Label();
+                        newControl.Text = control.Text;
+                    }
+                    else if (control.GetType() == typeof(Button))
+                    {
+                        newControl = new AnswerButton(new int[] { alternativePairs[i][0].index, alternativePairs[i][1].index });
+                        newControl.BackColor = control.BackColor;
+                        newControl.ForeColor = control.ForeColor;
+                        newControl.Text = control.Text;
 
-                pollFlowLayoutPanel.Controls.Add(pollFlowLayoutPanel.Controls[0]);
+                        (newControl as AnswerButton).OnAnswerClick += OnAnswerButtonClicked;
+                    }
+                    else if(control.GetType() == typeof(CheckedListBox))
+                    {
+                        newControl = new CheckedListBox();
+                        (newControl as CheckedListBox).Items.Clear();
+
+                        for (int j = 0; j < alternativePairs[i].Length; j++)
+                        {
+                            (newControl as CheckedListBox).Items.Add(alternativePairs[i][j].description);
+                        }
+                    }
+
+                    newControl.Location = control.Location;
+                    newControl.Size = control.Size;
+                    newControl.Font = control.Font;
+
+                    panel.Controls.Add(newControl);
+                }
+
+                pollFlowLayoutPanel.Controls.Add(panel);
+            }
+
+            pollFlowLayoutPanel.Controls[0].Visible = false;
+            var controls = pollFlowLayoutPanel.Controls;
+        }
+
+        private void OnAnswerButtonClicked(int[] indexes)
+        {
+            for (int i = 0; i < indexes.Length; i++)
+            {
+                matrix.values[indexes[i]] = 1;
             }
         }
+
         private void ExitButton_Click(object sender, EventArgs e)
         {
             Close();
@@ -72,7 +115,7 @@ namespace SystemAnalysis1
 
                 for (int j = 0; j < 2; j++)
                 {
-                    alternativePairs[0][j] = result.ToList()[i].ToList()[j];
+                    alternativePairs[i][j] = result.ToList()[i].ToList()[j];
                 }
             }
 
@@ -118,6 +161,13 @@ namespace SystemAnalysis1
 
                 ++i;
             }
+        }
+
+        private void answersCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            answerButton.Enabled = answersCheckedListBox.CheckedItems.Count != 0;
+
+
         }
     }
 }

@@ -13,6 +13,7 @@ namespace SystemAnalysis1
         public string status;
         public List<Alternative> alternatives;
         public List<Expert> experts;
+        public double weight;
 
 
         public Problem()

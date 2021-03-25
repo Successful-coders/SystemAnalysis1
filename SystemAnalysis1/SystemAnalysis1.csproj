@@ -53,6 +53,9 @@
     <Compile Include="Analyst\AnalystForm.Designer.cs">
       <DependentUpon>AnalystForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnswerButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Data.cs" />
     <Compile Include="Expert.cs" />
     <Compile Include="Expert\ChooseProblemForm.cs">
@@ -73,6 +76,7 @@
     <Compile Include="Analyst\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PairComparisonMatrix.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Analyst\ProblemAnalysisForm.cs">
       <SubType>Form</SubType>

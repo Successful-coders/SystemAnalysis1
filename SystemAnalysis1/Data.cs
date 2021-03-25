@@ -12,19 +12,20 @@ namespace SystemAnalysis1
         {
             new Problem("Проблема нехватки общественного транспорта", "Описание отсутсвует", "Не задействовано", 
                 new List<Alternative>() {
-                    new Alternative("Альтерантива 1"),
-                    new Alternative("Альтерантива 2"),
-                    new Alternative("Альтерантива 3"),
+                    new Alternative("Альтерантива 1", 0),
+                    new Alternative("Альтерантива 2", 1),
+                    new Alternative("Альтерантива 3", 2),
                 }, 
                 new List<Expert>() {
+                    new Expert("aa", "Компетенция 1"),
                     new Expert("Воронкина Дарья", "Компетенция 1"),
                     new Expert("Кондратьев Игорь", "Компетенция 2"),
                 }),
             new Problem("Проблема перераспределения выделенного бюджета", "Описание отсутсвует", "Не задействовано",
                 new List<Alternative>() {
-                    new Alternative("Альтерантива 1"),
-                    new Alternative("Альтерантива 2"),
-                    new Alternative("Альтерантива 3"),
+                    new Alternative("Альтерантива 1", 0),
+                    new Alternative("Альтерантива 2", 1),
+                    new Alternative("Альтерантива 3", 2),
                 },
                 new List<Expert>() {
                     new Expert("Воронкина Дарья", "Компетенция 1"),

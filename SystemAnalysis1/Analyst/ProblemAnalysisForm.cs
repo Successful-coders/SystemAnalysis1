@@ -48,7 +48,7 @@ namespace SystemAnalysis1
         }
         private void addAlternativeButton_Click(object sender, EventArgs e)
         {
-            Alternative newAlternative = new Alternative("Описание...");
+            Alternative newAlternative = new Alternative("Описание...", problem.alternatives.Count);
 
             problem.alternatives.Add(newAlternative);
 

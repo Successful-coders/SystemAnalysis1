@@ -9,11 +9,13 @@ namespace SystemAnalysis1
     public class Alternative
     {
         public string description;
+        public int index;
 
 
-        public Alternative(string description)
+        public Alternative(string description, int index)
         {
             this.description = description;
+            this.index = index;
         }
     }
 }
