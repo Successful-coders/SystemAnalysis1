@@ -76,6 +76,9 @@
     <Compile Include="Analyst\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Expert\PollPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PairComparisonMatrix.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Analyst\ProblemAnalysisForm.cs">

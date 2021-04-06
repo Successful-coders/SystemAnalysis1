@@ -32,9 +32,11 @@ namespace SystemAnalysis1
         {
             string expertName = nameTextBox.Text;
 
-            Close();
             ChooseProblemForm chooseProblemForm = new ChooseProblemForm(expertName);
+            chooseProblemForm.Closed += (s, args) => Show();
             chooseProblemForm.Show();
+
+            Hide();
         }
         private void backButton_Click(object sender, EventArgs e)
         {

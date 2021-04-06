@@ -12,9 +12,6 @@ namespace SystemAnalysis1
 {
     public partial class LoginForm : Form
     {
-        public event Action OnReterned;
-
-
         private KeyValuePair<string, string> loginPassword = new KeyValuePair<string, string>("0", "0");
         private Form nextForm;
 
@@ -47,14 +44,13 @@ namespace SystemAnalysis1
             }
             else
             {
-                Close();
+                Hide();
                 nextForm.Show();
+                nextForm.Closed += (s, args) => Close();
             }
         }
         private void backButton_Click(object sender, EventArgs e)
         {
-            OnReterned?.Invoke();
-
             Close();
         }
     }

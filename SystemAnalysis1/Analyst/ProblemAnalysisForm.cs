@@ -12,8 +12,6 @@ namespace SystemAnalysis1
 {
     public partial class ProblemAnalysisForm : Form
     {
-        public event Action OnReterned;
-
         private Problem problem;
 
 
@@ -42,8 +40,6 @@ namespace SystemAnalysis1
         }
         private void backButton_Click(object sender, EventArgs e)
         {
-            OnReterned?.Invoke();
-
             Close();
         }
         private void addAlternativeButton_Click(object sender, EventArgs e)

@@ -21,7 +21,7 @@ namespace SystemAnalysis1
         private void SignExpertButton_Click(object sender, EventArgs e)
         {
             ExpertLogIn expertLogIn = new ExpertLogIn();
-            expertLogIn.OnReterned += Show;
+            expertLogIn.Closed += (s, args) => Show();
             expertLogIn.Show();
 
             Hide();
@@ -29,9 +29,9 @@ namespace SystemAnalysis1
         private void SignAnalystButton_Click(object sender, EventArgs e)
         {
             LoginForm analystSigninForm = new LoginForm(new AnalystForm(Data.problems));
-            analystSigninForm.OnReterned += Show;
+            analystSigninForm.Closed += (s, args) => Show();
             analystSigninForm.Show();
-			
+
             Hide();
         }
     }

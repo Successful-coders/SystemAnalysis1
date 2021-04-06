@@ -58,9 +58,6 @@ namespace SystemAnalysis1
         private void quitButton_Click(object sender, EventArgs e)
         {
             Close();
-
-            SignInForm signInForm = new SignInForm();
-            signInForm.Show();
         }
         private void problemsGrid_KeyDown(object sender, KeyEventArgs e)
         {

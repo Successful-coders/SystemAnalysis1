@@ -39,7 +39,7 @@
             this.answersCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.answerButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.matrixDisplay = new System.Windows.Forms.TextBox();
+            this.completeButton = new System.Windows.Forms.Button();
             this.pollFlowLayoutPanel.SuspendLayout();
             this.pollPanel.SuspendLayout();
             this.SuspendLayout();
@@ -93,7 +93,7 @@
             this.pollFlowLayoutPanel.Controls.Add(this.pollPanel);
             this.pollFlowLayoutPanel.Location = new System.Drawing.Point(12, 259);
             this.pollFlowLayoutPanel.Name = "pollFlowLayoutPanel";
-            this.pollFlowLayoutPanel.Size = new System.Drawing.Size(787, 530);
+            this.pollFlowLayoutPanel.Size = new System.Drawing.Size(787, 508);
             this.pollFlowLayoutPanel.TabIndex = 16;
             // 
             // pollPanel
@@ -107,6 +107,7 @@
             this.pollPanel.Name = "pollPanel";
             this.pollPanel.Size = new System.Drawing.Size(759, 183);
             this.pollPanel.TabIndex = 14;
+            this.pollPanel.Visible = false;
             // 
             // label4
             // 
@@ -130,7 +131,6 @@
             this.answersCheckedListBox.Name = "answersCheckedListBox";
             this.answersCheckedListBox.Size = new System.Drawing.Size(752, 52);
             this.answersCheckedListBox.TabIndex = 13;
-            this.answersCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.answersCheckedListBox_ItemCheck);
             // 
             // answerButton
             // 
@@ -144,7 +144,6 @@
             this.answerButton.Tag = "1";
             this.answerButton.Text = "Ответить";
             this.answerButton.UseVisualStyleBackColor = false;
-            this.answerButton.Click += new System.EventHandler(this.CheckAnswer);
             // 
             // label2
             // 
@@ -156,22 +155,24 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Какой вариант по Вашему мнению наиболее удачный?";
             // 
-            // matrixDisplay
+            // completeButton
             // 
-            this.matrixDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.matrixDisplay.Location = new System.Drawing.Point(12, 3);
-            this.matrixDisplay.Multiline = true;
-            this.matrixDisplay.Name = "matrixDisplay";
-            this.matrixDisplay.ReadOnly = true;
-            this.matrixDisplay.Size = new System.Drawing.Size(184, 125);
-            this.matrixDisplay.TabIndex = 17;
+            this.completeButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.completeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.completeButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.completeButton.Location = new System.Drawing.Point(12, 773);
+            this.completeButton.Name = "completeButton";
+            this.completeButton.Size = new System.Drawing.Size(787, 48);
+            this.completeButton.TabIndex = 17;
+            this.completeButton.Text = "Завершить";
+            this.completeButton.UseVisualStyleBackColor = false;
             // 
             // ExpertTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 801);
-            this.Controls.Add(this.matrixDisplay);
+            this.ClientSize = new System.Drawing.Size(811, 833);
+            this.Controls.Add(this.completeButton);
             this.Controls.Add(this.pollFlowLayoutPanel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Problem);
@@ -183,7 +184,6 @@
             this.pollPanel.ResumeLayout(false);
             this.pollPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -199,6 +199,6 @@
         private System.Windows.Forms.CheckedListBox answersCheckedListBox;
         private System.Windows.Forms.Button answerButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox matrixDisplay;
+        private System.Windows.Forms.Button completeButton;
     }
 }
