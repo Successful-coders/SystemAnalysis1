@@ -71,7 +71,7 @@
             this.backButton.BackColor = System.Drawing.Color.Gold;
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.backButton.Location = new System.Drawing.Point(9, 12);
+            this.backButton.Location = new System.Drawing.Point(310, 15);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(139, 31);
             this.backButton.TabIndex = 10;

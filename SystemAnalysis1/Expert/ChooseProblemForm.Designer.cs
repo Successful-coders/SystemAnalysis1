@@ -33,7 +33,7 @@
             this.problemsList = new System.Windows.Forms.ListView();
             this.index = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.problemName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.quitButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -82,25 +82,25 @@
             this.problemName.Text = "Название проблемы";
             this.problemName.Width = 746;
             // 
-            // quitButton
+            // backButton
             // 
-            this.quitButton.BackColor = System.Drawing.Color.Maroon;
-            this.quitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.quitButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.quitButton.Location = new System.Drawing.Point(676, 9);
-            this.quitButton.Name = "quitButton";
-            this.quitButton.Size = new System.Drawing.Size(112, 42);
-            this.quitButton.TabIndex = 5;
-            this.quitButton.Text = "Выйти";
-            this.quitButton.UseVisualStyleBackColor = false;
-            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
+            this.backButton.BackColor = System.Drawing.Color.Gold;
+            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.backButton.Location = new System.Drawing.Point(649, 12);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(139, 31);
+            this.backButton.TabIndex = 11;
+            this.backButton.Text = "Назад";
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // ChooseProblemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.quitButton);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.problemsList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nameLabel);
@@ -118,6 +118,6 @@
         private System.Windows.Forms.ListView problemsList;
         private System.Windows.Forms.ColumnHeader index;
         private System.Windows.Forms.ColumnHeader problemName;
-        private System.Windows.Forms.Button quitButton;
+        private System.Windows.Forms.Button backButton;
     }
 }

@@ -38,7 +38,11 @@ namespace SystemAnalysis1
             experts.ForEach(expert => AddExpert(expert));
         }
 
+        public void InitMatrix(Expert expert)
+        {
 
+            expertMatrixDictionary[expert].values = new double[alternatives.Count, alternatives.Count];
+        }
         public void AddExpert(Expert expert)
         {
             experts.Add(expert);

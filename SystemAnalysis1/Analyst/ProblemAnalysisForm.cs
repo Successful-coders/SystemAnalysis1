@@ -75,7 +75,8 @@ namespace SystemAnalysis1
             }
             else
             {
-                alternative = new Alternative("", e.RowIndex + 1);
+                alternative = new Alternative("", e.RowIndex);
+                
                 problem.AddAlternative(alternative);
 
                 DataGridViewButtonCell button = alternativesGrid.Rows[e.RowIndex].Cells[alternativesGrid.Rows[e.RowIndex].Cells.Count - 1] as DataGridViewButtonCell;
@@ -193,6 +194,7 @@ namespace SystemAnalysis1
 
             foreach (DataGridViewRow item in alternativesGrid.SelectedRows)
             {
+                
                 alternativesGrid.Rows.RemoveAt(item.Index);
             }
 
@@ -253,7 +255,10 @@ namespace SystemAnalysis1
         private void sendToExpertButton_Click(object sender, EventArgs e)
         {
             problem.Status = Status.Оценивание;
-
+            for (int i = 0; i < problem.Experts.Count; i++)
+            {
+                problem.InitMatrix(problem.Experts[i]);
+            }
             MakeFormReadOnly();
         }
         private void MakeFormReadOnly()

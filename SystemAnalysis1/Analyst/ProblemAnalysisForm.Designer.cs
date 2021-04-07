@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.problemdescriptionLabel = new System.Windows.Forms.Label();
             this.problemDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
@@ -76,9 +76,9 @@
             this.saveButton.BackColor = System.Drawing.Color.Green;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.saveButton.Location = new System.Drawing.Point(12, 812);
+            this.saveButton.Location = new System.Drawing.Point(764, 11);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(1307, 49);
+            this.saveButton.Size = new System.Drawing.Size(370, 49);
             this.saveButton.TabIndex = 3;
             this.saveButton.Text = "Сохранить";
             this.saveButton.UseVisualStyleBackColor = false;
@@ -89,7 +89,7 @@
             this.backButton.BackColor = System.Drawing.Color.Gold;
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.backButton.Location = new System.Drawing.Point(13, 13);
+            this.backButton.Location = new System.Drawing.Point(1180, 12);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(139, 31);
             this.backButton.TabIndex = 4;
@@ -107,14 +107,14 @@
             this.Index,
             this.description,
             this.deleteButton});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.alternativesGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.alternativesGrid.DefaultCellStyle = dataGridViewCellStyle5;
             this.alternativesGrid.Location = new System.Drawing.Point(12, 253);
             this.alternativesGrid.MultiSelect = false;
             this.alternativesGrid.Name = "alternativesGrid";
@@ -189,14 +189,14 @@
             this.name,
             this.Competence,
             this.deleteExpertButton});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.expertsGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.expertsGrid.DefaultCellStyle = dataGridViewCellStyle6;
             this.expertsGrid.Location = new System.Drawing.Point(12, 533);
             this.expertsGrid.MultiSelect = false;
             this.expertsGrid.Name = "expertsGrid";
@@ -271,9 +271,9 @@
             this.sendToExpertButton.BackColor = System.Drawing.Color.DodgerBlue;
             this.sendToExpertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sendToExpertButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.sendToExpertButton.Location = new System.Drawing.Point(12, 757);
+            this.sendToExpertButton.Location = new System.Drawing.Point(388, 11);
             this.sendToExpertButton.Name = "sendToExpertButton";
-            this.sendToExpertButton.Size = new System.Drawing.Size(1307, 49);
+            this.sendToExpertButton.Size = new System.Drawing.Size(370, 49);
             this.sendToExpertButton.TabIndex = 18;
             this.sendToExpertButton.Text = "Отправить на оценку";
             this.sendToExpertButton.UseVisualStyleBackColor = false;
@@ -284,9 +284,9 @@
             this.analyzeButton.BackColor = System.Drawing.Color.DodgerBlue;
             this.analyzeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.analyzeButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.analyzeButton.Location = new System.Drawing.Point(12, 757);
+            this.analyzeButton.Location = new System.Drawing.Point(12, 11);
             this.analyzeButton.Name = "analyzeButton";
-            this.analyzeButton.Size = new System.Drawing.Size(1307, 49);
+            this.analyzeButton.Size = new System.Drawing.Size(370, 49);
             this.analyzeButton.TabIndex = 19;
             this.analyzeButton.Text = "Провести анализ";
             this.analyzeButton.UseVisualStyleBackColor = false;
@@ -296,7 +296,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1331, 872);
+            this.ClientSize = new System.Drawing.Size(1331, 772);
             this.Controls.Add(this.analyzeButton);
             this.Controls.Add(this.sendToExpertButton);
             this.Controls.Add(this.problemNameTextBox);

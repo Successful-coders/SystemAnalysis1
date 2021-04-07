@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.problemsLabel = new System.Windows.Forms.Label();
-            this.quitButton = new System.Windows.Forms.Button();
             this.problemsGrid = new System.Windows.Forms.DataGridView();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.backButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.problemsGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,19 +49,6 @@
             this.problemsLabel.TabIndex = 0;
             this.problemsLabel.Text = "Проблемы:";
             // 
-            // quitButton
-            // 
-            this.quitButton.BackColor = System.Drawing.Color.Maroon;
-            this.quitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.quitButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.quitButton.Location = new System.Drawing.Point(1198, 12);
-            this.quitButton.Name = "quitButton";
-            this.quitButton.Size = new System.Drawing.Size(121, 39);
-            this.quitButton.TabIndex = 4;
-            this.quitButton.Text = "Выйти";
-            this.quitButton.UseVisualStyleBackColor = false;
-            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
-            // 
             // problemsGrid
             // 
             this.problemsGrid.AllowUserToAddRows = false;
@@ -73,14 +60,14 @@
             this.name,
             this.status,
             this.deleteButton});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.problemsGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.problemsGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.problemsGrid.Location = new System.Drawing.Point(12, 65);
             this.problemsGrid.MultiSelect = false;
             this.problemsGrid.Name = "problemsGrid";
@@ -135,13 +122,26 @@
             this.deleteButton.UseColumnTextForButtonValue = true;
             this.deleteButton.Width = 75;
             // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.Gold;
+            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.backButton.Location = new System.Drawing.Point(1180, 12);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(139, 31);
+            this.backButton.TabIndex = 6;
+            this.backButton.Text = "Назад";
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // AnalystForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1331, 740);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.problemsGrid);
-            this.Controls.Add(this.quitButton);
             this.Controls.Add(this.problemsLabel);
             this.Name = "AnalystForm";
             this.Text = "Рабочее пространство аналитика";
@@ -155,11 +155,11 @@
         #endregion
 
         private System.Windows.Forms.Label problemsLabel;
-        private System.Windows.Forms.Button quitButton;
         private System.Windows.Forms.DataGridView problemsGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Index;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewButtonColumn deleteButton;
+        private System.Windows.Forms.Button backButton;
     }
 }

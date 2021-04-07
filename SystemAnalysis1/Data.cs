@@ -16,7 +16,7 @@ namespace SystemAnalysis1
                     new Alternative("Альтерантива 2", 1),
                 }, 
                 new List<Expert>() {
-                    new Expert("aa", "Компетенция 1"),
+                    new Expert("aa", "5"),
                 }),
             new Problem("Проблема перераспределения выделенного бюджета", "Описание отсутсвует", Status.Редактирование,
                 new List<Alternative>() {
@@ -25,9 +25,10 @@ namespace SystemAnalysis1
                     new Alternative("Альтерантива 3", 2),
                 },
                 new List<Expert>() {
-                    new Expert("Воронкина Дарья", "Компетенция 1"),
-                    new Expert("Кондратьев Игорь", "Компетенция 2"),
-                    new Expert("Парышков Дмитрий", "Компетенция 3"),
+                    new Expert("aa", "5"),
+                    new Expert("Воронкина Дарья", "5"),
+                    new Expert("Кондратьев Игорь", "5"),
+                    new Expert("Парышков Дмитрий", "5"),
                 }),
         };
     }

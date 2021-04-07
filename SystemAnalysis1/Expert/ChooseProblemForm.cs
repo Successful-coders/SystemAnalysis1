@@ -53,5 +53,11 @@ namespace SystemAnalysis1
         {
             Close();
         }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            Close();
+
+        }
     }
 }

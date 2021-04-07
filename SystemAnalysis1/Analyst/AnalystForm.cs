@@ -134,5 +134,10 @@ namespace SystemAnalysis1
                 RemoveSelectedProblem();
             }
         }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

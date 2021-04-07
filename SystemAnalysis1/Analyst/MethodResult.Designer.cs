@@ -34,10 +34,10 @@
             this.problemNameText = new System.Windows.Forms.Label();
             this.problemDescriptionText = new System.Windows.Forms.Label();
             this.PairComparisonList = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
             this.alternativeIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.alternativeDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.alternativeWeight = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // problemNameLabel
@@ -55,7 +55,7 @@
             this.backButton.BackColor = System.Drawing.Color.Gold;
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.backButton.Location = new System.Drawing.Point(13, 10);
+            this.backButton.Location = new System.Drawing.Point(1398, 12);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(139, 31);
             this.backButton.TabIndex = 20;
@@ -108,16 +108,6 @@
             this.PairComparisonList.UseCompatibleStateImageBehavior = false;
             this.PairComparisonList.View = System.Windows.Forms.View.Details;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 167);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 20);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Метод парных сравнений";
-            // 
             // alternativeIndex
             // 
             this.alternativeIndex.Text = "№";
@@ -132,6 +122,16 @@
             // 
             this.alternativeWeight.Text = "Вес";
             this.alternativeWeight.Width = 58;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(32, 167);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(224, 20);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Метод парных сравнений";
             // 
             // MethodResult
             // 
