@@ -12,7 +12,7 @@ namespace SystemAnalysis1
 {
     public partial class LoginForm : Form
     {
-        private KeyValuePair<string, string> loginPassword = new KeyValuePair<string, string>("0", "0");
+        private KeyValuePair<string, string> loginPassword = new KeyValuePair<string, string>("", "");
         private Form nextForm;
 
 

@@ -166,6 +166,7 @@
             this.completeButton.TabIndex = 17;
             this.completeButton.Text = "Завершить";
             this.completeButton.UseVisualStyleBackColor = false;
+            this.completeButton.Click += new System.EventHandler(this.completeButton_Click);
             // 
             // ExpertTest
             // 

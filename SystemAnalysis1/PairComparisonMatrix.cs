@@ -20,22 +20,34 @@ namespace SystemAnalysis1
         }
 
 
-        public double CalculatePreferAlternative()
+        public double CalculatePreferAlternative(int rowIndex)
         {
+            double returnedValue = 0.0d;
+
             for (int i = 0; i < size; i++)
             {
-
+                returnedValue += values[rowIndex, i];
             }
 
-            throw new NotImplementedException();
+            return returnedValue;
         }
         public double CalculateNorm()
         {
-            throw new NotImplementedException();
+            double returnedValue = 0.0d;
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    returnedValue += values[i, j];
+                }
+            }
+
+            return returnedValue;
         }
-        public double CalculateWieght()
+        public double CalculateWieght(int rowIndex)
         {
-            throw new NotImplementedException();
+            return CalculatePreferAlternative(rowIndex) / CalculateNorm();
         }
 
 
@@ -55,5 +67,8 @@ namespace SystemAnalysis1
 
             return text;
         }
+
+
+        public bool IsFull { get; set; }
     }
 }

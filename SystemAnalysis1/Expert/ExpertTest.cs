@@ -16,11 +16,11 @@ namespace SystemAnalysis1
         private PairComparisonMatrix matrix;
 
 
-        public ExpertTest(List<Alternative> alternatives)
+        public ExpertTest(List<Alternative> alternatives, PairComparisonMatrix matrix)
         {
-            InitializeComponent();
+            this.matrix = matrix;
 
-            matrix = new PairComparisonMatrix(alternatives.Count);
+            InitializeComponent();
 
             alternativePairs = InitQuestions(alternatives);
             CreatePollPanels();
@@ -29,6 +29,8 @@ namespace SystemAnalysis1
 
         private void CreatePollPanels()
         {
+            pollFlowLayoutPanel.Controls.RemoveAt(0);
+
             for (int i = 0; i < alternativePairs.Count; i++)
             {
                 PollPanel panel = new PollPanel(i, alternativePairs[i], OnAnswerButtonClicked);
@@ -103,12 +105,13 @@ namespace SystemAnalysis1
             }
         }
 
-        private void CompletePoll(object sender, EventArgs e)
-        {
-
-        }
         private void ExitButton_Click(object sender, EventArgs e)
         {
+            Close();
+        }
+        private void completeButton_Click(object sender, EventArgs e)
+        {
+            matrix.IsFull = true;
             Close();
         }
     }

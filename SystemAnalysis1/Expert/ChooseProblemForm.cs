@@ -13,35 +13,38 @@ namespace SystemAnalysis1
     public partial class ChooseProblemForm : Form
     {
         private List<Problem> problems;
+        private Expert expert;
 
-        public ChooseProblemForm(string expertName)
+        public ChooseProblemForm(Expert expert)
         {
+            this.expert = expert;
+
             InitializeComponent();
 
-            nameLabel.Text = "Эксперт: " + expertName;
+            nameLabel.Text = "Эксперт: " + expert.name;
 
-            InitProblems(expertName);
+            InitProblems(expert);
         }
 
 
-        private void InitProblems(string expertName)
+        private void InitProblems(Expert expert)
         {
             problemsList.Items.Clear();
 
-            problems = Data.problems.Where(x => x.experts.Any(y => y.name == expertName)).ToList();
+            problems = Data.problems.Where(x => x.Experts.Any(y => y == expert) && x.Status == Status.Оценивание).ToList();
 
             for (int i = 0; i < problems.Count; i++)
             {
-                problemsList.Items.Add(new ListViewItem(new string[] { (i + 1).ToString(), problems[i].name }));
+                problemsList.Items.Add(new ListViewItem(new string[] { (i + 1).ToString(), problems[i].Name }));
             }
         }
 
         private void problemsList_DoubleClick(object sender, EventArgs e)
         {
-            Problem problem = problems.FirstOrDefault(x => x.name == problemsList.SelectedItems[0].SubItems[1].Text);
+            Problem problem = problems.FirstOrDefault(x => x.Name == problemsList.SelectedItems[0].SubItems[1].Text);
 
             Hide();
-            ExpertTest expertTest = new ExpertTest(problem.alternatives);
+            ExpertTest expertTest = new ExpertTest(problem.Alternatives, problem.GetMatrix(expert));
             expertTest.Closed += (s, args) => Show();
             expertTest.Show();
         }

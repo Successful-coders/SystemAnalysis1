@@ -27,31 +27,27 @@ namespace SystemAnalysis1
         {
             InitProblemsListView(problems);
         }
-        private void addProblemButton_Click(object sender, EventArgs e)
-        {
-            problems.Add(new Problem("", ""));
-
-            Hide();
-            ProblemAnalysisForm problemAnalysisForm = new ProblemAnalysisForm(problems[problems.Count - 1]);
-            problemAnalysisForm.Closed += (s, args) => Show();
-            problemAnalysisForm.Show();
-        }
         private void removeProblemButton_Click(object sender, EventArgs e)
         {
             RemoveSelectedProblem();
         }
-        private void editProblemButton_Click(object sender, EventArgs e)
-        {
-            if (problemsGrid.SelectedRows.Count == 1)
-            {
-                Problem problem = problems[problemsGrid.SelectedRows[0].Index];
-
-                EditProblem(problem);
-            }
-        }
         private void problemsGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Problem problem = problems[e.RowIndex];
+            if (e.ColumnIndex == problemsGrid.Columns.Count - 1)
+                return;
+
+            int problemIndex = e.RowIndex;
+            Problem problem;
+
+            if (problemIndex >= problems.Count)
+            {
+                problem = new Problem();
+                problems.Add(problem);
+            }
+            else
+            {
+                problem = problems[e.RowIndex];
+            }
 
             EditProblem(problem);
         }
@@ -75,8 +71,29 @@ namespace SystemAnalysis1
 
             for (int i = 0; i < problems.Count; i++)
             {
-                problemsGrid.Rows.Add(new string[] { (i + 1).ToString(), problems[i].name, problems[i].status });
+                bool isAllMatricesFull = true;
+                foreach (var expert in problems[i].Experts)
+                {
+                    if (!problems[i].GetMatrix(expert).IsFull)
+                    {
+                        isAllMatricesFull = false;
+                        break;
+                    }
+                }
+                if (isAllMatricesFull)
+                {
+                    problems[i].Status = Status.Анализ;
+                }
+
+                problemsGrid.Rows.Add(new object[] { (i + 1).ToString(), problems[i].Name, problems[i].Status.ToString()});
+                DataGridViewButtonCell button = problemsGrid.Rows[i].Cells[problemsGrid.Rows[i].Cells.Count - 1] as DataGridViewButtonCell;
+                button.Style.ForeColor = button.Style.SelectionForeColor = Color.White;
+                button.Style.BackColor = button.Style.SelectionBackColor = Color.Red;
+                button.FlatStyle = FlatStyle.Flat;
+                button.Style.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             }
+
+            problemsGrid.Rows.Add(new string[3]);
         }
         private void EditProblem(Problem problem)
         {
@@ -87,7 +104,7 @@ namespace SystemAnalysis1
         }
         private void RemoveSelectedProblem()
         {
-            if (problemsGrid.SelectedRows.Count <= 0)
+            if (problemsGrid.SelectedRows.Count <= 0 || problemsGrid.SelectedRows[0].Index == problemsGrid.Rows.Count - 1 || problems[problemsGrid.SelectedRows[0].Index].Status == Status.Оценивание)
                 return;
 
             for (int i = 0; i < problemsGrid.SelectedRows.Count; i++)
@@ -107,6 +124,14 @@ namespace SystemAnalysis1
             for (int i = 0; i < problems.Count; i++)
             {
                 problemsGrid.Rows[i].Cells[0].Value = (i + 1).ToString();
+            }
+        }
+
+        private void problemsGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == problemsGrid.Columns["deleteButton"].Index)
+            {
+                RemoveSelectedProblem();
             }
         }
     }

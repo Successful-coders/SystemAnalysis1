@@ -8,35 +8,56 @@ namespace SystemAnalysis1
 {
     public class Problem
     {
-        public string name;
-        public string description;
-        public string status;
-        public List<Alternative> alternatives;
-        public List<Expert> experts;
-        public double weight;
-
+        private string name;
+        private string description;
+        private Status status;
+        private List<Alternative> alternatives = new List<Alternative>();
+        private List<Expert> experts = new List<Expert>();
+        private Dictionary<Expert, PairComparisonMatrix> expertMatrixDictionary = new Dictionary<Expert, PairComparisonMatrix>();
 
         public Problem()
         {
             alternatives = new List<Alternative>();
             experts = new List<Expert>();
         }
-        public Problem(string name, string status) : this()
+        public Problem(string name, Status status) : this()
         {
             this.name = name;
             this.status = status;
         }
-        public Problem(string name, string description, string status) : this(name, status)
+        public Problem(string name, string description, Status status) : this(name, status)
         {
             this.description = description;
         }
-        public Problem(string name, string description, string status, List<Alternative> alternatives) : this(name, description, status)
+        public Problem(string name, string description, Status status, List<Alternative> alternatives) : this(name, description, status)
         {
             this.alternatives = alternatives;
         }
-        public Problem(string name, string description, string status, List<Alternative> alternatives, List<Expert> experts) : this(name, description, status, alternatives)
+        public Problem(string name, string description, Status status, List<Alternative> alternatives, List<Expert> experts) : this(name, description, status, alternatives)
         {
-            this.experts = experts;
+            experts.ForEach(expert => AddExpert(expert));
         }
+
+
+        public void AddExpert(Expert expert)
+        {
+            experts.Add(expert);
+            expertMatrixDictionary.Add(expert, new PairComparisonMatrix(alternatives.Count));
+        }
+        public void AddAlternative(Alternative alternative)
+        {
+            alternatives.Add(alternative);
+        }
+        public PairComparisonMatrix GetMatrix(Expert expert)
+        {
+            return expertMatrixDictionary[expert];
+        }
+
+
+        public string Name { get => name; set => name = value; }
+        public string Description { get => description; set => description = value; }
+        public Status Status { get => status; set => status = value; }
+        public List<Alternative> Alternatives => alternatives;
+        public List<Expert> Experts => experts;
     }
 }

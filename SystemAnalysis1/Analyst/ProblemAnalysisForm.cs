@@ -21,20 +21,26 @@ namespace SystemAnalysis1
 
             this.problem = problem;
 
-            problemDescriptionTextBox.Text = problem.description;
-            problemNameTextBox.Text = problem.name;
+            problemDescriptionTextBox.Text = problem.Description;
+            problemNameTextBox.Text = problem.Name;
         }
 
 
         private void ProblemAnalysisForm_Activated(object sender, EventArgs e)
         {
-            InitAlternativeListView(problem.alternatives);
-            InitExpertsListView(problem.experts);
+            InitAlternativeListView(problem.Alternatives);
+            InitExpertsListView(problem.Experts);
+
+            if (problem.Status != Status.Редактирование)
+            {
+                MakeFormReadOnly();
+            }
+            analyzeButton.Visible = problem.Status == Status.Анализ;
         }
         private void saveButton_Click(object sender, EventArgs e)
         {
-            problem.description = problemDescriptionTextBox.Text;
-            problem.name = problemNameTextBox.Text;
+            problem.Description = problemDescriptionTextBox.Text;
+            problem.Name = problemNameTextBox.Text;
 
             Close();
         }
@@ -42,36 +48,41 @@ namespace SystemAnalysis1
         {
             Close();
         }
-        private void addAlternativeButton_Click(object sender, EventArgs e)
+        private void AddAlternative()
         {
-            Alternative newAlternative = new Alternative("Описание...", problem.alternatives.Count);
+            Alternative newAlternative = new Alternative("", problem.Alternatives.Count);
 
-            problem.alternatives.Add(newAlternative);
+            problem.AddAlternative(newAlternative);
 
-            alternativesGrid.Rows.Add(new string[] { problem.alternatives.Count.ToString(), newAlternative.description });
+            alternativesGrid.Rows.Add(new string[] { (problem.Alternatives.Count + 1).ToString(), newAlternative.description });
         }
-
-        private void removeAlternativeButton_Click(object sender, EventArgs e)
+        private void AddExpert()
         {
-            RemoveSelectedAlternatives();
-        }
-        private void addExpertButton_Click(object sender, EventArgs e)
-        {
-            Expert newExpert = new Expert("Ф.И.О.", "Компетентность..");
+            Expert newExpert = new Expert("", "");
 
-            problem.experts.Add(newExpert);
+            problem.AddExpert(newExpert);
 
-            expertsGrid.Rows.Add(new string[] { problem.experts.Count.ToString(), newExpert.name, newExpert.competence });
-        }
-        private void removeExpertsButton_Click(object sender, EventArgs e)
-        {
-            RemoveSelectedExperts();
+            expertsGrid.Rows.Add(new string[] { (problem.Experts.Count + 1).ToString(), newExpert.name, newExpert.competence });
         }
         private void alternativesGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string cellValue = (sender as DataGridView).CurrentCell.Value.ToString();
+            Alternative alternative;
 
-            Alternative alternative = problem.alternatives[e.RowIndex];
+            if (e.RowIndex < problem.Alternatives.Count)
+            {
+                alternative = problem.Alternatives[e.RowIndex];
+            }
+            else
+            {
+                alternative = new Alternative("", e.RowIndex + 1);
+                problem.AddAlternative(alternative);
+
+                DataGridViewButtonCell button = alternativesGrid.Rows[e.RowIndex].Cells[alternativesGrid.Rows[e.RowIndex].Cells.Count - 1] as DataGridViewButtonCell;
+                MakeButtonActive(button);
+
+                alternativesGrid.Rows.Add(new string[] { (problem.Alternatives.Count + 1).ToString(), "" });
+            }
 
             switch (e.ColumnIndex)
             {
@@ -89,8 +100,22 @@ namespace SystemAnalysis1
         private void expertsGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string cellValue = (sender as DataGridView).CurrentCell.Value.ToString();
+            Expert expert;
 
-            Expert expert = problem.experts[e.RowIndex];
+            if (e.RowIndex < problem.Experts.Count)
+            {
+                expert = problem.Experts[e.RowIndex];
+            }
+            else
+            {
+                expert = new Expert("", "");
+                problem.AddExpert(expert);
+
+                DataGridViewButtonCell button = expertsGrid.Rows[e.RowIndex].Cells[expertsGrid.Rows[e.RowIndex].Cells.Count - 1] as DataGridViewButtonCell;
+                MakeButtonActive(button);
+
+                expertsGrid.Rows.Add(new string[] { (problem.Experts.Count + 1).ToString(), "", "" });
+            }
 
             switch (e.ColumnIndex)
             {
@@ -128,7 +153,6 @@ namespace SystemAnalysis1
                 RemoveSelectedExperts();
             }
         }
-
         private void InitAlternativeListView(List<Alternative> alternatives)
         {
             alternativesGrid.Rows.Clear();
@@ -136,7 +160,12 @@ namespace SystemAnalysis1
             for (int i = 0; i < alternatives.Count; i++)
             {
                 alternativesGrid.Rows.Add(new string[] { (i + 1).ToString(), alternatives[i].description });
+
+                DataGridViewButtonCell button = alternativesGrid.Rows[i].Cells[alternativesGrid.Rows[i].Cells.Count - 1] as DataGridViewButtonCell;
+                MakeButtonActive(button);
             }
+
+            alternativesGrid.Rows.Add(new string[] { (problem.Alternatives.Count + 1).ToString(), "" });
         }
         private void InitExpertsListView(List<Expert> experts)
         {
@@ -145,16 +174,21 @@ namespace SystemAnalysis1
             for (int i = 0; i < experts.Count; i++)
             {
                 expertsGrid.Rows.Add(new string[] { (i + 1).ToString(), experts[i].name, experts[i].competence });
+
+                DataGridViewButtonCell button = expertsGrid.Rows[i].Cells[expertsGrid.Rows[i].Cells.Count - 1] as DataGridViewButtonCell;
+                MakeButtonActive(button);
             }
+
+            expertsGrid.Rows.Add(new string[] { (problem.Experts.Count + 1).ToString(), "", "" });
         }
         private void RemoveSelectedAlternatives()
         {
-            if (alternativesGrid.SelectedRows.Count <= 0)
+            if (alternativesGrid.SelectedRows.Count <= 0 || alternativesGrid.SelectedRows[0].Index == alternativesGrid.Rows.Count - 1 || alternativesGrid.ReadOnly)
                 return;
 
             for (int i = 0; i < alternativesGrid.SelectedRows.Count; i++)
             {
-                problem.alternatives.RemoveAt(alternativesGrid.SelectedRows[i].Index);
+                problem.Alternatives.RemoveAt(alternativesGrid.SelectedRows[i].Index);
             }
 
             foreach (DataGridViewRow item in alternativesGrid.SelectedRows)
@@ -166,12 +200,12 @@ namespace SystemAnalysis1
         }
         private void RemoveSelectedExperts()
         {
-            if (expertsGrid.SelectedRows.Count <= 0)
+            if (expertsGrid.SelectedRows.Count <= 0 || expertsGrid.SelectedRows[0].Index == expertsGrid.Rows.Count - 1 || expertsGrid.ReadOnly)
                 return;
 
             for (int i = 0; i < expertsGrid.SelectedRows.Count; i++)
             {
-                problem.experts.RemoveAt(expertsGrid.SelectedRows[i].Index);
+                problem.Experts.RemoveAt(expertsGrid.SelectedRows[i].Index);
             }
 
             foreach (DataGridViewRow item in expertsGrid.SelectedRows)
@@ -183,17 +217,61 @@ namespace SystemAnalysis1
         }
         private void SortAlternativesIndexes()
         {
-            for (int i = 0; i < problem.alternatives.Count; i++)
+            for (int i = 0; i < alternativesGrid.Rows.Count; i++)
             {
                 alternativesGrid.Rows[i].Cells[0].Value = (i + 1).ToString();
             }
         }
         private void SortExpertsIndexes()
         {
-            for (int i = 0; i < problem.experts.Count; i++)
+            for (int i = 0; i < expertsGrid.Rows.Count; i++)
             {
                 expertsGrid.Rows[i].Cells[0].Value = (i + 1).ToString();
             }
+        }
+        private void MakeButtonActive(DataGridViewButtonCell button)
+        {
+            button.Style.ForeColor = button.Style.SelectionForeColor = Color.White;
+            button.Style.BackColor = button.Style.SelectionBackColor = Color.Red;
+            button.FlatStyle = FlatStyle.Flat;
+            button.Style.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+        }
+        private void expertsGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == expertsGrid.Columns["deleteExpertButton"].Index)
+            {
+                RemoveSelectedExperts();
+            }
+        }
+        private void alternativesGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == alternativesGrid.Columns["deleteButton"].Index)
+            {
+                RemoveSelectedAlternatives();
+            }
+        }
+        private void sendToExpertButton_Click(object sender, EventArgs e)
+        {
+            problem.Status = Status.Оценивание;
+
+            MakeFormReadOnly();
+        }
+        private void MakeFormReadOnly()
+        {
+            alternativesGrid.ReadOnly = true;
+            expertsGrid.ReadOnly = true;
+            problemNameTextBox.ReadOnly = true;
+            problemDescriptionTextBox.ReadOnly = true;
+            sendToExpertButton.Visible = false;
+            saveButton.Enabled = false;
+        }
+        private void analyzeButton_Click(object sender, EventArgs e)
+        {
+            MethodResult methodResult = new MethodResult(problem);
+            methodResult.Show();
+            methodResult.Closed += (s, args) => Show();
+
+            Hide();
         }
     }
 }

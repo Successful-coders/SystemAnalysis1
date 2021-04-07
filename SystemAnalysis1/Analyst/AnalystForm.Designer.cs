@@ -30,14 +30,12 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.problemsLabel = new System.Windows.Forms.Label();
-            this.addProblemButton = new System.Windows.Forms.Button();
-            this.removeProblemButton = new System.Windows.Forms.Button();
-            this.editProblemButton = new System.Windows.Forms.Button();
             this.quitButton = new System.Windows.Forms.Button();
             this.problemsGrid = new System.Windows.Forms.DataGridView();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.problemsGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,45 +48,6 @@
             this.problemsLabel.Size = new System.Drawing.Size(151, 29);
             this.problemsLabel.TabIndex = 0;
             this.problemsLabel.Text = "Проблемы:";
-            // 
-            // addProblemButton
-            // 
-            this.addProblemButton.BackColor = System.Drawing.Color.SeaGreen;
-            this.addProblemButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addProblemButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.addProblemButton.Location = new System.Drawing.Point(12, 677);
-            this.addProblemButton.Name = "addProblemButton";
-            this.addProblemButton.Size = new System.Drawing.Size(417, 51);
-            this.addProblemButton.TabIndex = 2;
-            this.addProblemButton.Text = "Добавить проблему";
-            this.addProblemButton.UseVisualStyleBackColor = false;
-            this.addProblemButton.Click += new System.EventHandler(this.addProblemButton_Click);
-            // 
-            // removeProblemButton
-            // 
-            this.removeProblemButton.BackColor = System.Drawing.Color.Brown;
-            this.removeProblemButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeProblemButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.removeProblemButton.Location = new System.Drawing.Point(906, 677);
-            this.removeProblemButton.Name = "removeProblemButton";
-            this.removeProblemButton.Size = new System.Drawing.Size(413, 51);
-            this.removeProblemButton.TabIndex = 2;
-            this.removeProblemButton.Text = "Удалить проблему";
-            this.removeProblemButton.UseVisualStyleBackColor = false;
-            this.removeProblemButton.Click += new System.EventHandler(this.removeProblemButton_Click);
-            // 
-            // editProblemButton
-            // 
-            this.editProblemButton.BackColor = System.Drawing.Color.SteelBlue;
-            this.editProblemButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editProblemButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.editProblemButton.Location = new System.Drawing.Point(435, 677);
-            this.editProblemButton.Name = "editProblemButton";
-            this.editProblemButton.Size = new System.Drawing.Size(465, 51);
-            this.editProblemButton.TabIndex = 3;
-            this.editProblemButton.Text = "Изменить проблему";
-            this.editProblemButton.UseVisualStyleBackColor = false;
-            this.editProblemButton.Click += new System.EventHandler(this.editProblemButton_Click);
             // 
             // quitButton
             // 
@@ -112,7 +71,8 @@
             this.problemsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Index,
             this.name,
-            this.status});
+            this.status,
+            this.deleteButton});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -128,8 +88,9 @@
             this.problemsGrid.RowTemplate.Height = 30;
             this.problemsGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.problemsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.problemsGrid.Size = new System.Drawing.Size(1307, 597);
+            this.problemsGrid.Size = new System.Drawing.Size(1307, 663);
             this.problemsGrid.TabIndex = 5;
+            this.problemsGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.problemsGrid_CellClick);
             this.problemsGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.problemsGrid_CellDoubleClick);
             this.problemsGrid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.problemsGrid_KeyDown);
             // 
@@ -145,15 +106,34 @@
             // 
             // name
             // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.name.Frozen = true;
             this.name.HeaderText = "Название";
             this.name.Name = "name";
             this.name.ReadOnly = true;
+            this.name.Width = 627;
             // 
             // status
             // 
+            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.status.Frozen = true;
             this.status.HeaderText = "Статус";
             this.status.Name = "status";
             this.status.ReadOnly = true;
+            this.status.Width = 550;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteButton.Frozen = true;
+            this.deleteButton.HeaderText = "Удалить";
+            this.deleteButton.MinimumWidth = 50;
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.ReadOnly = true;
+            this.deleteButton.Text = "X";
+            this.deleteButton.UseColumnTextForButtonValue = true;
+            this.deleteButton.Width = 75;
             // 
             // AnalystForm
             // 
@@ -162,9 +142,6 @@
             this.ClientSize = new System.Drawing.Size(1331, 740);
             this.Controls.Add(this.problemsGrid);
             this.Controls.Add(this.quitButton);
-            this.Controls.Add(this.editProblemButton);
-            this.Controls.Add(this.removeProblemButton);
-            this.Controls.Add(this.addProblemButton);
             this.Controls.Add(this.problemsLabel);
             this.Name = "AnalystForm";
             this.Text = "Рабочее пространство аналитика";
@@ -178,13 +155,11 @@
         #endregion
 
         private System.Windows.Forms.Label problemsLabel;
-        private System.Windows.Forms.Button addProblemButton;
-        private System.Windows.Forms.Button removeProblemButton;
-        private System.Windows.Forms.Button editProblemButton;
         private System.Windows.Forms.Button quitButton;
         private System.Windows.Forms.DataGridView problemsGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Index;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewButtonColumn deleteButton;
     }
 }

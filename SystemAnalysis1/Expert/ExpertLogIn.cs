@@ -31,8 +31,18 @@ namespace SystemAnalysis1
         private void loginButton_Click(object sender, EventArgs e)
         {
             string expertName = nameTextBox.Text;
+            Expert expert = new Expert(expertName, "");
 
-            ChooseProblemForm chooseProblemForm = new ChooseProblemForm(expertName);
+            foreach (var problem in Data.problems)
+            {
+                expert = problem.Experts.FirstOrDefault(x => x.name == expertName);
+                if (expert != null)
+                {
+                    break;
+                }
+            }
+
+            ChooseProblemForm chooseProblemForm = new ChooseProblemForm(expert);
             chooseProblemForm.Closed += (s, args) => Show();
             chooseProblemForm.Show();
 
