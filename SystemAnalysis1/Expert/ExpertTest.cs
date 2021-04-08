@@ -14,6 +14,7 @@ namespace SystemAnalysis1
     {
         private List<Alternative[]> alternativePairs;
         private PairComparisonMatrix matrix;
+        private List<bool> isQuestionAnswereds = new List<bool>();
 
 
         public ExpertTest(List<Alternative> alternatives, PairComparisonMatrix matrix)
@@ -24,6 +25,14 @@ namespace SystemAnalysis1
 
             alternativePairs = InitQuestions(alternatives);
             CreatePollPanels();
+
+            isQuestionAnswereds = new List<bool>(alternativePairs.Count);
+            for (int i = 0; i < alternativePairs.Count; i++)
+            {
+                isQuestionAnswereds.Add(false);
+            }
+
+            completeButton.Enabled = isQuestionAnswereds.All(x => x);
         }
 
 
@@ -69,6 +78,10 @@ namespace SystemAnalysis1
                 matrix.values[primaryIndex, secondaryIndex] = 1.0d;
                 matrix.values[secondaryIndex, primaryIndex] = 0.0d;
             }
+
+            isQuestionAnswereds[questionIndex] = true;
+
+            completeButton.Enabled = isQuestionAnswereds.All(x => x);
         }
         private List<Alternative[]> InitQuestions(List<Alternative> alternatives)
         {

@@ -23,6 +23,12 @@ namespace SystemAnalysis1
 
             problemDescriptionTextBox.Text = problem.Description;
             problemNameTextBox.Text = problem.Name;
+
+            Closed += (s, args) =>
+            {
+                problem.Description = problemDescriptionTextBox.Text;
+                problem.Name = problemNameTextBox.Text;
+            };
         }
 
 
@@ -39,9 +45,6 @@ namespace SystemAnalysis1
         }
         private void saveButton_Click(object sender, EventArgs e)
         {
-            problem.Description = problemDescriptionTextBox.Text;
-            problem.Name = problemNameTextBox.Text;
-
             Close();
         }
         private void backButton_Click(object sender, EventArgs e)
