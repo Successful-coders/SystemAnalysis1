@@ -16,6 +16,7 @@ namespace SystemAnalysis1
         private List<Expert> experts = new List<Expert>();
         [JsonPropertyAttribute] private Dictionary<Expert, PairComparisonMatrix> expertMatrixDictionary = new Dictionary<Expert, PairComparisonMatrix>();
 
+
         public Problem()
         {
             alternatives = new List<Alternative>();
@@ -39,11 +40,7 @@ namespace SystemAnalysis1
             experts.ForEach(expert => AddExpert(expert));
         }
 
-        public void InitMatrix(Expert expert)
-        {
 
-            expertMatrixDictionary[expert].values = new double[alternatives.Count, alternatives.Count];
-        }
         public void AddExpert(Expert expert)
         {
             experts.Add(expert);
@@ -55,7 +52,24 @@ namespace SystemAnalysis1
         }
         public PairComparisonMatrix GetMatrix(Expert expert)
         {
-            return expertMatrixDictionary[expert];
+            if (expertMatrixDictionary.ContainsKey(expert))
+            {
+                return expertMatrixDictionary[expert];
+            }
+            else
+            {
+                AddExpert(expert);
+                return GetMatrix(expert);
+            }
+        }
+        public void InitMatrix(Expert expert)
+        {
+            if (!expertMatrixDictionary.ContainsKey(expert))
+            {
+                AddExpert(expert);
+            }
+
+            expertMatrixDictionary[expert] = new PairComparisonMatrix(alternatives.Count);
         }
 
 

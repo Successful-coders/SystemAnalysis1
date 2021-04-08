@@ -124,8 +124,16 @@ namespace SystemAnalysis1
         }
         private void completeButton_Click(object sender, EventArgs e)
         {
-            matrix.IsFull = true;
-            Close();
+            var result = MessageBox.Show("Вы уверены, что хотите завершить оценку?", "Заверешение оценки", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                matrix.IsFull = true;
+                Close();
+            }
+            else
+            {
+                
+            }
         }
     }
 }
