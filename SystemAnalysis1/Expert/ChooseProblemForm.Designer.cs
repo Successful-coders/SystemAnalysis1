@@ -75,12 +75,12 @@
             // index
             // 
             this.index.Text = "№";
-            this.index.Width = 25;
+            this.index.Width = 34;
             // 
             // problemName
             // 
             this.problemName.Text = "Название проблемы";
-            this.problemName.Width = 746;
+            this.problemName.Width = 737;
             // 
             // backButton
             // 
@@ -106,6 +106,7 @@
             this.Controls.Add(this.nameLabel);
             this.Name = "ChooseProblemForm";
             this.Text = "Выбор проблемы";
+            this.Activated += new System.EventHandler(this.ChooseProblemForm_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
 
