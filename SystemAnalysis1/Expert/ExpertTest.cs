@@ -29,7 +29,14 @@ namespace SystemAnalysis1
             isQuestionAnswereds = new List<bool>(alternativePairs.Count);
             for (int i = 0; i < alternativePairs.Count; i++)
             {
-                isQuestionAnswereds.Add(false);
+                if (Math.Abs(matrix.values[alternativePairs[i][0].index, alternativePairs[i][1].index]) < 0.01d)
+                {
+                    isQuestionAnswereds.Add(false);
+                }
+                else
+                {
+                    isQuestionAnswereds.Add(true);
+                }
             }
 
             completeButton.Enabled = isQuestionAnswereds.All(x => x);
@@ -42,7 +49,7 @@ namespace SystemAnalysis1
 
             for (int i = 0; i < alternativePairs.Count; i++)
             {
-                PollPanel panel = new PollPanel(i, alternativePairs[i], OnAnswerButtonClicked);
+                PollPanel panel = new PollPanel(i, alternativePairs[i], OnAnswerButtonClicked, matrix);
                 panel.Location = new Point(10 * i, 10 * i);
 
                 pollFlowLayoutPanel.Controls.Add(panel);
@@ -117,7 +124,6 @@ namespace SystemAnalysis1
                 ++i;
             }
         }
-
         private void ExitButton_Click(object sender, EventArgs e)
         {
             Close();

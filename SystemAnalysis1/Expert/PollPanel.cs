@@ -92,6 +92,32 @@ namespace SystemAnalysis1
             Controls.Add(answerButton);
             Controls.Add(questionLabel);
         }
+        public PollPanel(int index, Alternative[] alternativePair, AnswerButton.OnClickedHandler clickedHandler, PairComparisonMatrix matrix)
+            : this(index, alternativePair, clickedHandler)
+        {
+            answerButton.Enabled = false;
+            BackColor = answeredColor;
+
+            if (Math.Abs(matrix.values[alternativePair[0].index, alternativePair[1].index] - 1.0d) < 0.01)
+            {
+                answersCheckedListBox.SetItemChecked(0, true);
+            }
+            else if (Math.Abs(matrix.values[alternativePair[1].index, alternativePair[0].index] - 1.0d) < 0.01)
+            {
+                answersCheckedListBox.SetItemChecked(1, true);
+            }
+            else if (Math.Abs(matrix.values[alternativePair[0].index, alternativePair[1].index] - 0.5d) < 0.01
+                && Math.Abs(matrix.values[alternativePair[1].index, alternativePair[0].index] - 0.5d) < 0.01)
+            {
+                answersCheckedListBox.SetItemChecked(0, true);
+                answersCheckedListBox.SetItemChecked(1, true);
+            }
+            else
+            {
+                answerButton.Enabled = true;
+                BackColor = defaultColor;
+            }
+        }
 
 
         private void answersCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)

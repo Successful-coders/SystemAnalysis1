@@ -53,7 +53,12 @@ namespace SystemAnalysis1
         }
         private void alternativesGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            string cellValue = (sender as DataGridView).CurrentCell.Value.ToString();
+            object valueObject = (sender as DataGridView).CurrentCell.Value;
+            string cellValue = "";
+            if (valueObject != null)
+            {
+                cellValue = (sender as DataGridView).CurrentCell.Value.ToString();
+            }
             Alternative alternative;
 
             if (e.RowIndex < problem.Alternatives.Count)

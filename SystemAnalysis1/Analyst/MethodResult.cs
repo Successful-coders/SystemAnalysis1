@@ -31,10 +31,10 @@ namespace SystemAnalysis1
             FillMethodList(pairComparisonList);
             pairComparisonList.SetGroupState(ListViewGroupState.Collapsible);
 
-            var method2List = CreateMethodList();
-            method2List.Location = new Point(pairComparisonList.Location.X + listOffset, pairComparisonList.Location.Y);
-            FillMethodList(method2List);
-            method2List.SetGroupState(ListViewGroupState.Collapsible);
+            //var method2List = CreateMethodList();
+            //method2List.Location = new Point(pairComparisonList.Location.X + listOffset, pairComparisonList.Location.Y);
+            //FillMethodList(method2List);
+            //method2List.SetGroupState(ListViewGroupState.Collapsible);
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace SystemAnalysis1
             listViewExtended.HideSelection = false;
             listViewExtended.Location = new System.Drawing.Point(16, 190);
             listViewExtended.Name = "PairComparisonList";
-            listViewExtended.Size = new System.Drawing.Size(271, 436);
+            listViewExtended.Size = new System.Drawing.Size(532, 436);
             listViewExtended.TabIndex = 24;
             listViewExtended.UseCompatibleStateImageBehavior = false;
             listViewExtended.View = System.Windows.Forms.View.Details;
@@ -105,13 +105,13 @@ namespace SystemAnalysis1
             // 
             ColumnHeader alternativeDescription = new ColumnHeader();
             alternativeDescription.Text = "Альтерантива";
-            alternativeDescription.Width = 176;
+            alternativeDescription.Width = 400;
             // 
             // alternativeWeight
             // 
             ColumnHeader alternativeWeight = new ColumnHeader();
             alternativeWeight.Text = "Вес";
-            alternativeWeight.Width = 58;
+            alternativeWeight.Width = 100;
 
             listViewExtended.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             alternativeIndex,

@@ -101,9 +101,9 @@
             this.alternativeWeight});
             this.PairComparisonList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PairComparisonList.HideSelection = false;
-            this.PairComparisonList.Location = new System.Drawing.Point(16, 190);
+            this.PairComparisonList.Location = new System.Drawing.Point(36, 190);
             this.PairComparisonList.Name = "PairComparisonList";
-            this.PairComparisonList.Size = new System.Drawing.Size(271, 436);
+            this.PairComparisonList.Size = new System.Drawing.Size(352, 436);
             this.PairComparisonList.TabIndex = 24;
             this.PairComparisonList.UseCompatibleStateImageBehavior = false;
             this.PairComparisonList.View = System.Windows.Forms.View.Details;
@@ -117,12 +117,12 @@
             // alternativeDescription
             // 
             this.alternativeDescription.Text = "Альтерантива";
-            this.alternativeDescription.Width = 176;
+            this.alternativeDescription.Width = 238;
             // 
             // alternativeWeight
             // 
             this.alternativeWeight.Text = "Вес";
-            this.alternativeWeight.Width = 58;
+            this.alternativeWeight.Width = 164;
             // 
             // label1
             // 

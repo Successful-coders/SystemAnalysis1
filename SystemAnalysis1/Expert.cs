@@ -34,7 +34,7 @@ namespace SystemAnalysis1
             }
             else
             {
-                return name == other.name/* && competence == other.competence*/;
+                return name == other.name && competence == other.competence;
             }
         }
         public override bool Equals(object other)
@@ -54,7 +54,7 @@ namespace SystemAnalysis1
         }
         public override int GetHashCode()
         {
-            return name.Length/* * competence*/;
+            return name.Length * competence;
         }
 
         public static bool operator ==(Expert expert0, Expert expert1)
