@@ -48,16 +48,9 @@ namespace SystemAnalysis1
             expertTest.Closed += (s, args) => Show();
             expertTest.Show();
         }
-
-        private void quitButton_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void backButton_Click(object sender, EventArgs e)
         {
             Close();
-
         }
     }
 }

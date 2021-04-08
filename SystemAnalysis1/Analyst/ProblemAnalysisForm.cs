@@ -48,22 +48,6 @@ namespace SystemAnalysis1
         {
             Close();
         }
-        private void AddAlternative()
-        {
-            Alternative newAlternative = new Alternative("", problem.Alternatives.Count);
-
-            problem.AddAlternative(newAlternative);
-
-            alternativesGrid.Rows.Add(new string[] { (problem.Alternatives.Count + 1).ToString(), newAlternative.description });
-        }
-        private void AddExpert()
-        {
-            Expert newExpert = new Expert("", "");
-
-            problem.AddExpert(newExpert);
-
-            expertsGrid.Rows.Add(new string[] { (problem.Experts.Count + 1).ToString(), newExpert.name, newExpert.competence });
-        }
         private void alternativesGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string cellValue = (sender as DataGridView).CurrentCell.Value.ToString();
@@ -109,7 +93,7 @@ namespace SystemAnalysis1
             }
             else
             {
-                expert = new Expert("", "");
+                expert = new Expert("", 0);
                 problem.AddExpert(expert);
 
                 DataGridViewButtonCell button = expertsGrid.Rows[e.RowIndex].Cells[expertsGrid.Rows[e.RowIndex].Cells.Count - 1] as DataGridViewButtonCell;
@@ -127,7 +111,7 @@ namespace SystemAnalysis1
                     }
                 case 2:
                     {
-                        expert.competence = cellValue;
+                        expert.competence = int.Parse(cellValue);
                         break;
                     }
                 default:
@@ -174,7 +158,7 @@ namespace SystemAnalysis1
 
             for (int i = 0; i < experts.Count; i++)
             {
-                expertsGrid.Rows.Add(new string[] { (i + 1).ToString(), experts[i].name, experts[i].competence });
+                expertsGrid.Rows.Add(new string[] { (i + 1).ToString(), experts[i].name, experts[i].competence.ToString() });
 
                 DataGridViewButtonCell button = expertsGrid.Rows[i].Cells[expertsGrid.Rows[i].Cells.Count - 1] as DataGridViewButtonCell;
                 MakeButtonActive(button);

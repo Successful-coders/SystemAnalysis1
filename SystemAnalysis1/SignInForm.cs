@@ -15,8 +15,19 @@ namespace SystemAnalysis1
         public SignInForm()
         {
             InitializeComponent();
+
+            FormClosing += OnFormClose;
+            Load += OnFormLoad;
         }
 
+        private void OnFormClose(object sender, FormClosingEventArgs e)
+        {
+            Data.Save();
+        }
+        private void OnFormLoad(object sender, EventArgs e)
+        {
+            Data.Load();
+        }
 
         private void SignExpertButton_Click(object sender, EventArgs e)
         {

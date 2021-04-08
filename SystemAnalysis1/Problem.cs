@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace SystemAnalysis1
         private Status status;
         private List<Alternative> alternatives = new List<Alternative>();
         private List<Expert> experts = new List<Expert>();
-        private Dictionary<Expert, PairComparisonMatrix> expertMatrixDictionary = new Dictionary<Expert, PairComparisonMatrix>();
+        [JsonPropertyAttribute] private Dictionary<Expert, PairComparisonMatrix> expertMatrixDictionary = new Dictionary<Expert, PairComparisonMatrix>();
 
         public Problem()
         {

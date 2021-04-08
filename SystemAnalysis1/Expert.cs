@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace SystemAnalysis1
 {
+    [TypeConverter(typeof(ExpertConverter))]
     public class Expert : IEquatable<Expert>
     {
         public string name;
-        public string competence;
+        public int competence;
 
 
-        public Expert(string name, string competence)
+        public Expert(string name, int competence)
         {
             this.name = name;
             this.competence = competence;
@@ -33,6 +36,25 @@ namespace SystemAnalysis1
             {
                 return name == other.name && competence == other.competence;
             }
+        }
+        public override bool Equals(object other)
+        {
+            if (other.GetType() == typeof(Expert))
+            {
+                return Equals(other);
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public override string ToString()
+        {
+            return $"{name};{competence}";
+        }
+        public override int GetHashCode()
+        {
+            return name.Length * competence;
         }
 
         public static bool operator ==(Expert expert0, Expert expert1)
