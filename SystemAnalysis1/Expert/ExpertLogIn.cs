@@ -31,7 +31,7 @@ namespace SystemAnalysis1
         private void loginButton_Click(object sender, EventArgs e)
         {
             string expertName = nameTextBox.Text;
-            Expert expert = new Expert(expertName, 0);
+            Expert expert = null;
 
             foreach (var problem in Data.problems)
             {
@@ -40,6 +40,11 @@ namespace SystemAnalysis1
                 {
                     break;
                 }
+            }
+
+            if (expert == null)
+            {
+                expert = new Expert(expertName, 0);
             }
 
             ChooseProblemForm chooseProblemForm = new ChooseProblemForm(expert);

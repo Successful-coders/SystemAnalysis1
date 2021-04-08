@@ -107,6 +107,7 @@
             this.PairComparisonList.TabIndex = 24;
             this.PairComparisonList.UseCompatibleStateImageBehavior = false;
             this.PairComparisonList.View = System.Windows.Forms.View.Details;
+            this.PairComparisonList.Visible = false;
             // 
             // alternativeIndex
             // 
