@@ -28,13 +28,13 @@ namespace SystemAnalysis1
             int listOffset = 300;
 
             var pairComparisonList = CreateMethodList();
-            FillMethodList(pairComparisonList);
-            pairComparisonList.SetGroupState(ListViewGroupState.Collapsible);
+            //FillMethodList(pairComparisonList);
+            //pairComparisonList.SetGroupState(ListViewGroupState.Collapsible);
 
-            //var method2List = CreateMethodList();
-            //method2List.Location = new Point(pairComparisonList.Location.X + listOffset, pairComparisonList.Location.Y);
-            //FillMethodList(method2List);
-            //method2List.SetGroupState(ListViewGroupState.Collapsible);
+            var method2List = CreateMethodList();
+            method2List.Location = new Point(pairComparisonList.Location.X + listOffset, pairComparisonList.Location.Y);
+            FillSecondMethod(method2List);
+            method2List.SetGroupState(ListViewGroupState.Collapsible);
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -57,6 +57,8 @@ namespace SystemAnalysis1
 
             return sorter;
         }
+
+
         private void FillMethodList(ListView list)
         {
             for (int i = 0; i < problem.Experts.Count; i++)
@@ -79,6 +81,56 @@ namespace SystemAnalysis1
                 }
             }
         }
+        //--------------------лаба 2
+        private double CalculateRNorm()
+        {
+            double R = 0.0d;
+            for (int i = 0; i < problem.Experts.Count; i++)
+            {
+                R += problem.Experts[i].competence;
+            }
+            return R;
+        }
+        private double CalculateS(int index)
+        {
+            double S = 0.0d, R=0.0d;
+            R = CalculateRNorm();
+            S = problem.Experts[index].competence / R;
+            return S;
+        }
+
+        private double CalculateV(int i, int j)
+        {
+            double V = 0.0d;
+
+            V += problem.GetMatrix(problem.Experts[j]).CalculateWieghtSecondMethod(j, CalculateS(i));
+
+            return V;
+        }
+        //--------------------
+        private void FillSecondMethod(ListView list)
+        {
+            for (int i = 0; i < problem.Experts.Count; i++)
+            {
+
+                for (int j = 0; j < problem.Alternatives.Count; j++)
+                {
+
+                    list.Items.Add(new ListViewItem(
+                        new string[] {(problem.Alternatives[j].index + 1).ToString(),
+                            problem.Alternatives[j].description,
+                            CalculateV(i,j).ToString()
+                        },
+                        list.Groups[j]));//ТУТ ВЫВОДИТСЯ ЧТО ТО НЕ ТАК ХЗ)))
+
+                    ListViewItemComparer sorter = GetListViewSorter(list.Columns.Count - 1, SortOrder.Descending);
+                    list.ListViewItemSorter = sorter;
+                    list.Sort();
+                }
+            }
+
+        }
+
         private ListViewExtended CreateMethodList()
         {
             ListViewExtended listViewExtended = new ListViewExtended();

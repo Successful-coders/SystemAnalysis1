@@ -78,5 +78,6 @@ namespace SystemAnalysis1
         public Status Status { get => status; set => status = value; }
         public List<Alternative> Alternatives => alternatives;
         public List<Expert> Experts => experts;
+        public Dictionary<Expert, PairComparisonMatrix> expertMatrix => expertMatrix;
     }
 }

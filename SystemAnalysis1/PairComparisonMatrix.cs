@@ -68,6 +68,17 @@ namespace SystemAnalysis1
             return text;
         }
 
+        public double CalculateWieghtSecondMethod(int columnIndex, double S)
+        {
+            double returnedValue = 0.0d;
+
+            for (int i = 0; i < size; i++)
+            {
+                returnedValue += values[i, columnIndex];
+            }
+
+            return returnedValue*S;
+        }
 
         public bool IsFull { get; set; }
     }
