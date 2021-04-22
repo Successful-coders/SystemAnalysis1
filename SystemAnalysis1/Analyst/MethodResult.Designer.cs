@@ -38,6 +38,11 @@
             this.alternativeDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.alternativeWeight = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
+            this.method2LIstView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.method2Label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // problemNameLabel
@@ -134,11 +139,53 @@
             this.label1.TabIndex = 29;
             this.label1.Text = "Метод парных сравнений";
             // 
+            // method2LIstView
+            // 
+            this.method2LIstView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.method2LIstView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.method2LIstView.HideSelection = false;
+            this.method2LIstView.Location = new System.Drawing.Point(791, 190);
+            this.method2LIstView.Name = "method2LIstView";
+            this.method2LIstView.Size = new System.Drawing.Size(352, 436);
+            this.method2LIstView.TabIndex = 30;
+            this.method2LIstView.UseCompatibleStateImageBehavior = false;
+            this.method2LIstView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "№";
+            this.columnHeader1.Width = 32;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Альтерантива";
+            this.columnHeader2.Width = 245;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Вес";
+            this.columnHeader3.Width = 70;
+            // 
+            // method2Label
+            // 
+            this.method2Label.AutoSize = true;
+            this.method2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.method2Label.Location = new System.Drawing.Point(787, 167);
+            this.method2Label.Name = "method2Label";
+            this.method2Label.Size = new System.Drawing.Size(130, 20);
+            this.method2Label.TabIndex = 31;
+            this.method2Label.Text = "Второй метод";
+            // 
             // MethodResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1549, 638);
+            this.Controls.Add(this.method2Label);
+            this.Controls.Add(this.method2LIstView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PairComparisonList);
             this.Controls.Add(this.problemDescriptionText);
@@ -165,5 +212,10 @@
         private System.Windows.Forms.ColumnHeader alternativeIndex;
         private System.Windows.Forms.ColumnHeader alternativeDescription;
         private System.Windows.Forms.ColumnHeader alternativeWeight;
+        private System.Windows.Forms.ListView method2LIstView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.Label method2Label;
     }
 }

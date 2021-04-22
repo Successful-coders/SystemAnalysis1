@@ -25,16 +25,11 @@ namespace SystemAnalysis1
             problemDescriptionText.Text = problem.Description;
 
 
-            int listOffset = 300;
-
             var pairComparisonList = CreateMethodList();
-            //FillMethodList(pairComparisonList);
-            //pairComparisonList.SetGroupState(ListViewGroupState.Collapsible);
+            FillMethodList(pairComparisonList);
+            pairComparisonList.SetGroupState(ListViewGroupState.Collapsible);
 
-            var method2List = CreateMethodList();
-            method2List.Location = new Point(pairComparisonList.Location.X + listOffset, pairComparisonList.Location.Y);
-            FillSecondMethod(method2List);
-            method2List.SetGroupState(ListViewGroupState.Collapsible);
+            FillSecondMethod(method2LIstView);
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -65,13 +60,16 @@ namespace SystemAnalysis1
             {
                 list.Groups.Add(new ListViewGroup(problem.Experts[i].name));
 
+                Matrix matrix = problem.GetMatrix(problem.Experts[i]);
+                PairComparisonMethod pairComparisonMethod = new PairComparisonMethod(matrix);
+
                 for (int j = 0; j < problem.Alternatives.Count; j++)
                 {
                     list.Items.Add(new ListViewItem(
                         new string[] {
                             (problem.Alternatives[j].index + 1).ToString(),
                             problem.Alternatives[j].description,
-                            problem.GetMatrix(problem.Experts[i]).CalculateWieght(j).ToString()
+                            pairComparisonMethod.CalculateWieght(j).ToString()
                         },
                         list.Groups[i]));
 
@@ -81,54 +79,38 @@ namespace SystemAnalysis1
                 }
             }
         }
-        //--------------------лаба 2
-        private double CalculateRNorm()
-        {
-            double R = 0.0d;
-            for (int i = 0; i < problem.Experts.Count; i++)
-            {
-                R += problem.Experts[i].competence;
-            }
-            return R;
-        }
-        private double CalculateS(int index)
-        {
-            double S = 0.0d, R=0.0d;
-            R = CalculateRNorm();
-            S = problem.Experts[index].competence / R;
-            return S;
-        }
-
-        private double CalculateV(int i, int j)
-        {
-            double V = 0.0d;
-
-            V += problem.GetMatrix(problem.Experts[j]).CalculateWieghtSecondMethod(j, CalculateS(i));
-
-            return V;
-        }
-        //--------------------
         private void FillSecondMethod(ListView list)
         {
+            Matrix matrix2Method = new Matrix(problem.Experts.Count, problem.Alternatives.Count);
+
             for (int i = 0; i < problem.Experts.Count; i++)
             {
+                Matrix matrix = problem.GetMatrix(problem.Experts[i]);
+                PairComparisonMethod pairComparisonMethod = new PairComparisonMethod(matrix);
 
                 for (int j = 0; j < problem.Alternatives.Count; j++)
                 {
-
-                    list.Items.Add(new ListViewItem(
-                        new string[] {(problem.Alternatives[j].index + 1).ToString(),
-                            problem.Alternatives[j].description,
-                            CalculateV(i,j).ToString()
-                        },
-                        list.Groups[j]));//ТУТ ВЫВОДИТСЯ ЧТО ТО НЕ ТАК ХЗ)))
-
-                    ListViewItemComparer sorter = GetListViewSorter(list.Columns.Count - 1, SortOrder.Descending);
-                    list.ListViewItemSorter = sorter;
-                    list.Sort();
+                    matrix2Method.values[i, j] = pairComparisonMethod.CalculateWieght(j);
                 }
             }
 
+
+            ExpertEstimationsMethod expertEstimationsMethod = new ExpertEstimationsMethod(matrix2Method, problem.Experts);
+            var weights = expertEstimationsMethod.CalculateWeight();
+
+            for (int i = 0; i < problem.Alternatives.Count; i++)
+            {
+                list.Items.Add(new ListViewItem(
+                    new string[] {
+                                (i + 1).ToString(),
+                                problem.Alternatives[i].description,
+                                weights[i].ToString(),
+                    }));
+            }
+
+            ListViewItemComparer sorter = GetListViewSorter(list.Columns.Count - 1, SortOrder.Descending);
+            list.ListViewItemSorter = sorter;
+            list.Sort();
         }
 
         private ListViewExtended CreateMethodList()

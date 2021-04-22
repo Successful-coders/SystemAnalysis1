@@ -13,11 +13,11 @@ namespace SystemAnalysis1
     public partial class ExpertTest : Form
     {
         private List<Alternative[]> alternativePairs;
-        private PairComparisonMatrix matrix;
+        private Matrix matrix;
         private List<bool> isQuestionAnswereds = new List<bool>();
 
 
-        public ExpertTest(List<Alternative> alternatives, PairComparisonMatrix matrix)
+        public ExpertTest(List<Alternative> alternatives, Matrix matrix)
         {
             this.matrix = matrix;
 

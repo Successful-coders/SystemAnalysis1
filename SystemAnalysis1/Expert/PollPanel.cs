@@ -92,7 +92,7 @@ namespace SystemAnalysis1
             Controls.Add(answerButton);
             Controls.Add(questionLabel);
         }
-        public PollPanel(int index, Alternative[] alternativePair, AnswerButton.OnClickedHandler clickedHandler, PairComparisonMatrix matrix)
+        public PollPanel(int index, Alternative[] alternativePair, AnswerButton.OnClickedHandler clickedHandler, Matrix matrix)
             : this(index, alternativePair, clickedHandler)
         {
             answerButton.Enabled = false;

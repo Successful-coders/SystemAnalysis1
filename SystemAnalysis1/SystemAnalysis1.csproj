@@ -138,6 +138,7 @@
     <Compile Include="Data.cs" />
     <Compile Include="Expert.cs" />
     <Compile Include="ExpertConverter.cs" />
+    <Compile Include="ExpertEstimationsMethod.cs" />
     <Compile Include="Expert\ChooseProblemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,7 +170,8 @@
     <Compile Include="LIstViewExtended.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="PairComparisonMatrix.cs" />
+    <Compile Include="Matrix.cs" />
+    <Compile Include="PairComparisonMethod.cs" />
     <Compile Include="Problem.cs" />
     <Compile Include="Analyst\ProblemAnalysisForm.cs">
       <SubType>Form</SubType>

@@ -14,7 +14,7 @@ namespace SystemAnalysis1
         private Status status;
         private List<Alternative> alternatives = new List<Alternative>();
         private List<Expert> experts = new List<Expert>();
-        [JsonPropertyAttribute] private Dictionary<Expert, PairComparisonMatrix> expertMatrixDictionary = new Dictionary<Expert, PairComparisonMatrix>();
+        [JsonPropertyAttribute] private Dictionary<Expert, Matrix> expertMatrixDictionary = new Dictionary<Expert, Matrix>();
 
 
         public Problem()
@@ -44,13 +44,13 @@ namespace SystemAnalysis1
         public void AddExpert(Expert expert)
         {
             experts.Add(expert);
-            expertMatrixDictionary.Add(expert, new PairComparisonMatrix(alternatives.Count));
+            expertMatrixDictionary.Add(expert, new Matrix(alternatives.Count, alternatives.Count));
         }
         public void AddAlternative(Alternative alternative)
         {
             alternatives.Add(alternative);
         }
-        public PairComparisonMatrix GetMatrix(Expert expert)
+        public Matrix GetMatrix(Expert expert)
         {
             if (expertMatrixDictionary.ContainsKey(expert))
             {
@@ -69,7 +69,7 @@ namespace SystemAnalysis1
                 AddExpert(expert);
             }
 
-            expertMatrixDictionary[expert] = new PairComparisonMatrix(alternatives.Count);
+            expertMatrixDictionary[expert] = new Matrix(alternatives.Count, alternatives.Count);
         }
 
 
@@ -78,6 +78,5 @@ namespace SystemAnalysis1
         public Status Status { get => status; set => status = value; }
         public List<Alternative> Alternatives => alternatives;
         public List<Expert> Experts => experts;
-        public Dictionary<Expert, PairComparisonMatrix> expertMatrix => expertMatrix;
     }
 }
