@@ -95,7 +95,7 @@ namespace SystemAnalysis1
             }
 
 
-            ExpertEstimationsMethod expertEstimationsMethod = new ExpertEstimationsMethod(matrix2Method, problem.Experts);
+            RangMethod expertEstimationsMethod = new RangMethod(matrix2Method, problem.Experts);
             var weights = expertEstimationsMethod.CalculateWeight();
 
             for (int i = 0; i < problem.Alternatives.Count; i++)
