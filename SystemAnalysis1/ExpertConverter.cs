@@ -21,7 +21,7 @@ namespace SystemAnalysis1
             if (value is string)
             {
                 string stringValue = value as string;
-                return new Expert(stringValue.Substring(0, stringValue.IndexOf(';')), int.Parse(stringValue.Substring(stringValue.IndexOf(';') + 1)));
+                return new Expert(stringValue.Substring(0, stringValue.IndexOf(';')), double.Parse(stringValue.Substring(stringValue.IndexOf(';') + 1)));
             }
             return base.ConvertFrom(context, culture, value);
         }

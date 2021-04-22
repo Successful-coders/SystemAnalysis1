@@ -12,19 +12,21 @@ namespace SystemAnalysis1
     {
         private Label indexLabel;
         private CheckedListBox answersCheckedListBox;
-        private AnswerButton answerButton;
         private Label questionLabel;
 
         private Color defaultColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
         private Color answeredColor = Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
 
+        public delegate void OnClickedHandler(int questionIndex, int[] indexes, int checkedIndicesCount, int checkedAnswerIndex);
+        public event OnClickedHandler OnAnswerClick;
 
-        public PollPanel(int index, Alternative[] alternativePair, AnswerButton.OnClickedHandler clickedHandler) : base()
+
+        public PollPanel(int index, Alternative[] alternativePair, OnClickedHandler clickedHandler) : base()
         {
             BackColor = defaultColor;
             Location = new Point(3, 3);
             Name = "pollPanel";
-            Size = new Size(759, 183);
+            Size = new Size(759, 125);
             TabIndex = 14;
             // 
             // indexLabel
@@ -49,32 +51,26 @@ namespace SystemAnalysis1
             answersCheckedListBox.Size = new Size(752, 52);
             answersCheckedListBox.TabIndex = 13;
             answersCheckedListBox.CheckOnClick = true;
-            answersCheckedListBox.ItemCheck += new ItemCheckEventHandler(answersCheckedListBox_ItemCheck);
+            answersCheckedListBox.ItemCheck += (sender, e) =>
+            {
+                BackColor = answeredColor;
+                int checkedIndicesCount = answersCheckedListBox.CheckedItems.Count;
+                if (e.NewValue == CheckState.Unchecked)
+                {
+                    checkedIndicesCount--;
+                }
+                else if (e.NewValue == CheckState.Checked)
+                {
+                    checkedIndicesCount++;
+                }
+
+                clickedHandler?.Invoke(index, new int[] { alternativePair[0].index, alternativePair[1].index }, checkedIndicesCount, e.Index);
+            };
             answersCheckedListBox.Items.Clear();
             for (int j = 0; j < alternativePair.Length; j++)
             {
                 answersCheckedListBox.Items.Add(alternativePair[j].description);
             }
-            // 
-            // answerButton
-            // 
-            answerButton = new AnswerButton(index, new int[] { alternativePair[0].index, alternativePair[1].index});
-            answerButton.BackColor = Color.Chocolate;
-            answerButton.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
-            answerButton.ForeColor = SystemColors.Control;
-            answerButton.Location = new Point(3, 108);
-            answerButton.Name = "answerButton";
-            answerButton.Size = new Size(752, 42);
-            answerButton.TabIndex = 9;
-            answerButton.Tag = "1";
-            answerButton.Text = "Ответить";
-            answerButton.UseVisualStyleBackColor = false;
-            answerButton.Enabled = answersCheckedListBox.CheckedItems.Count != 0;
-            answerButton.OnAnswerClick += (int questionIndex, int[] indexes) =>
-            {
-                BackColor = answeredColor;
-                clickedHandler?.Invoke(questionIndex, indexes);
-            };
             // 
             // questionLabel
             // 
@@ -89,13 +85,11 @@ namespace SystemAnalysis1
             //
             Controls.Add(indexLabel);
             Controls.Add(answersCheckedListBox);
-            Controls.Add(answerButton);
             Controls.Add(questionLabel);
         }
-        public PollPanel(int index, Alternative[] alternativePair, AnswerButton.OnClickedHandler clickedHandler, Matrix matrix)
+        public PollPanel(int index, Alternative[] alternativePair, OnClickedHandler clickedHandler, Matrix matrix)
             : this(index, alternativePair, clickedHandler)
         {
-            answerButton.Enabled = false;
             BackColor = answeredColor;
 
             if (Math.Abs(matrix.values[alternativePair[0].index, alternativePair[1].index] - 1.0d) < 0.01)
@@ -114,7 +108,6 @@ namespace SystemAnalysis1
             }
             else
             {
-                answerButton.Enabled = true;
                 BackColor = defaultColor;
             }
         }
@@ -125,7 +118,6 @@ namespace SystemAnalysis1
             answersCheckedListBox.ClearSelected();
 
             bool isListEmpty = answersCheckedListBox.CheckedItems.Count == 1 && e.NewValue == CheckState.Unchecked;
-            answerButton.Enabled = !isListEmpty;
         }
     }
 }

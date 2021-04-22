@@ -42,6 +42,11 @@ namespace SystemAnalysis1
                 MakeFormReadOnly();
             }
             analyzeButton.Visible = problem.Status == Status.Анализ;
+
+            if (problem.Status != Status.Редактирование)
+            {
+                MakeButtonsDisable();
+            }
         }
         private void saveButton_Click(object sender, EventArgs e)
         {
@@ -101,7 +106,7 @@ namespace SystemAnalysis1
             }
             else
             {
-                expert = new Expert("", 0);
+                expert = new Expert("", 1);
                 problem.AddExpert(expert);
 
                 DataGridViewButtonCell button = expertsGrid.Rows[e.RowIndex].Cells[expertsGrid.Rows[e.RowIndex].Cells.Count - 1] as DataGridViewButtonCell;
@@ -119,7 +124,17 @@ namespace SystemAnalysis1
                     }
                 case 2:
                     {
-                        expert.competence = int.Parse(cellValue);
+                        double expertCompetence = double.Parse(cellValue);
+                        if (expertCompetence < 1.0d || expertCompetence > 12.0d)
+                        {
+                            MessageBox.Show("Компетенция должна быть в пределах от 1 до 12");
+
+                            (sender as DataGridView).CurrentCell.Value = "1";
+
+                            break;
+                        }
+
+                        expert.competence = double.Parse(cellValue);
                         break;
                     }
                 default:
@@ -230,6 +245,27 @@ namespace SystemAnalysis1
             button.FlatStyle = FlatStyle.Flat;
             button.Style.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
         }
+        private void MakeButtonDisable(DataGridViewButtonCell button)
+        {
+            if (button == null)
+                return;
+
+            button.Style.ForeColor = button.Style.SelectionForeColor = Color.Gray;
+            button.Style.BackColor = button.Style.SelectionBackColor = Color.Gray;
+        }
+        private void MakeButtonsDisable()
+        {
+            for (int i = 0; i < alternativesGrid.Rows.Count; i++)
+            {
+                DataGridViewButtonCell button = alternativesGrid.Rows[i].Cells[alternativesGrid.Rows[i].Cells.Count - 1] as DataGridViewButtonCell;
+                MakeButtonDisable(button);
+            }
+            for (int i = 0; i < expertsGrid.Rows.Count; i++)
+            {
+                DataGridViewButtonCell button = expertsGrid.Rows[i].Cells[expertsGrid.Rows[i].Cells.Count - 1] as DataGridViewButtonCell;
+                MakeButtonDisable(button);
+            }
+        }
         private void expertsGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == expertsGrid.Columns["deleteExpertButton"].Index)
@@ -252,6 +288,7 @@ namespace SystemAnalysis1
                 problem.InitMatrix(problem.Experts[i]);
             }
             MakeFormReadOnly();
+            MakeButtonsDisable();
         }
         private void MakeFormReadOnly()
         {
@@ -269,6 +306,7 @@ namespace SystemAnalysis1
             methodResult.Closed += (s, args) => Show();
 
             Hide();
+            MakeButtonsDisable();
         }
     }
 }

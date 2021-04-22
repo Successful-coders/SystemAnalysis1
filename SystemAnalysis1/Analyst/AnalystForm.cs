@@ -26,6 +26,15 @@ namespace SystemAnalysis1
         private void AnalystForm_Activated(object sender, EventArgs e)
         {
             InitProblemsListView(problems);
+
+            for (int i = 0; i < problems.Count; i++)
+            {
+                if (problems[i].Status == Status.Оценивание)
+                {
+                    DataGridViewButtonCell button = problemsGrid.Rows[i].Cells[problemsGrid.Rows[i].Cells.Count - 1] as DataGridViewButtonCell;
+                    DisableDeleteButton(button);
+                }
+            }
         }
         private void removeProblemButton_Click(object sender, EventArgs e)
         {
@@ -138,6 +147,12 @@ namespace SystemAnalysis1
         private void backButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void DisableDeleteButton(DataGridViewButtonCell button)
+        {
+            button.Style.ForeColor = button.Style.SelectionForeColor = Color.Gray;
+            button.Style.BackColor = button.Style.SelectionBackColor = Color.Gray;
         }
     }
 }

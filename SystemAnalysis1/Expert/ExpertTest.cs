@@ -39,7 +39,7 @@ namespace SystemAnalysis1
                 }
             }
 
-            completeButton.Enabled = isQuestionAnswereds.All(x => x);
+            completeButton.Visible = isQuestionAnswereds.All(x => x);
         }
 
 
@@ -55,8 +55,11 @@ namespace SystemAnalysis1
                 pollFlowLayoutPanel.Controls.Add(panel);
             }
         }
-        private void OnAnswerButtonClicked(int questionIndex, int[] indexes)
+        private void OnAnswerButtonClicked(int questionIndex, int[] indexes, int checkedIndicesCount, int checkedAnswerIndex)
         {
+            if (pollFlowLayoutPanel.Controls.Count == 0)
+                return;
+
             CheckedListBox checkedListBox = null;
             foreach (var control in pollFlowLayoutPanel.Controls[questionIndex].Controls)
             {
@@ -71,14 +74,13 @@ namespace SystemAnalysis1
             if (checkedListBox == null)
                 return;
 
-            if (checkedListBox.CheckedIndices.Count == 2)
+            if (checkedIndicesCount == 2)
             {
                 matrix.values[indexes[0], indexes[1]] = 0.5d;
                 matrix.values[indexes[1], indexes[0]] = 0.5d;
             }
-            else if (checkedListBox.CheckedIndices.Count == 1)
+            else if (checkedIndicesCount == 1)
             {
-                int checkedAnswerIndex = (int)checkedListBox?.CheckedIndices[0];
                 int primaryIndex = indexes[checkedAnswerIndex];
                 int secondaryIndex = checkedAnswerIndex == 0 ? indexes[1] : indexes[0];
 
@@ -88,7 +90,7 @@ namespace SystemAnalysis1
 
             isQuestionAnswereds[questionIndex] = true;
 
-            completeButton.Enabled = isQuestionAnswereds.All(x => x);
+            completeButton.Visible = isQuestionAnswereds.All(x => x);
         }
         private List<Alternative[]> InitQuestions(List<Alternative> alternatives)
         {

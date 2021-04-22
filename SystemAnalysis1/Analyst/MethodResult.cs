@@ -122,9 +122,9 @@ namespace SystemAnalysis1
             // 
             listViewExtended.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             listViewExtended.HideSelection = false;
-            listViewExtended.Location = new System.Drawing.Point(16, 190);
+            listViewExtended.Location = new System.Drawing.Point(302, 190);
             listViewExtended.Name = "PairComparisonList";
-            listViewExtended.Size = new System.Drawing.Size(532, 436);
+            listViewExtended.Size = new System.Drawing.Size(352, 436);
             listViewExtended.TabIndex = 24;
             listViewExtended.UseCompatibleStateImageBehavior = false;
             listViewExtended.View = System.Windows.Forms.View.Details;
@@ -139,7 +139,7 @@ namespace SystemAnalysis1
             // 
             ColumnHeader alternativeDescription = new ColumnHeader();
             alternativeDescription.Text = "Альтерантива";
-            alternativeDescription.Width = 400;
+            alternativeDescription.Width = 217;
             // 
             // alternativeWeight
             // 

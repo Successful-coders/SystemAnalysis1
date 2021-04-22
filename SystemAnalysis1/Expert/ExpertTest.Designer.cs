@@ -37,7 +37,6 @@
             this.pollPanel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.answersCheckedListBox = new System.Windows.Forms.CheckedListBox();
-            this.answerButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.completeButton = new System.Windows.Forms.Button();
             this.pollFlowLayoutPanel.SuspendLayout();
@@ -101,11 +100,10 @@
             this.pollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
             this.pollPanel.Controls.Add(this.label4);
             this.pollPanel.Controls.Add(this.answersCheckedListBox);
-            this.pollPanel.Controls.Add(this.answerButton);
             this.pollPanel.Controls.Add(this.label2);
             this.pollPanel.Location = new System.Drawing.Point(3, 3);
             this.pollPanel.Name = "pollPanel";
-            this.pollPanel.Size = new System.Drawing.Size(759, 183);
+            this.pollPanel.Size = new System.Drawing.Size(759, 116);
             this.pollPanel.TabIndex = 14;
             this.pollPanel.Visible = false;
             // 
@@ -132,19 +130,6 @@
             this.answersCheckedListBox.Size = new System.Drawing.Size(752, 52);
             this.answersCheckedListBox.TabIndex = 13;
             // 
-            // answerButton
-            // 
-            this.answerButton.BackColor = System.Drawing.Color.Chocolate;
-            this.answerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.answerButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.answerButton.Location = new System.Drawing.Point(3, 108);
-            this.answerButton.Name = "answerButton";
-            this.answerButton.Size = new System.Drawing.Size(752, 42);
-            this.answerButton.TabIndex = 9;
-            this.answerButton.Tag = "1";
-            this.answerButton.Text = "Ответить";
-            this.answerButton.UseVisualStyleBackColor = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -166,6 +151,7 @@
             this.completeButton.TabIndex = 17;
             this.completeButton.Text = "Завершить";
             this.completeButton.UseVisualStyleBackColor = false;
+            this.completeButton.Visible = false;
             this.completeButton.Click += new System.EventHandler(this.completeButton_Click);
             // 
             // ExpertTest
@@ -198,7 +184,6 @@
         private System.Windows.Forms.Panel pollPanel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckedListBox answersCheckedListBox;
-        private System.Windows.Forms.Button answerButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button completeButton;
     }

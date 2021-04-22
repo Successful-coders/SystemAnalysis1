@@ -44,7 +44,7 @@ namespace SystemAnalysis1
 
             if (expert == null)
             {
-                expert = new Expert(expertName, 0);
+                expert = new Expert(expertName, 1);
             }
 
             ChooseProblemForm chooseProblemForm = new ChooseProblemForm(expert);

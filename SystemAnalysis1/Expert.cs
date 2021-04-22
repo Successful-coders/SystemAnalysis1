@@ -12,10 +12,10 @@ namespace SystemAnalysis1
     public class Expert : IEquatable<Expert>
     {
         public string name;
-        public int competence;
+        public double competence;
 
 
-        public Expert(string name, int competence)
+        public Expert(string name, double competence)
         {
             this.name = name;
             this.competence = competence;
@@ -54,7 +54,7 @@ namespace SystemAnalysis1
         }
         public override int GetHashCode()
         {
-            return name.Length * competence;
+            return name.Length * Convert.ToInt32(competence);
         }
 
         public static bool operator ==(Expert expert0, Expert expert1)

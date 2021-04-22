@@ -43,6 +43,20 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.method2Label = new System.Windows.Forms.Label();
+            this.alternativesListView = new System.Windows.Forms.ListView();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label2 = new System.Windows.Forms.Label();
+            this.preferMethodListView = new System.Windows.Forms.ListView();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label3 = new System.Windows.Forms.Label();
+            this.rangMethodListView = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // problemNameLabel
@@ -106,7 +120,7 @@
             this.alternativeWeight});
             this.PairComparisonList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PairComparisonList.HideSelection = false;
-            this.PairComparisonList.Location = new System.Drawing.Point(36, 190);
+            this.PairComparisonList.Location = new System.Drawing.Point(302, 190);
             this.PairComparisonList.Name = "PairComparisonList";
             this.PairComparisonList.Size = new System.Drawing.Size(352, 436);
             this.PairComparisonList.TabIndex = 24;
@@ -122,18 +136,18 @@
             // alternativeDescription
             // 
             this.alternativeDescription.Text = "Альтерантива";
-            this.alternativeDescription.Width = 238;
+            this.alternativeDescription.Width = 242;
             // 
             // alternativeWeight
             // 
             this.alternativeWeight.Text = "Вес";
-            this.alternativeWeight.Width = 164;
+            this.alternativeWeight.Width = 74;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 167);
+            this.label1.Location = new System.Drawing.Point(311, 167);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(224, 20);
             this.label1.TabIndex = 29;
@@ -147,7 +161,7 @@
             this.columnHeader3});
             this.method2LIstView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.method2LIstView.HideSelection = false;
-            this.method2LIstView.Location = new System.Drawing.Point(791, 190);
+            this.method2LIstView.Location = new System.Drawing.Point(660, 190);
             this.method2LIstView.Name = "method2LIstView";
             this.method2LIstView.Size = new System.Drawing.Size(352, 436);
             this.method2LIstView.TabIndex = 30;
@@ -173,17 +187,138 @@
             // 
             this.method2Label.AutoSize = true;
             this.method2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.method2Label.Location = new System.Drawing.Point(787, 167);
+            this.method2Label.Location = new System.Drawing.Point(656, 167);
             this.method2Label.Name = "method2Label";
-            this.method2Label.Size = new System.Drawing.Size(130, 20);
+            this.method2Label.Size = new System.Drawing.Size(237, 20);
             this.method2Label.TabIndex = 31;
-            this.method2Label.Text = "Второй метод";
+            this.method2Label.Text = "Метод взвешенных оценок";
+            // 
+            // alternativesListView
+            // 
+            this.alternativesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4,
+            this.columnHeader5});
+            this.alternativesListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.alternativesListView.HideSelection = false;
+            this.alternativesListView.Location = new System.Drawing.Point(16, 190);
+            this.alternativesListView.Name = "alternativesListView";
+            this.alternativesListView.Size = new System.Drawing.Size(280, 436);
+            this.alternativesListView.TabIndex = 32;
+            this.alternativesListView.UseCompatibleStateImageBehavior = false;
+            this.alternativesListView.View = System.Windows.Forms.View.Details;
+            this.alternativesListView.Visible = false;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "№";
+            this.columnHeader4.Width = 32;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Альтерантива";
+            this.columnHeader5.Width = 242;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 167);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(220, 20);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Исходные альтернативы";
+            // 
+            // preferMethodListView
+            // 
+            this.preferMethodListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+            this.preferMethodListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.preferMethodListView.HideSelection = false;
+            this.preferMethodListView.Location = new System.Drawing.Point(1018, 190);
+            this.preferMethodListView.Name = "preferMethodListView";
+            this.preferMethodListView.Size = new System.Drawing.Size(352, 436);
+            this.preferMethodListView.TabIndex = 34;
+            this.preferMethodListView.UseCompatibleStateImageBehavior = false;
+            this.preferMethodListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "№";
+            this.columnHeader6.Width = 32;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Альтерантива";
+            this.columnHeader7.Width = 245;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Вес";
+            this.columnHeader8.Width = 70;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(1014, 167);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(192, 20);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "Метод предпочтений";
+            // 
+            // rangMethodListView
+            // 
+            this.rangMethodListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11});
+            this.rangMethodListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rangMethodListView.HideSelection = false;
+            this.rangMethodListView.Location = new System.Drawing.Point(1376, 190);
+            this.rangMethodListView.Name = "rangMethodListView";
+            this.rangMethodListView.Size = new System.Drawing.Size(352, 436);
+            this.rangMethodListView.TabIndex = 36;
+            this.rangMethodListView.UseCompatibleStateImageBehavior = false;
+            this.rangMethodListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "№";
+            this.columnHeader9.Width = 32;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Альтерантива";
+            this.columnHeader10.Width = 245;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Вес";
+            this.columnHeader11.Width = 70;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(1372, 167);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(118, 20);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "Метод ранга";
             // 
             // MethodResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1549, 638);
+            this.ClientSize = new System.Drawing.Size(1738, 638);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.rangMethodListView);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.preferMethodListView);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.alternativesListView);
             this.Controls.Add(this.method2Label);
             this.Controls.Add(this.method2LIstView);
             this.Controls.Add(this.label1);
@@ -217,5 +352,19 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Label method2Label;
+        private System.Windows.Forms.ListView alternativesListView;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListView preferMethodListView;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ListView rangMethodListView;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.Label label4;
     }
 }
