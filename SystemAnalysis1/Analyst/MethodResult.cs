@@ -24,12 +24,17 @@ namespace SystemAnalysis1
             problemNameText.Text = problem.Name;
             problemDescriptionText.Text = problem.Description;
 
+            FillAlternative(alternativesListView);
 
             var pairComparisonList = CreateMethodList();
             FillMethodList(pairComparisonList);
             pairComparisonList.SetGroupState(ListViewGroupState.Collapsible);
 
             FillSecondMethod(method2LIstView);
+            FillThirdOneMethod(preferMethodListView);
+            FillThirdTwoMethod(rangMethodListView);
+
+
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -53,6 +58,17 @@ namespace SystemAnalysis1
             return sorter;
         }
 
+        private void FillAlternative(ListView list)
+        {
+            for (int i = 0; i < problem.Alternatives.Count; i++)
+            {
+                list.Items.Add(new ListViewItem(
+                    new string[] {
+                                (i + 1).ToString(),
+                                problem.Alternatives[i].description
+                    }));
+            }
+        }
 
         private void FillMethodList(ListView list)
         {
@@ -95,7 +111,7 @@ namespace SystemAnalysis1
             }
 
 
-            RangMethod expertEstimationsMethod = new RangMethod(matrix2Method, problem.Experts);
+            ExpertEstimationsMethod expertEstimationsMethod = new ExpertEstimationsMethod(matrix2Method, problem.Experts);
             var weights = expertEstimationsMethod.CalculateWeight();
 
             for (int i = 0; i < problem.Alternatives.Count; i++)
@@ -112,7 +128,73 @@ namespace SystemAnalysis1
             list.ListViewItemSorter = sorter;
             list.Sort();
         }
+        private void FillThirdOneMethod(ListView list)
+        {
+            Matrix matrix2Method = new Matrix(problem.Experts.Count, problem.Alternatives.Count);
 
+            for (int i = 0; i < problem.Experts.Count; i++)
+            {
+                Matrix matrix = problem.GetMatrix(problem.Experts[i]);
+                PairComparisonMethod pairComparisonMethod = new PairComparisonMethod(matrix);
+
+                for (int j = 0; j < problem.Alternatives.Count; j++)
+                {
+                    matrix2Method.values[i, j] = pairComparisonMethod.CalculateWieght(j);
+                }
+            }
+
+
+            PreferMethod preferMethod = new PreferMethod(matrix2Method, problem.Experts);
+            var weights = preferMethod.CalculateWeight();
+
+            for (int i = 0; i < problem.Alternatives.Count; i++)
+            {
+                list.Items.Add(new ListViewItem(
+                    new string[] {
+                                (i + 1).ToString(),
+                                problem.Alternatives[i].description,
+                                weights[i].ToString(),
+                    }));
+            }
+
+            ListViewItemComparer sorter = GetListViewSorter(list.Columns.Count - 1, SortOrder.Descending);
+            list.ListViewItemSorter = sorter;
+            list.Sort();
+        }
+
+        private void FillThirdTwoMethod(ListView list)
+        {
+            Matrix matrix2Method = new Matrix(problem.Experts.Count, problem.Alternatives.Count);
+
+            for (int i = 0; i < problem.Experts.Count; i++)
+            {
+                Matrix matrix = problem.GetMatrix(problem.Experts[i]);
+                PairComparisonMethod pairComparisonMethod = new PairComparisonMethod(matrix);
+
+                for (int j = 0; j < problem.Alternatives.Count; j++)
+                {
+                    matrix2Method.values[i, j] = pairComparisonMethod.CalculateWieght(j);
+                }
+            }
+
+
+            RangMethod rangMethod = new RangMethod(matrix2Method, problem.Experts);
+            var weights = rangMethod.CalculateWeight();
+
+            for (int i = 0; i < problem.Alternatives.Count; i++)
+            {
+                list.Items.Add(new ListViewItem(
+                    new string[] {
+                                (i + 1).ToString(),
+                                problem.Alternatives[i].description,
+                                weights[i].ToString(),
+                    }));
+            }
+
+            ListViewItemComparer sorter = GetListViewSorter(list.Columns.Count - 1, SortOrder.Descending);
+            list.ListViewItemSorter = sorter;
+            list.Sort();
+        }
         private ListViewExtended CreateMethodList()
         {
             ListViewExtended listViewExtended = new ListViewExtended();

@@ -206,7 +206,6 @@
             this.alternativesListView.TabIndex = 32;
             this.alternativesListView.UseCompatibleStateImageBehavior = false;
             this.alternativesListView.View = System.Windows.Forms.View.Details;
-            this.alternativesListView.Visible = false;
             // 
             // columnHeader4
             // 
