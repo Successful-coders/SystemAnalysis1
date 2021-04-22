@@ -138,6 +138,8 @@
     <Compile Include="Data.cs" />
     <Compile Include="Expert.cs" />
     <Compile Include="ExpertConverter.cs" />
+    <Compile Include="RangMethod.cs" />
+    <Compile Include="PreferMethod.cs" />
     <Compile Include="ExpertEstimationsMethod.cs" />
     <Compile Include="Expert\ChooseProblemForm.cs">
       <SubType>Form</SubType>
