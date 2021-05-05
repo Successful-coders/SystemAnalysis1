@@ -138,6 +138,18 @@
     <Compile Include="Data.cs" />
     <Compile Include="Expert.cs" />
     <Compile Include="ExpertConverter.cs" />
+    <Compile Include="Expert\ExpertTestPrefer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expert\ExpertTestPrefer.Designer.cs">
+      <DependentUpon>ExpertTestPrefer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Expert\ExpertTestRang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Expert\ExpertTestRang.Designer.cs">
+      <DependentUpon>ExpertTestRang.cs</DependentUpon>
+    </Compile>
     <Compile Include="RangMethod.cs" />
     <Compile Include="PreferMethod.cs" />
     <Compile Include="ExpertEstimationsMethod.cs" />
@@ -213,6 +225,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Analyst\MethodResult.resx">
       <DependentUpon>MethodResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expert\ExpertTestPrefer.resx">
+      <DependentUpon>ExpertTestPrefer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Expert\ExpertTestRang.resx">
+      <DependentUpon>ExpertTestRang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
