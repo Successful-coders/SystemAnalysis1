@@ -14,7 +14,7 @@ namespace SystemAnalysis1
         private Status status;
         private List<Alternative> alternatives = new List<Alternative>();
         private List<Expert> experts = new List<Expert>();
-        [JsonPropertyAttribute] private Dictionary<Expert, Matrix> expertMatrixDictionary = new Dictionary<Expert, Matrix>();
+        [JsonPropertyAttribute] public Dictionary<Expert, Matrix> expertMatrixDictionary = new Dictionary<Expert, Matrix>();
 
 
         public Problem()

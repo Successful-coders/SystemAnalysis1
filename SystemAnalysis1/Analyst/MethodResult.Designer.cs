@@ -57,6 +57,11 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
+            this.pairComprasionExpertListview = new System.Windows.Forms.ListView();
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // problemNameLabel
@@ -74,7 +79,7 @@
             this.backButton.BackColor = System.Drawing.Color.Gold;
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.backButton.Location = new System.Drawing.Point(1398, 12);
+            this.backButton.Location = new System.Drawing.Point(1992, 12);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(139, 31);
             this.backButton.TabIndex = 20;
@@ -307,11 +312,53 @@
             this.label4.TabIndex = 37;
             this.label4.Text = "Метод ранга";
             // 
+            // pairComprasionExpertListview
+            // 
+            this.pairComprasionExpertListview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader12,
+            this.columnHeader13,
+            this.columnHeader14});
+            this.pairComprasionExpertListview.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pairComprasionExpertListview.HideSelection = false;
+            this.pairComprasionExpertListview.Location = new System.Drawing.Point(1747, 190);
+            this.pairComprasionExpertListview.Name = "pairComprasionExpertListview";
+            this.pairComprasionExpertListview.Size = new System.Drawing.Size(352, 436);
+            this.pairComprasionExpertListview.TabIndex = 38;
+            this.pairComprasionExpertListview.UseCompatibleStateImageBehavior = false;
+            this.pairComprasionExpertListview.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "№";
+            this.columnHeader12.Width = 32;
+            // 
+            // columnHeader13
+            // 
+            this.columnHeader13.Text = "Альтерантива";
+            this.columnHeader13.Width = 245;
+            // 
+            // columnHeader14
+            // 
+            this.columnHeader14.Text = "Вес";
+            this.columnHeader14.Width = 70;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(1752, 167);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(292, 20);
+            this.label5.TabIndex = 39;
+            this.label5.Text = "Метод попарного сопоставления";
+            // 
             // MethodResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1738, 638);
+            this.ClientSize = new System.Drawing.Size(2143, 638);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pairComprasionExpertListview);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.rangMethodListView);
             this.Controls.Add(this.label3);
@@ -365,5 +412,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListView pairComprasionExpertListview;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
+        private System.Windows.Forms.ColumnHeader columnHeader13;
+        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.Label label5;
     }
 }

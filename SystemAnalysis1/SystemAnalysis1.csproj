@@ -150,6 +150,7 @@
     <Compile Include="Expert\ExpertTestRang.Designer.cs">
       <DependentUpon>ExpertTestRang.cs</DependentUpon>
     </Compile>
+    <Compile Include="PairComprasionExpert.cs" />
     <Compile Include="RangMethod.cs" />
     <Compile Include="PreferMethod.cs" />
     <Compile Include="ExpertEstimationsMethod.cs" />

@@ -33,6 +33,7 @@ namespace SystemAnalysis1
             FillSecondMethod(method2LIstView);
             FillThirdOneMethod(preferMethodListView);
             FillThirdTwoMethod(rangMethodListView);
+            FillFourthMethod(pairComprasionExpertListview);
 
 
         }
@@ -195,6 +196,45 @@ namespace SystemAnalysis1
             list.ListViewItemSorter = sorter;
             list.Sort();
         }
+
+        private double Sum(double[] d)
+        {
+            double returnedValue = 0.0d;
+            for (int i = 0; i < d.Length; i++)
+            {
+                returnedValue += d[i];
+            }
+            return returnedValue;
+        }
+        private void FillFourthMethod(ListView list)
+        {
+            double[] weights = new double[problem.GetMatrix(problem.Experts[0]).height];
+            for (int k = 0; k < problem.Experts.Count; k++)
+            {
+                Matrix matrix = problem.GetMatrix(problem.Experts[k]);
+                PairComprasionExpert pairExpertsMethod = new PairComprasionExpert(matrix, problem.Experts[k]);
+                var d = pairExpertsMethod.CalculateNormPrefer(k);
+                for (int i = 0; i < matrix.height; i++)
+                {
+                    weights[i] = Sum(d);
+                }
+            }
+            for (int i = 0; i < problem.Alternatives.Count; i++)
+            {
+                list.Items.Add(new ListViewItem(
+                    new string[] {
+                                (i + 1).ToString(),
+                                problem.Alternatives[i].description,
+                                weights[i].ToString(),
+                    }));
+            }
+
+            ListViewItemComparer sorter = GetListViewSorter(list.Columns.Count - 1, SortOrder.Descending);
+            list.ListViewItemSorter = sorter;
+            list.Sort();
+        }
+        
+
         private ListViewExtended CreateMethodList()
         {
             ListViewExtended listViewExtended = new ListViewExtended();
