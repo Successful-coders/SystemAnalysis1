@@ -105,7 +105,7 @@ namespace SystemAnalysis1
                 Matrix matrix = problem.GetMatrix(problem.Experts[i], SolvingMethod.WeightedJudgement);
                 for (int j = 0; j < problem.Alternatives.Count; j++)
                 {
-                    matrix2Method.values[i,j] = matrix.values[i,j];
+                    matrix2Method.values[i, j] = matrix.values[0 j];
                 }
 
             }
@@ -137,7 +137,7 @@ namespace SystemAnalysis1
                 Matrix matrix = problem.GetMatrix(problem.Experts[i], SolvingMethod.WeightedJudgement);
                 for (int j = 0; j < problem.Alternatives.Count; j++)
                 {
-                    matrix2Method.values[i, j] = matrix.values[i, j];
+                    matrix2Method.values[i, j] = matrix.values[0, j];
                 }
 
             }
@@ -170,7 +170,7 @@ namespace SystemAnalysis1
                 Matrix matrix = problem.GetMatrix(problem.Experts[i], SolvingMethod.WeightedJudgement);
                 for (int j = 0; j < problem.Alternatives.Count; j++)
                 {
-                    matrix2Method.values[i, j] = matrix.values[i, j];
+                    matrix2Method.values[i, j] = matrix.values[0, j];
                 }
 
             }
