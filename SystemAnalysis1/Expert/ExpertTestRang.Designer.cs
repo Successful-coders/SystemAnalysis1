@@ -36,11 +36,14 @@
             this.ExitButton = new System.Windows.Forms.Button();
             this.completeButton = new System.Windows.Forms.Button();
             this.pollFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.pollPanel = new System.Windows.Forms.Panel();
+            this.estimateLabel = new System.Windows.Forms.Label();
+            this.estimateNumeric = new System.Windows.Forms.NumericUpDown();
+            this.indexLabel = new System.Windows.Forms.Label();
+            this.allternativeLabel = new System.Windows.Forms.Label();
             this.pollFlowLayoutPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pollPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.estimateNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -109,43 +112,82 @@
             this.completeButton.Text = "Завершить";
             this.completeButton.UseVisualStyleBackColor = false;
             this.completeButton.Visible = false;
+            this.completeButton.Click += new System.EventHandler(this.completeButton_Click);
             // 
             // pollFlowLayoutPanel
             // 
             this.pollFlowLayoutPanel.AutoScroll = true;
-            this.pollFlowLayoutPanel.Controls.Add(this.panel1);
+            this.pollFlowLayoutPanel.Controls.Add(this.pollPanel);
             this.pollFlowLayoutPanel.Location = new System.Drawing.Point(16, 296);
             this.pollFlowLayoutPanel.Name = "pollFlowLayoutPanel";
             this.pollFlowLayoutPanel.Size = new System.Drawing.Size(787, 448);
             this.pollFlowLayoutPanel.TabIndex = 28;
             // 
-            // panel1
+            // pollPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(759, 44);
-            this.panel1.TabIndex = 21;
-            this.panel1.Visible = false;
+            this.pollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
+            this.pollPanel.Controls.Add(this.estimateLabel);
+            this.pollPanel.Controls.Add(this.estimateNumeric);
+            this.pollPanel.Controls.Add(this.indexLabel);
+            this.pollPanel.Controls.Add(this.allternativeLabel);
+            this.pollPanel.Location = new System.Drawing.Point(3, 3);
+            this.pollPanel.Name = "pollPanel";
+            this.pollPanel.Size = new System.Drawing.Size(759, 76);
+            this.pollPanel.TabIndex = 22;
+            this.pollPanel.Visible = false;
             // 
-            // textBox1
+            // estimateLabel
             // 
-            this.textBox1.Location = new System.Drawing.Point(664, 14);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(56, 20);
-            this.textBox1.TabIndex = 1;
+            this.estimateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.estimateLabel.Location = new System.Drawing.Point(649, 7);
+            this.estimateLabel.Name = "estimateLabel";
+            this.estimateLabel.Size = new System.Drawing.Size(107, 34);
+            this.estimateLabel.TabIndex = 21;
+            this.estimateLabel.Text = "Оценка:";
+            this.estimateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // estimateNumeric
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(16, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(154, 24);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Альтернатива 1";
+            this.estimateNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.estimateNumeric.Location = new System.Drawing.Point(649, 44);
+            this.estimateNumeric.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.estimateNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.estimateNumeric.Name = "estimateNumeric";
+            this.estimateNumeric.Size = new System.Drawing.Size(104, 26);
+            this.estimateNumeric.TabIndex = 20;
+            this.estimateNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // indexLabel
+            // 
+            this.indexLabel.AutoSize = true;
+            this.indexLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.indexLabel.Location = new System.Drawing.Point(10, 14);
+            this.indexLabel.Name = "indexLabel";
+            this.indexLabel.Size = new System.Drawing.Size(25, 24);
+            this.indexLabel.TabIndex = 16;
+            this.indexLabel.Tag = "index";
+            this.indexLabel.Text = "1.";
+            // 
+            // allternativeLabel
+            // 
+            this.allternativeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.allternativeLabel.Location = new System.Drawing.Point(51, 14);
+            this.allternativeLabel.Name = "allternativeLabel";
+            this.allternativeLabel.Size = new System.Drawing.Size(568, 51);
+            this.allternativeLabel.TabIndex = 15;
+            this.allternativeLabel.Text = "Альтернатива 1";
             // 
             // ExpertTestRang
             // 
@@ -162,8 +204,9 @@
             this.Name = "ExpertTestRang";
             this.Text = "ExpertTestRang";
             this.pollFlowLayoutPanel.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pollPanel.ResumeLayout(false);
+            this.pollPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.estimateNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,8 +220,10 @@
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Button completeButton;
         private System.Windows.Forms.FlowLayoutPanel pollFlowLayoutPanel;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel pollPanel;
+        private System.Windows.Forms.Label estimateLabel;
+        private System.Windows.Forms.NumericUpDown estimateNumeric;
+        private System.Windows.Forms.Label indexLabel;
+        private System.Windows.Forms.Label allternativeLabel;
     }
 }

@@ -144,6 +144,9 @@
     <Compile Include="Expert\ExpertFullPairMatchingTest.Designer.cs">
       <DependentUpon>ExpertFullPairMatchingTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Expert\ExpertRangPollPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Expert\ExpertTestPrefer.cs">
       <SubType>Form</SubType>
     </Compile>

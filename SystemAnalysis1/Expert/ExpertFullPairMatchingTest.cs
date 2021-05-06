@@ -17,11 +17,12 @@ namespace SystemAnalysis1
         private List<bool> isQuestionAnswereds = new List<bool>();
 
 
-        public ExpertFullPairMatchingTest(List<Alternative> alternatives, Matrix matrix)
+        public ExpertFullPairMatchingTest(List<Alternative> alternatives, Matrix matrix, Problem problem)
         {
             this.matrix = matrix;
-
             InitializeComponent();
+
+            Problem.Text = problem.Description;
 
             alternativePairs = InitQuestions(alternatives);
             CreatePollPanels();

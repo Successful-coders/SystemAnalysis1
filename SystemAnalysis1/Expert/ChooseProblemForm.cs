@@ -69,27 +69,27 @@ namespace SystemAnalysis1
             {
                 case SolvingMethod.PairComparison:
                     {
-                        expertTestForm = new ExpertTest(problem.Alternatives, matrix);
+                        expertTestForm = new ExpertTest(problem.Alternatives, matrix, problem);
                         break;
                     }
                 case SolvingMethod.WeightedJudgement:
                     {
-                        expertTestForm = new ExpertWeightedJudgementTest(problem.Alternatives, matrix);
+                        expertTestForm = new ExpertWeightedJudgementTest(problem.Alternatives, matrix, problem);
                         break;
                     }
                 case SolvingMethod.Prefer:
                     {
-                        expertTestForm = new ExpertTestPrefer(problem.Alternatives, matrix);
+                        expertTestForm = new ExpertTestPrefer(problem.Alternatives, matrix, problem);
                         break;
                     }
                 case SolvingMethod.Rang:
                     {
-                        expertTestForm = new ExpertTestRang(problem.Alternatives, matrix);
+                        expertTestForm = new ExpertTestRang(problem.Alternatives, matrix, problem);
                         break;
                     }
                 case SolvingMethod.FullPairMatching:
                     {
-                        expertTestForm = new ExpertFullPairMatchingTest(problem.Alternatives, matrix);
+                        expertTestForm = new ExpertFullPairMatchingTest(problem.Alternatives, matrix, problem);
                         break;
                     }
                 default:

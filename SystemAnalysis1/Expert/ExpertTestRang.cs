@@ -12,38 +12,34 @@ namespace SystemAnalysis1
 {
     public partial class ExpertTestRang : Form
     {
-        public const int MAX_POINTS = 100;
-
-
         private List<Alternative> alternatives;
         private Matrix matrix;
-        private List<bool> isQuestionAnswereds = new List<bool>();
-
-        public static int pointsRemaining = MAX_POINTS;
+        private int[] questionAnswerCounts;
 
 
-        public ExpertTestRang(List<Alternative> alternatives, Matrix matrix)
+        public ExpertTestRang(List<Alternative> alternatives, Matrix matrix, Problem problem)
         {
             this.matrix = matrix;
-
             InitializeComponent();
 
-            this.alternatives = alternatives;
-            CreatePollPanels();
+            Problem.Text = problem.Description;
 
-            isQuestionAnswereds = new List<bool>(alternatives.Count);
-            int pointsSum = 0;
+            this.alternatives = alternatives;
+
+            questionAnswerCounts = new int[11];
             for (int i = 0; i < alternatives.Count; i++)
             {
-                int value = (int)Math.Round(matrix.values[0, i] * MAX_POINTS, MidpointRounding.AwayFromZero);
-                pointsSum += value;
+                int value = (int)Math.Round(matrix.values[0, i], MidpointRounding.AwayFromZero);
 
-                isQuestionAnswereds.Add(value != 0);
+                if (value >= 0)
+                {
+                    questionAnswerCounts[value]++;
+                }
             }
 
-            pointsRemaining = MAX_POINTS - pointsSum;
+            completeButton.Visible = questionAnswerCounts.All(x => x <= 1);
 
-            completeButton.Visible = pointsSum == MAX_POINTS;
+            CreatePollPanels();
         }
 
 
@@ -53,26 +49,42 @@ namespace SystemAnalysis1
 
             for (int i = 0; i < alternatives.Count; i++)
             {
-                ExpertWeightedJudgementPollPanel panel = new ExpertWeightedJudgementPollPanel(i, alternatives[i], OnAnswered);
+                ExpertRangPollPanel panel = new ExpertRangPollPanel(i, alternatives[i], OnAnswered, matrix);
                 panel.Location = new Point(10 * i, 10 * i);
 
                 pollFlowLayoutPanel.Controls.Add(panel);
             }
         }
-        private void OnAnswered(int questionIndex, int value)
+        private void OnAnswered(int questionIndex, int value, int oldValue)
         {
             if (pollFlowLayoutPanel.Controls.Count == 0)
                 return;
 
-            matrix.values[0, questionIndex] = value / MAX_POINTS;
-            isQuestionAnswereds[questionIndex] = true;
+            matrix.values[0, questionIndex] = value;
 
-            foreach (ExpertWeightedJudgementPollPanel panel in pollFlowLayoutPanel.Controls)
+            if (oldValue >= 0)
             {
-                panel.EstimateMax = panel.EstimateValue + pointsRemaining;
+                questionAnswerCounts[oldValue]--;
+            }
+            questionAnswerCounts[value]++;
+
+            foreach (var control in pollFlowLayoutPanel.Controls)
+            {
+                (control as ExpertRangPollPanel).SetAnswered(true);
             }
 
-            completeButton.Visible = pointsRemaining == 0;
+            for (int i = 1; i < questionAnswerCounts.Length; i++)
+            {
+                if (questionAnswerCounts[i] > 1)
+                {
+                    foreach (var control in pollFlowLayoutPanel.Controls)
+                    {
+                        (control as ExpertRangPollPanel).SetAnswered((control as ExpertRangPollPanel).EstimateValue != i + 1);
+                    }
+                }
+            }
+
+            completeButton.Visible = questionAnswerCounts.All(x => x <= 1);
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

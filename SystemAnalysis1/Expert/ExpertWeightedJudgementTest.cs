@@ -22,11 +22,12 @@ namespace SystemAnalysis1
         public static int pointsRemaining = MAX_POINTS;
 
 
-        public ExpertWeightedJudgementTest(List<Alternative> alternatives, Matrix matrix)
+        public ExpertWeightedJudgementTest(List<Alternative> alternatives, Matrix matrix, Problem problem)
         {
             this.matrix = matrix;
-
             InitializeComponent();
+
+            Problem.Text = problem.Description;
 
             this.alternatives = alternatives;
             CreatePollPanels();

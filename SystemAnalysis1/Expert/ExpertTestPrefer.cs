@@ -17,11 +17,12 @@ namespace SystemAnalysis1
         private int[] questionAnswerCounts;
 
 
-        public ExpertTestPrefer(List<Alternative> alternatives, Matrix matrix)
+        public ExpertTestPrefer(List<Alternative> alternatives, Matrix matrix, Problem problem)
         {
             this.matrix = matrix;
-
             InitializeComponent();
+
+            Problem.Text = problem.Description;
 
             this.alternatives = alternatives;
 
@@ -63,7 +64,7 @@ namespace SystemAnalysis1
 
             value--;
             oldValue--;
-            if (oldValue >= 1)
+            if (oldValue >= 0)
             {
                 questionAnswerCounts[oldValue]--;
             }
