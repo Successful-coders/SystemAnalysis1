@@ -103,12 +103,11 @@ namespace SystemAnalysis1
             for (int i = 0; i < problem.Experts.Count; i++)
             {
                 Matrix matrix = problem.GetMatrix(problem.Experts[i], SolvingMethod.WeightedJudgement);
-                PairComparisonMethod pairComparisonMethod = new PairComparisonMethod(matrix);
-
                 for (int j = 0; j < problem.Alternatives.Count; j++)
                 {
-                    matrix2Method.values[i, j] = pairComparisonMethod.CalculateWieght(j);
+                    matrix2Method.values[i,j] = matrix.values[i,j];
                 }
+
             }
 
 
@@ -135,13 +134,12 @@ namespace SystemAnalysis1
 
             for (int i = 0; i < problem.Experts.Count; i++)
             {
-                Matrix matrix = problem.GetMatrix(problem.Experts[i], SolvingMethod.Prefer);
-                PairComparisonMethod pairComparisonMethod = new PairComparisonMethod(matrix);
-
+                Matrix matrix = problem.GetMatrix(problem.Experts[i], SolvingMethod.WeightedJudgement);
                 for (int j = 0; j < problem.Alternatives.Count; j++)
                 {
-                    matrix2Method.values[i, j] = pairComparisonMethod.CalculateWieght(j);
+                    matrix2Method.values[i, j] = matrix.values[i, j];
                 }
+
             }
 
 
@@ -169,13 +167,12 @@ namespace SystemAnalysis1
 
             for (int i = 0; i < problem.Experts.Count; i++)
             {
-                Matrix matrix = problem.GetMatrix(problem.Experts[i], SolvingMethod.Rang);
-                PairComparisonMethod pairComparisonMethod = new PairComparisonMethod(matrix);
-
+                Matrix matrix = problem.GetMatrix(problem.Experts[i], SolvingMethod.WeightedJudgement);
                 for (int j = 0; j < problem.Alternatives.Count; j++)
                 {
-                    matrix2Method.values[i, j] = pairComparisonMethod.CalculateWieght(j);
+                    matrix2Method.values[i, j] = matrix.values[i, j];
                 }
+
             }
 
 
