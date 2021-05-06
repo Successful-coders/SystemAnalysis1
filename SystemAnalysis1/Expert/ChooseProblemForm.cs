@@ -36,7 +36,7 @@ namespace SystemAnalysis1
             int rowIndex = 0;
             for (int i = 0; i < problems.Count; i++)
             {
-                for (int methodIndex = 0; methodIndex < Enum.GetValues(typeof(SolvingMethod)).Length; methodIndex++)
+                for (int methodIndex = 0; methodIndex < Enum.GetValues(typeof(SolvingMethod)).Length - 1; methodIndex++)
                 {
                     problemsList.Items.Add(new ListViewItem(new string[] { (rowIndex + 1).ToString(), problems[i].Name + 
                         " (" + ConvertMethodToString((SolvingMethod)methodIndex) + ")" }));
@@ -87,11 +87,11 @@ namespace SystemAnalysis1
                         expertTestForm = new ExpertTestRang(problem.Alternatives, matrix, problem);
                         break;
                     }
-                case SolvingMethod.FullPairMatching:
-                    {
-                        expertTestForm = new ExpertFullPairMatchingTest(problem.Alternatives, matrix, problem);
-                        break;
-                    }
+                //case SolvingMethod.FullPairMatching:
+                //    {
+                //        expertTestForm = new ExpertFullPairMatchingTest(problem.Alternatives, matrix, problem);
+                //        break;
+                //    }
                 default:
                     {
                         return;
@@ -110,7 +110,7 @@ namespace SystemAnalysis1
             int rowIndex = 0;
             for (int i = 0; i < problems.Count; i++)
             {
-                for (int methodIndex = 0; methodIndex < Enum.GetValues(typeof(SolvingMethod)).Length; methodIndex++)
+                for (int methodIndex = 0; methodIndex < Enum.GetValues(typeof(SolvingMethod)).Length - 1; methodIndex++)
                 {
                     if (problems[i].GetMatrix(expert, methodIndex).IsFull)
                     {

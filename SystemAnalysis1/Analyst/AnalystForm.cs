@@ -83,7 +83,7 @@ namespace SystemAnalysis1
                 bool isAllMatricesFull = true;
                 foreach (var expert in problems[i].Experts)
                 {
-                    for (int solvingMethodIndex = 0; solvingMethodIndex < Enum.GetValues(typeof(SolvingMethod)).Length; solvingMethodIndex++)
+                    for (int solvingMethodIndex = 0; solvingMethodIndex < Enum.GetValues(typeof(SolvingMethod)).Length - 1; solvingMethodIndex++)
                     {
                         if (!problems[i].GetMatrix(expert, (SolvingMethod)solvingMethodIndex).IsFull)
                         {

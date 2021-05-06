@@ -33,9 +33,6 @@ namespace SystemAnalysis1
             FillSecondMethod(method2LIstView);
             FillThirdOneMethod(preferMethodListView);
             FillThirdTwoMethod(rangMethodListView);
-            FillFourthMethod(pairComprasionExpertListview);
-
-
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -105,7 +102,7 @@ namespace SystemAnalysis1
                 Matrix matrix = problem.GetMatrix(problem.Experts[i], SolvingMethod.WeightedJudgement);
                 for (int j = 0; j < problem.Alternatives.Count; j++)
                 {
-                    matrix2Method.values[i, j] = matrix.values[0 j];
+                    matrix2Method.values[i, j] = matrix.values[0, j];
                 }
 
             }
