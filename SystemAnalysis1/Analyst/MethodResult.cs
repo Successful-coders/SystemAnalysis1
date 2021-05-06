@@ -77,7 +77,7 @@ namespace SystemAnalysis1
             {
                 list.Groups.Add(new ListViewGroup(problem.Experts[i].name));
 
-                Matrix matrix = problem.GetMatrix(problem.Experts[i]);
+                Matrix matrix = problem.GetMatrix(problem.Experts[i], SolvingMethod.PairComparison);
                 PairComparisonMethod pairComparisonMethod = new PairComparisonMethod(matrix);
 
                 for (int j = 0; j < problem.Alternatives.Count; j++)
@@ -102,7 +102,7 @@ namespace SystemAnalysis1
 
             for (int i = 0; i < problem.Experts.Count; i++)
             {
-                Matrix matrix = problem.GetMatrix(problem.Experts[i]);
+                Matrix matrix = problem.GetMatrix(problem.Experts[i], SolvingMethod.WeightedJudgement);
                 PairComparisonMethod pairComparisonMethod = new PairComparisonMethod(matrix);
 
                 for (int j = 0; j < problem.Alternatives.Count; j++)
@@ -135,7 +135,7 @@ namespace SystemAnalysis1
 
             for (int i = 0; i < problem.Experts.Count; i++)
             {
-                Matrix matrix = problem.GetMatrix(problem.Experts[i]);
+                Matrix matrix = problem.GetMatrix(problem.Experts[i], SolvingMethod.Prefer);
                 PairComparisonMethod pairComparisonMethod = new PairComparisonMethod(matrix);
 
                 for (int j = 0; j < problem.Alternatives.Count; j++)
@@ -169,7 +169,7 @@ namespace SystemAnalysis1
 
             for (int i = 0; i < problem.Experts.Count; i++)
             {
-                Matrix matrix = problem.GetMatrix(problem.Experts[i]);
+                Matrix matrix = problem.GetMatrix(problem.Experts[i], SolvingMethod.Rang);
                 PairComparisonMethod pairComparisonMethod = new PairComparisonMethod(matrix);
 
                 for (int j = 0; j < problem.Alternatives.Count; j++)
@@ -208,10 +208,10 @@ namespace SystemAnalysis1
         }
         private void FillFourthMethod(ListView list)
         {
-            double[] weights = new double[problem.GetMatrix(problem.Experts[0]).height];
+            double[] weights = new double[problem.GetMatrix(problem.Experts[0], SolvingMethod.FullPairMatching).height];
             for (int k = 0; k < problem.Experts.Count; k++)
             {
-                Matrix matrix = problem.GetMatrix(problem.Experts[k]);
+                Matrix matrix = problem.GetMatrix(problem.Experts[k], SolvingMethod.FullPairMatching);
                 PairComprasionExpert pairExpertsMethod = new PairComprasionExpert(matrix, problem.Experts[k]);
                 var d = pairExpertsMethod.CalculateNormPrefer(k);
                 for (int i = 0; i < matrix.height; i++)

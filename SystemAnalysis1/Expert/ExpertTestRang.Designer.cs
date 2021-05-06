@@ -1,4 +1,4 @@
-﻿namespace SystemAnalysis1.Expert
+﻿namespace SystemAnalysis1
 {
     partial class ExpertTestRang
     {
@@ -29,44 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpertTestRang));
-            this.pollPanel = new System.Windows.Forms.Panel();
-            this.boxPreferValue = new System.Windows.Forms.TextBox();
-            this.preferAlternative = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Problem = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ExitButton = new System.Windows.Forms.Button();
-            this.pollPanel.SuspendLayout();
+            this.completeButton = new System.Windows.Forms.Button();
+            this.pollFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pollFlowLayoutPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pollPanel
-            // 
-            this.pollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
-            this.pollPanel.Controls.Add(this.boxPreferValue);
-            this.pollPanel.Controls.Add(this.preferAlternative);
-            this.pollPanel.Location = new System.Drawing.Point(27, 295);
-            this.pollPanel.Name = "pollPanel";
-            this.pollPanel.Size = new System.Drawing.Size(759, 44);
-            this.pollPanel.TabIndex = 27;
-            this.pollPanel.Visible = false;
-            // 
-            // boxPreferValue
-            // 
-            this.boxPreferValue.Location = new System.Drawing.Point(664, 14);
-            this.boxPreferValue.Name = "boxPreferValue";
-            this.boxPreferValue.Size = new System.Drawing.Size(56, 20);
-            this.boxPreferValue.TabIndex = 1;
-            // 
-            // preferAlternative
-            // 
-            this.preferAlternative.AutoSize = true;
-            this.preferAlternative.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.preferAlternative.Location = new System.Drawing.Point(16, 10);
-            this.preferAlternative.Name = "preferAlternative";
-            this.preferAlternative.Size = new System.Drawing.Size(154, 24);
-            this.preferAlternative.TabIndex = 0;
-            this.preferAlternative.Text = "Альтернатива 1";
             // 
             // label2
             // 
@@ -76,7 +51,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(809, 22);
             this.label2.TabIndex = 26;
-            this.label2.Text = "Цифра 10 присуждается наиболее удачному варианту. Цифра 1 наименее удачному.\r\n";
+            this.label2.Text = "Цифра 10 присуждается наиболее удачному варианту. Цифра 0 наименее удачному.\r\n";
             // 
             // label3
             // 
@@ -122,12 +97,63 @@
             this.ExitButton.Text = "Выйти из опроса";
             this.ExitButton.UseVisualStyleBackColor = false;
             // 
+            // completeButton
+            // 
+            this.completeButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.completeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.completeButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.completeButton.Location = new System.Drawing.Point(16, 750);
+            this.completeButton.Name = "completeButton";
+            this.completeButton.Size = new System.Drawing.Size(787, 48);
+            this.completeButton.TabIndex = 29;
+            this.completeButton.Text = "Завершить";
+            this.completeButton.UseVisualStyleBackColor = false;
+            this.completeButton.Visible = false;
+            // 
+            // pollFlowLayoutPanel
+            // 
+            this.pollFlowLayoutPanel.AutoScroll = true;
+            this.pollFlowLayoutPanel.Controls.Add(this.panel1);
+            this.pollFlowLayoutPanel.Location = new System.Drawing.Point(16, 296);
+            this.pollFlowLayoutPanel.Name = "pollFlowLayoutPanel";
+            this.pollFlowLayoutPanel.Size = new System.Drawing.Size(787, 448);
+            this.pollFlowLayoutPanel.TabIndex = 28;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(759, 44);
+            this.panel1.TabIndex = 21;
+            this.panel1.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(664, 14);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(56, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(16, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(154, 24);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Альтернатива 1";
+            // 
             // ExpertTestRang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 648);
-            this.Controls.Add(this.pollPanel);
+            this.ClientSize = new System.Drawing.Size(821, 810);
+            this.Controls.Add(this.completeButton);
+            this.Controls.Add(this.pollFlowLayoutPanel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Problem);
@@ -135,22 +161,24 @@
             this.Controls.Add(this.ExitButton);
             this.Name = "ExpertTestRang";
             this.Text = "ExpertTestRang";
-            this.pollPanel.ResumeLayout(false);
-            this.pollPanel.PerformLayout();
+            this.pollFlowLayoutPanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pollPanel;
-        private System.Windows.Forms.TextBox boxPreferValue;
-        private System.Windows.Forms.Label preferAlternative;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Problem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.Button completeButton;
+        private System.Windows.Forms.FlowLayoutPanel pollFlowLayoutPanel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
     }
 }

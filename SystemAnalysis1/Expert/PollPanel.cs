@@ -17,11 +17,10 @@ namespace SystemAnalysis1
         private Color defaultColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
         private Color answeredColor = Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
 
-        public delegate void OnClickedHandler(int questionIndex, int[] indexes, int checkedIndicesCount, int checkedAnswerIndex);
-        public event OnClickedHandler OnAnswerClick;
+        public delegate void OnAnsweredHandler(int questionIndex, int[] indexes, int checkedIndicesCount, int checkedAnswerIndex);
 
 
-        public PollPanel(int index, Alternative[] alternativePair, OnClickedHandler clickedHandler) : base()
+        public PollPanel(int index, Alternative[] alternativePair, OnAnsweredHandler answeredHandler) : base()
         {
             BackColor = defaultColor;
             Location = new Point(3, 3);
@@ -64,7 +63,7 @@ namespace SystemAnalysis1
                     checkedIndicesCount++;
                 }
 
-                clickedHandler?.Invoke(index, new int[] { alternativePair[0].index, alternativePair[1].index }, checkedIndicesCount, e.Index);
+                answeredHandler?.Invoke(index, new int[] { alternativePair[0].index, alternativePair[1].index }, checkedIndicesCount, e.Index);
             };
             answersCheckedListBox.Items.Clear();
             for (int j = 0; j < alternativePair.Length; j++)
@@ -87,8 +86,8 @@ namespace SystemAnalysis1
             Controls.Add(answersCheckedListBox);
             Controls.Add(questionLabel);
         }
-        public PollPanel(int index, Alternative[] alternativePair, OnClickedHandler clickedHandler, Matrix matrix)
-            : this(index, alternativePair, clickedHandler)
+        public PollPanel(int index, Alternative[] alternativePair, OnAnsweredHandler answeredHandler, Matrix matrix)
+            : this(index, alternativePair, answeredHandler)
         {
             BackColor = answeredColor;
 

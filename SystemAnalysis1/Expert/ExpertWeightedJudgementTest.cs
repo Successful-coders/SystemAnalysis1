@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SystemAnalysis1
 {
-    public partial class ExpertTestRang : Form
+    public partial class ExpertWeightedJudgementTest : Form
     {
         public const int MAX_POINTS = 100;
 
@@ -18,11 +18,11 @@ namespace SystemAnalysis1
         private List<Alternative> alternatives;
         private Matrix matrix;
         private List<bool> isQuestionAnswereds = new List<bool>();
-
+        
         public static int pointsRemaining = MAX_POINTS;
 
 
-        public ExpertTestRang(List<Alternative> alternatives, Matrix matrix)
+        public ExpertWeightedJudgementTest(List<Alternative> alternatives, Matrix matrix)
         {
             this.matrix = matrix;
 
@@ -67,6 +67,8 @@ namespace SystemAnalysis1
             matrix.values[0, questionIndex] = value / MAX_POINTS;
             isQuestionAnswereds[questionIndex] = true;
 
+            pointsCount.Text = pointsRemaining.ToString();
+
             foreach (ExpertWeightedJudgementPollPanel panel in pollFlowLayoutPanel.Controls)
             {
                 panel.EstimateMax = panel.EstimateValue + pointsRemaining;
@@ -89,7 +91,7 @@ namespace SystemAnalysis1
             }
             else
             {
-
+                
             }
         }
     }

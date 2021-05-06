@@ -14,7 +14,7 @@ namespace SystemAnalysis1
         private Status status;
         private List<Alternative> alternatives = new List<Alternative>();
         private List<Expert> experts = new List<Expert>();
-        [JsonPropertyAttribute] public Dictionary<Expert, Matrix> expertMatrixDictionary = new Dictionary<Expert, Matrix>();
+        [JsonPropertyAttribute] public Dictionary<Expert, Matrix[]> expertMatrixDictionary = new Dictionary<Expert, Matrix[]>();
 
 
         public Problem()
@@ -44,22 +44,28 @@ namespace SystemAnalysis1
         public void AddExpert(Expert expert)
         {
             experts.Add(expert);
-            expertMatrixDictionary.Add(expert, new Matrix(alternatives.Count, alternatives.Count));
+            expertMatrixDictionary.Add(expert, new Matrix[Enum.GetValues(typeof(SolvingMethod)).Length]);
+
+            InitMatrix(expert);
         }
         public void AddAlternative(Alternative alternative)
         {
             alternatives.Add(alternative);
         }
-        public Matrix GetMatrix(Expert expert)
+        public Matrix GetMatrix(Expert expert, int solvingMethodIndex)
+        {
+            return GetMatrix(expert, (SolvingMethod)solvingMethodIndex);
+        }
+        public Matrix GetMatrix(Expert expert, SolvingMethod solvingMethod)
         {
             if (expertMatrixDictionary.ContainsKey(expert))
             {
-                return expertMatrixDictionary[expert];
+                return expertMatrixDictionary[expert][(int)solvingMethod];
             }
             else
             {
                 AddExpert(expert);
-                return GetMatrix(expert);
+                return GetMatrix(expert, solvingMethod);
             }
         }
         public void InitMatrix(Expert expert)
@@ -69,7 +75,13 @@ namespace SystemAnalysis1
                 AddExpert(expert);
             }
 
-            expertMatrixDictionary[expert] = new Matrix(alternatives.Count, alternatives.Count);
+            expertMatrixDictionary[expert] = new Matrix[Enum.GetValues(typeof(SolvingMethod)).Length];
+
+            expertMatrixDictionary[expert][(int)SolvingMethod.PairComparison] = new Matrix(alternatives.Count, alternatives.Count);
+            expertMatrixDictionary[expert][(int)SolvingMethod.WeightedJudgement] = new Matrix(1, alternatives.Count);
+            expertMatrixDictionary[expert][(int)SolvingMethod.Prefer] = new Matrix(1, alternatives.Count);
+            expertMatrixDictionary[expert][(int)SolvingMethod.Rang] = new Matrix(1, alternatives.Count);
+            expertMatrixDictionary[expert][(int)SolvingMethod.FullPairMatching] = new Matrix(alternatives.Count, alternatives.Count);
         }
 
 
