@@ -117,4 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label3.Text" xml:space="preserve">
+    <value>В данной форме вам необходимо оценить каждый из вариантов решения проблемы от 0 до 100. Всего в распоряжении у вас 100 очков, которые необходимо распределить серди всех альтернатив, отдавая наиболее удачному варианту большее значение.
+</value>
+  </data>
 </root>

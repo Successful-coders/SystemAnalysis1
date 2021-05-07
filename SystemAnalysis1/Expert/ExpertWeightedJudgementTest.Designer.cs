@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpertWeightedJudgementTest));
             this.Problem = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ExitButton = new System.Windows.Forms.Button();
@@ -86,9 +87,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(787, 63);
             this.label3.TabIndex = 15;
-            this.label3.Text = "В данной форме вам необходимо оценить каждый из вариантов решения проблемы от 0 д" +
-    "о 100. Всего в распоряжении у вас 100 очков, которые необходимо равномерно распр" +
-    "еделить серди все альтернатив.\r\n";
+            this.label3.Text = resources.GetString("label3.Text");
             // 
             // pollFlowLayoutPanel
             // 
