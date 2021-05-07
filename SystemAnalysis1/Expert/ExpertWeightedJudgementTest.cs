@@ -65,7 +65,9 @@ namespace SystemAnalysis1
             if (pollFlowLayoutPanel.Controls.Count == 0)
                 return;
 
-            matrix.values[0, questionIndex] = (float)value / (float)MAX_POINTS;
+
+            matrix.values[0, questionIndex] = (double)value / (double)MAX_POINTS;
+
             isQuestionAnswereds[questionIndex] = true;
 
             pointsCount.Text = pointsRemaining.ToString();
