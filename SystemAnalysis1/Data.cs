@@ -25,6 +25,7 @@ namespace SystemAnalysis1
                 },
                 new List<Expert>() {
                     new Expert("aa", 1),
+                    new Expert("ab", 2),
                 }),
 
              new Problem("Проблема организации дальнейшего бесперебойного предоставления услуг населению банком",

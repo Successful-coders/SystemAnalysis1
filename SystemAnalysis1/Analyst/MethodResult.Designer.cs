@@ -44,7 +44,6 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.method2Label = new System.Windows.Forms.Label();
             this.alternativesListView = new System.Windows.Forms.ListView();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.preferMethodListView = new System.Windows.Forms.ListView();
@@ -79,7 +78,7 @@
             this.backButton.BackColor = System.Drawing.Color.Gold;
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.backButton.Location = new System.Drawing.Point(1992, 12);
+            this.backButton.Location = new System.Drawing.Point(12, 12);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(139, 31);
             this.backButton.TabIndex = 20;
@@ -125,7 +124,7 @@
             this.alternativeWeight});
             this.PairComparisonList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PairComparisonList.HideSelection = false;
-            this.PairComparisonList.Location = new System.Drawing.Point(302, 190);
+            this.PairComparisonList.Location = new System.Drawing.Point(298, 190);
             this.PairComparisonList.Name = "PairComparisonList";
             this.PairComparisonList.Size = new System.Drawing.Size(352, 436);
             this.PairComparisonList.TabIndex = 24;
@@ -135,13 +134,13 @@
             // 
             // alternativeIndex
             // 
-            this.alternativeIndex.Text = "№";
-            this.alternativeIndex.Width = 32;
+            this.alternativeIndex.Text = "Ранг";
+            this.alternativeIndex.Width = 56;
             // 
             // alternativeDescription
             // 
             this.alternativeDescription.Text = "Альтерантива";
-            this.alternativeDescription.Width = 240;
+            this.alternativeDescription.Width = 215;
             // 
             // alternativeWeight
             // 
@@ -175,7 +174,7 @@
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "№";
+            this.columnHeader1.Text = "Ранг";
             this.columnHeader1.Width = 32;
             // 
             // columnHeader2
@@ -201,21 +200,15 @@
             // alternativesListView
             // 
             this.alternativesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader4,
             this.columnHeader5});
             this.alternativesListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.alternativesListView.HideSelection = false;
             this.alternativesListView.Location = new System.Drawing.Point(16, 190);
             this.alternativesListView.Name = "alternativesListView";
-            this.alternativesListView.Size = new System.Drawing.Size(280, 436);
+            this.alternativesListView.Size = new System.Drawing.Size(276, 436);
             this.alternativesListView.TabIndex = 32;
             this.alternativesListView.UseCompatibleStateImageBehavior = false;
             this.alternativesListView.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "№";
-            this.columnHeader4.Width = 32;
             // 
             // columnHeader5
             // 
@@ -249,7 +242,7 @@
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "№";
+            this.columnHeader6.Text = "Ранг";
             this.columnHeader6.Width = 32;
             // 
             // columnHeader7
@@ -289,7 +282,7 @@
             // 
             // columnHeader9
             // 
-            this.columnHeader9.Text = "№";
+            this.columnHeader9.Text = "Ранг";
             this.columnHeader9.Width = 32;
             // 
             // columnHeader10
@@ -329,7 +322,7 @@
             // 
             // columnHeader12
             // 
-            this.columnHeader12.Text = "№";
+            this.columnHeader12.Text = "Ранг";
             this.columnHeader12.Width = 32;
             // 
             // columnHeader13
@@ -356,7 +349,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 638);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1413, 658);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pairComprasionExpertListview);
             this.Controls.Add(this.label4);
@@ -399,7 +393,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Label method2Label;
         private System.Windows.Forms.ListView alternativesListView;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListView preferMethodListView;

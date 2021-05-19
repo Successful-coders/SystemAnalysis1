@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpertTest));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpertFullPairMatchingTest));
             this.Problem = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ExitButton = new System.Windows.Forms.Button();
@@ -36,11 +36,14 @@
             this.pollFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.pollPanel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.answersCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.completeButton = new System.Windows.Forms.Button();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.pollFlowLayoutPanel.SuspendLayout();
             this.pollPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // Problem
@@ -98,12 +101,14 @@
             // pollPanel
             // 
             this.pollPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
+            this.pollPanel.Controls.Add(this.label6);
+            this.pollPanel.Controls.Add(this.label5);
+            this.pollPanel.Controls.Add(this.trackBar1);
             this.pollPanel.Controls.Add(this.label4);
-            this.pollPanel.Controls.Add(this.answersCheckedListBox);
             this.pollPanel.Controls.Add(this.label2);
             this.pollPanel.Location = new System.Drawing.Point(3, 3);
             this.pollPanel.Name = "pollPanel";
-            this.pollPanel.Size = new System.Drawing.Size(759, 116);
+            this.pollPanel.Size = new System.Drawing.Size(759, 161);
             this.pollPanel.TabIndex = 14;
             this.pollPanel.Visible = false;
             // 
@@ -117,18 +122,6 @@
             this.label4.TabIndex = 14;
             this.label4.Tag = "index";
             this.label4.Text = "1.";
-            // 
-            // answersCheckedListBox
-            // 
-            this.answersCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.answersCheckedListBox.FormattingEnabled = true;
-            this.answersCheckedListBox.Items.AddRange(new object[] {
-            "Первый вариант",
-            "Второй вариант"});
-            this.answersCheckedListBox.Location = new System.Drawing.Point(4, 50);
-            this.answersCheckedListBox.Name = "answersCheckedListBox";
-            this.answersCheckedListBox.Size = new System.Drawing.Size(752, 52);
-            this.answersCheckedListBox.TabIndex = 13;
             // 
             // label2
             // 
@@ -154,7 +147,39 @@
             this.completeButton.Visible = false;
             this.completeButton.Click += new System.EventHandler(this.completeButton_Click);
             // 
-            // ExpertTest
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(4, 108);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(752, 45);
+            this.trackBar1.TabIndex = 15;
+            this.trackBar1.Value = 5;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(4, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(375, 55);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Первый вариант";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(382, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(374, 55);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Второй вариант";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ExpertFullPairMatchingTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -165,11 +190,12 @@
             this.Controls.Add(this.Problem);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ExitButton);
-            this.Name = "ExpertTest";
+            this.Name = "ExpertFullPairMatchingTest";
             this.Text = "Экспертная оценка";
             this.pollFlowLayoutPanel.ResumeLayout(false);
             this.pollPanel.ResumeLayout(false);
             this.pollPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -183,8 +209,10 @@
         private System.Windows.Forms.FlowLayoutPanel pollFlowLayoutPanel;
         private System.Windows.Forms.Panel pollPanel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckedListBox answersCheckedListBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button completeButton;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TrackBar trackBar1;
     }
 }

@@ -15,30 +15,27 @@ namespace SystemAnalysis1
         private List<Alternative[]> alternativePairs;
         private Matrix matrix;
         private List<bool> isQuestionAnswereds = new List<bool>();
+        private int maxValue;
 
 
-        public ExpertFullPairMatchingTest(List<Alternative> alternatives, Matrix matrix, Problem problem)
+        public ExpertFullPairMatchingTest(List<Alternative> alternatives, Matrix matrix, Problem problem, int maxValue)
         {
+            this.maxValue = maxValue;
             this.matrix = matrix;
             InitializeComponent();
 
             Problem.Text = problem.Description;
 
             alternativePairs = InitQuestions(alternatives);
-            CreatePollPanels();
 
             isQuestionAnswereds = new List<bool>(alternativePairs.Count);
+            //TODO: change
             for (int i = 0; i < alternativePairs.Count; i++)
             {
-                if (Math.Abs(matrix.values[alternativePairs[i][0].index, alternativePairs[i][1].index]) < 0.01d)
-                {
-                    isQuestionAnswereds.Add(false);
-                }
-                else
-                {
-                    isQuestionAnswereds.Add(true);
-                }
+                isQuestionAnswereds.Add(true);
             }
+
+            CreatePollPanels();
 
             completeButton.Visible = isQuestionAnswereds.All(x => x);
         }
@@ -50,44 +47,21 @@ namespace SystemAnalysis1
 
             for (int i = 0; i < alternativePairs.Count; i++)
             {
-                PollPanel panel = new PollPanel(i, alternativePairs[i], OnAnswerButtonClicked, matrix);
+                ExpertFullPairPollPanel panel = new ExpertFullPairPollPanel(i, alternativePairs[i], OnAnswerButtonClicked, maxValue, matrix);
                 panel.Location = new Point(10 * i, 10 * i);
 
                 pollFlowLayoutPanel.Controls.Add(panel);
             }
         }
-        private void OnAnswerButtonClicked(int questionIndex, int[] indexes, int checkedIndicesCount, int checkedAnswerIndex)
+        private void OnAnswerButtonClicked(int questionIndex, int oldValue, int value)
         {
             if (pollFlowLayoutPanel.Controls.Count == 0)
                 return;
 
-            CheckedListBox checkedListBox = null;
-            foreach (var control in pollFlowLayoutPanel.Controls[questionIndex].Controls)
-            {
-                if (control.GetType() == typeof(CheckedListBox))
-                {
-                    checkedListBox = control as CheckedListBox;
-
-                    break;
-                }
-            }
-
-            if (checkedListBox == null)
-                return;
-
-            if (checkedIndicesCount == 2)
-            {
-                matrix.values[indexes[0], indexes[1]] = 0.5d;
-                matrix.values[indexes[1], indexes[0]] = 0.5d;
-            }
-            else if (checkedIndicesCount == 1)
-            {
-                int primaryIndex = indexes[checkedAnswerIndex];
-                int secondaryIndex = checkedAnswerIndex == 0 ? indexes[1] : indexes[0];
-
-                matrix.values[primaryIndex, secondaryIndex] = 1.0d;
-                matrix.values[secondaryIndex, primaryIndex] = 0.0d;
-            }
+            //TODO: Fill matrix
+            var alternativePair = alternativePairs[questionIndex];
+            matrix.values[alternativePair[0].index, alternativePair[1].index] = 1 - ((float)value / (float)maxValue);
+            matrix.values[alternativePair[1].index, alternativePair[0].index] = ((float)value / (float)maxValue);
 
             isQuestionAnswereds[questionIndex] = true;
 
