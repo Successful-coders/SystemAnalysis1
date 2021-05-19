@@ -141,7 +141,7 @@
             // alternativeDescription
             // 
             this.alternativeDescription.Text = "Альтерантива";
-            this.alternativeDescription.Width = 242;
+            this.alternativeDescription.Width = 240;
             // 
             // alternativeWeight
             // 
@@ -356,7 +356,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2143, 638);
+            this.ClientSize = new System.Drawing.Size(1924, 638);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pairComprasionExpertListview);
             this.Controls.Add(this.label4);

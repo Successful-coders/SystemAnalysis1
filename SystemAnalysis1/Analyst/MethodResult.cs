@@ -12,6 +12,9 @@ namespace SystemAnalysis1
 {
     public partial class MethodResult : Form
     {
+        private const double EPS = 0.001;
+
+
         Problem problem;
 
 
@@ -77,19 +80,30 @@ namespace SystemAnalysis1
                 Matrix matrix = problem.GetMatrix(problem.Experts[i], SolvingMethod.PairComparison);
                 PairComparisonMethod pairComparisonMethod = new PairComparisonMethod(matrix);
 
+                int rank = 0;
+                double prevWeight = -1;
                 for (int j = 0; j < problem.Alternatives.Count; j++)
                 {
+                    double weight = pairComparisonMethod.CalculateWieght(j);
+
+                    if (Math.Abs(weight - prevWeight) > EPS)
+                    {
+                        rank++;
+                    }
+
                     list.Items.Add(new ListViewItem(
                         new string[] {
-                            (problem.Alternatives[j].index + 1).ToString(),
+                            rank.ToString(),
                             problem.Alternatives[j].description,
-                            pairComparisonMethod.CalculateWieght(j).ToString()
+                            weight.ToString()
                         },
                         list.Groups[i]));
 
                     ListViewItemComparer sorter = GetListViewSorter(list.Columns.Count - 1, SortOrder.Descending);
                     list.ListViewItemSorter = sorter;
                     list.Sort();
+
+                    prevWeight = weight;
                 }
             }
         }
@@ -107,23 +121,39 @@ namespace SystemAnalysis1
 
             }
 
-
             ExpertEstimationsMethod expertEstimationsMethod = new ExpertEstimationsMethod(matrix2Method, problem.Experts);
             var weights = expertEstimationsMethod.CalculateWeight();
-
             for (int i = 0; i < problem.Alternatives.Count; i++)
             {
+                double weight = weights[i];
+
                 list.Items.Add(new ListViewItem(
                     new string[] {
-                                (i + 1).ToString(),
+                                i.ToString(),
                                 problem.Alternatives[i].description,
-                                weights[i].ToString(),
+                                weight.ToString(),
                     }));
             }
 
             ListViewItemComparer sorter = GetListViewSorter(list.Columns.Count - 1, SortOrder.Descending);
             list.ListViewItemSorter = sorter;
             list.Sort();
+
+            int rank = 0;
+            double prevWeight = -1;
+            for (int i = 0; i < problem.Alternatives.Count; i++)
+            {
+                double weight = weights[i];
+                if (Math.Abs(weight - prevWeight) > EPS)
+                {
+                    rank++;
+                }
+
+                var item = list.FindItemWithText(problem.Alternatives[i].description, true, 0);
+                item.SubItems[0].Text = rank.ToString();
+
+                prevWeight = weight;
+            }
         }
         private void FillThirdOneMethod(ListView list)
         {
@@ -142,19 +172,37 @@ namespace SystemAnalysis1
 
             PreferMethod preferMethod = new PreferMethod(matrix2Method, problem.Experts);
             var weights = preferMethod.CalculateWeight();
-
             for (int i = 0; i < problem.Alternatives.Count; i++)
             {
+                double weight = weights[i];
+
                 list.Items.Add(new ListViewItem(
                     new string[] {
-                                (i + 1).ToString(),
+                                "",
                                 problem.Alternatives[i].description,
-                                weights[i].ToString(),
+                                weight.ToString(),
                     }));
             }
 
             ListViewItemComparer sorter = GetListViewSorter(list.Columns.Count - 1, SortOrder.Descending);
             list.ListViewItemSorter = sorter;
+            list.Sort();
+
+            int rank = 0;
+            double prevWeight = -1;
+            for (int i = 0; i < problem.Alternatives.Count; i++)
+            {
+                double weight = weights[i];
+                if (Math.Abs(weight - prevWeight) > EPS)
+                {
+                    rank++;
+                }
+
+                list.Items[i].SubItems[0].Text = rank.ToString();
+
+                prevWeight = weight;
+            }
+
             list.Sort();
         }
 
@@ -175,19 +223,37 @@ namespace SystemAnalysis1
 
             RangMethod rangMethod = new RangMethod(matrix2Method, problem.Experts);
             var weights = rangMethod.CalculateWeight();
-
             for (int i = 0; i < problem.Alternatives.Count; i++)
             {
+                double weight = weights[i];
+
                 list.Items.Add(new ListViewItem(
                     new string[] {
-                                (i + 1).ToString(),
+                                "",
                                 problem.Alternatives[i].description,
-                                weights[i].ToString(),
+                                weight.ToString(),
                     }));
             }
 
             ListViewItemComparer sorter = GetListViewSorter(list.Columns.Count - 1, SortOrder.Descending);
             list.ListViewItemSorter = sorter;
+            list.Sort();
+
+            int rank = 0;
+            double prevWeight = -1;
+            for (int i = 0; i < problem.Alternatives.Count; i++)
+            {
+                double weight = weights[i];
+                if (Math.Abs(weight - prevWeight) > EPS)
+                {
+                    rank++;
+                }
+
+                list.Items[i].SubItems[0].Text = rank.ToString();
+
+                prevWeight = weight;
+            }
+
             list.Sort();
         }
 
@@ -215,16 +281,34 @@ namespace SystemAnalysis1
             }
             for (int i = 0; i < problem.Alternatives.Count; i++)
             {
+                double weight = weights[i];
                 list.Items.Add(new ListViewItem(
                     new string[] {
-                                (i + 1).ToString(),
+                                "",
                                 problem.Alternatives[i].description,
-                                weights[i].ToString(),
+                                weight.ToString(),
                     }));
             }
 
             ListViewItemComparer sorter = GetListViewSorter(list.Columns.Count - 1, SortOrder.Descending);
             list.ListViewItemSorter = sorter;
+            list.Sort();
+
+            int rank = 0;
+            double prevWeight = -1;
+            for (int i = 0; i < problem.Alternatives.Count; i++)
+            {
+                double weight = weights[i];
+                if (Math.Abs(weight - prevWeight) > EPS)
+                {
+                    rank++;
+                }
+
+                list.Items[i].SubItems[0].Text = rank.ToString();
+
+                prevWeight = weight;
+            }
+
             list.Sort();
         }
         
