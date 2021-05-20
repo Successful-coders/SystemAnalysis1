@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.problemdescriptionLabel = new System.Windows.Forms.Label();
             this.problemDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
@@ -49,8 +49,11 @@
             this.problemNameLabel = new System.Windows.Forms.Label();
             this.sendToExpertButton = new System.Windows.Forms.Button();
             this.analyzeButton = new System.Windows.Forms.Button();
+            this.fullPairScaleNumeric = new System.Windows.Forms.NumericUpDown();
+            this.fullPairScaleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.alternativesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.expertsGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fullPairScaleNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // problemdescriptionLabel
@@ -107,14 +110,14 @@
             this.Index,
             this.description,
             this.deleteButton});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.alternativesGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.alternativesGrid.DefaultCellStyle = dataGridViewCellStyle7;
             this.alternativesGrid.Location = new System.Drawing.Point(12, 253);
             this.alternativesGrid.MultiSelect = false;
             this.alternativesGrid.Name = "alternativesGrid";
@@ -189,14 +192,14 @@
             this.name,
             this.Competence,
             this.deleteExpertButton});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.expertsGrid.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.expertsGrid.DefaultCellStyle = dataGridViewCellStyle8;
             this.expertsGrid.Location = new System.Drawing.Point(12, 533);
             this.expertsGrid.MultiSelect = false;
             this.expertsGrid.Name = "expertsGrid";
@@ -292,11 +295,42 @@
             this.analyzeButton.UseVisualStyleBackColor = false;
             this.analyzeButton.Click += new System.EventHandler(this.analyzeButton_Click);
             // 
+            // fullPairScaleNumeric
+            // 
+            this.fullPairScaleNumeric.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullPairScaleNumeric.Location = new System.Drawing.Point(12, 778);
+            this.fullPairScaleNumeric.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.fullPairScaleNumeric.Name = "fullPairScaleNumeric";
+            this.fullPairScaleNumeric.Size = new System.Drawing.Size(92, 26);
+            this.fullPairScaleNumeric.TabIndex = 20;
+            this.fullPairScaleNumeric.Value = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            this.fullPairScaleNumeric.ValueChanged += new System.EventHandler(this.fullPairScaleNumeric_ValueChanged);
+            // 
+            // fullPairScaleLabel
+            // 
+            this.fullPairScaleLabel.AutoSize = true;
+            this.fullPairScaleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullPairScaleLabel.Location = new System.Drawing.Point(110, 781);
+            this.fullPairScaleLabel.Name = "fullPairScaleLabel";
+            this.fullPairScaleLabel.Size = new System.Drawing.Size(594, 20);
+            this.fullPairScaleLabel.TabIndex = 21;
+            this.fullPairScaleLabel.Text = " - размер выбранной шкалы (для метода полного попраного сопоставления)";
+            // 
             // ProblemAnalysisForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1331, 772);
+            this.ClientSize = new System.Drawing.Size(1331, 816);
+            this.Controls.Add(this.fullPairScaleLabel);
+            this.Controls.Add(this.fullPairScaleNumeric);
             this.Controls.Add(this.analyzeButton);
             this.Controls.Add(this.sendToExpertButton);
             this.Controls.Add(this.problemNameTextBox);
@@ -314,6 +348,7 @@
             this.Activated += new System.EventHandler(this.ProblemAnalysisForm_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.alternativesGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.expertsGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fullPairScaleNumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,5 +375,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn deleteExpertButton;
         private System.Windows.Forms.Button sendToExpertButton;
         private System.Windows.Forms.Button analyzeButton;
+        private System.Windows.Forms.NumericUpDown fullPairScaleNumeric;
+        private System.Windows.Forms.Label fullPairScaleLabel;
     }
 }

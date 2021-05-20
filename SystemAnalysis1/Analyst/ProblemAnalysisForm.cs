@@ -23,6 +23,7 @@ namespace SystemAnalysis1
 
             problemDescriptionTextBox.Text = problem.Description;
             problemNameTextBox.Text = problem.Name;
+            problem.FullPairScale = (int)fullPairScaleNumeric.Value;
 
             Closed += (s, args) =>
             {
@@ -298,6 +299,7 @@ namespace SystemAnalysis1
             problemDescriptionTextBox.ReadOnly = true;
             sendToExpertButton.Visible = false;
             saveButton.Enabled = false;
+            fullPairScaleNumeric.ReadOnly = true;
         }
         private void analyzeButton_Click(object sender, EventArgs e)
         {
@@ -307,6 +309,11 @@ namespace SystemAnalysis1
 
             Hide();
             MakeButtonsDisable();
+        }
+
+        private void fullPairScaleNumeric_ValueChanged(object sender, EventArgs e)
+        {
+            problem.FullPairScale = (int)fullPairScaleNumeric.Value;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace SystemAnalysis1
         private Status status;
         private List<Alternative> alternatives = new List<Alternative>();
         private List<Expert> experts = new List<Expert>();
+        private int fullPairScale;
         [JsonPropertyAttribute] public Dictionary<Expert, Matrix[]> expertMatrixDictionary = new Dictionary<Expert, Matrix[]>();
 
 
@@ -90,5 +91,6 @@ namespace SystemAnalysis1
         public Status Status { get => status; set => status = value; }
         public List<Alternative> Alternatives => alternatives;
         public List<Expert> Experts => experts;
+        public int FullPairScale { get => fullPairScale; set => fullPairScale = value; }
     }
 }

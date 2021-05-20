@@ -89,7 +89,7 @@ namespace SystemAnalysis1
                     }
                 case SolvingMethod.FullPairMatching:
                     {
-                        expertTestForm = new ExpertFullPairMatchingTest(problem.Alternatives, matrix, problem, 7);
+                        expertTestForm = new ExpertFullPairMatchingTest(problem.Alternatives, matrix, problem, problem.FullPairScale);
                         break;
                     }
                 default:
