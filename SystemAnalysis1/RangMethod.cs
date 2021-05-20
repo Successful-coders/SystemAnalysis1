@@ -22,7 +22,7 @@ namespace SystemAnalysis1
         public double[] CalculateS()
         {
             double[] S = new double[matrix.width];
-            for (int i = 0; i < matrix.width; i++)
+            for (int i = 0; i < matrix.height; i++)
             {
                 S[i] = CalculateRow(i);
             }
@@ -51,13 +51,13 @@ namespace SystemAnalysis1
         public Matrix CalculateNormMatrix()
         {
             Matrix R = new Matrix(matrix.height, matrix.width);
-            double[] S = new double[matrix.width];
+            double[] S = new double[matrix.height];
             S = CalculateS();
             for (int i = 0; i < matrix.height; i++)
             {
                 for (int j = 0; j < matrix.width; j++)
                 {
-                    R.values[i, j] = matrix.values[i, j] / S[j];
+                    R.values[i, j] = matrix.values[i, j] / S[i];
                 }
 
             }
