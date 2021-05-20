@@ -35,12 +35,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pollFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.pollPanel = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.completeButton = new System.Windows.Forms.Button();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.pollFlowLayoutPanel.SuspendLayout();
             this.pollPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -85,7 +85,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(12, 47);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(787, 63);
+            this.label3.Size = new System.Drawing.Size(787, 72);
             this.label3.TabIndex = 15;
             this.label3.Text = resources.GetString("label3.Text");
             // 
@@ -111,6 +111,38 @@
             this.pollPanel.Size = new System.Drawing.Size(759, 161);
             this.pollPanel.TabIndex = 14;
             this.pollPanel.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(382, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(374, 55);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Второй вариант";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(4, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(375, 55);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Первый вариант";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(4, 108);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(752, 45);
+            this.trackBar1.TabIndex = 15;
+            this.trackBar1.Value = 5;
             // 
             // label4
             // 
@@ -146,38 +178,6 @@
             this.completeButton.UseVisualStyleBackColor = false;
             this.completeButton.Visible = false;
             this.completeButton.Click += new System.EventHandler(this.completeButton_Click);
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(4, 108);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(752, 45);
-            this.trackBar1.TabIndex = 15;
-            this.trackBar1.Value = 5;
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(4, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(375, 55);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Первый вариант";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(382, 50);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(374, 55);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Второй вариант";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ExpertFullPairMatchingTest
             // 
